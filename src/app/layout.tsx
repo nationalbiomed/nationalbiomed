@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "aos/dist/aos.css";
 
-import { AOSInit } from "@/lib/utils/AOSInit";
+import { AOSProvider } from "@/lib/utils/AOSProvider";
 
 export const metadata: Metadata = {
   title: "National Biomedical Suppliers",
@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <AOSInit />
+      <AOSProvider />
       <body className="">{children}</body>
     </html>
   );
