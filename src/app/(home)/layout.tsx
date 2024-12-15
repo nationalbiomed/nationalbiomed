@@ -1,3 +1,5 @@
+import Footer from "../../components/Footer";
+
 export default function HomeLayout({
   children,
 }: Readonly<{
@@ -9,6 +11,7 @@ export default function HomeLayout({
         className=""
       >
         {children}
+      
       </body>
     </html>
   );
