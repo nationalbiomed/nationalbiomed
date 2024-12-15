@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Footer from "@/components/Footer";
-
-
 
 export const metadata: Metadata = {
   title: "National Biomedical Suppliers",
@@ -16,12 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className=""
-      >
-        {children}
-        <Footer />
-      </body>
+      <body className="">{children}</body>
     </html>
   );
 }
