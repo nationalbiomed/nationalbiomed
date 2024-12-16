@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
     <ImageCarousel/>
-       <About />
+       {/* <About /> */}
       <WhatsNew />
       <ProductServices />
       {/* <Vision /> */}

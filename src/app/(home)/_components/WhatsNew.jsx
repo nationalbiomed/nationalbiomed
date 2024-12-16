@@ -1,87 +1,112 @@
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
 import { Card } from "@/components/ui/card";
+import { motion } from "framer-motion";
+import Link from "next/link";
 
 const WhatsNewItems = [
   {
     id: 1,
     label: "Samsung Medison concludes acquisition of French AI Startup",
     img: "/hand.png",
+    slug:"#",
     description:
       "Samsung Medison received approval from the French government for Foreign Direct Investment (FDI) to acquire 100% of the shares of Sonio, a French AI startup specializing in obstetrics ultrasound reporting software, and subsequently concluded the acquisition process on August 30.",
   },
   {
     id: 2,
-    label: "Samsung Medison concludes acquisition of French AI Startup",
-    img: "/hand.png",
+    label: "New AI-powered ultrasound technology unveiled",
+    img: "/ultrasound.png",
+    slug:"#",
     description:
-      "Samsung Medison received approval from the French government for Foreign Direct Investment (FDI) to acquire 100% of the shares of Sonio, a French AI startup specializing in obstetrics ultrasound reporting software, and subsequently concluded the acquisition process on August 30.",
+      "Samsung Medison introduces groundbreaking AI-powered ultrasound technology, revolutionizing medical imaging with enhanced accuracy and efficiency in diagnostics.",
   },
-
   {
     id: 3,
-    label: "Samsung Medison concludes acquisition of French AI Startup",
-    img: "/hand.png",
+    label: "Partnership announced with leading healthcare provider",
+    img: "/partnership.png",
+    slug:"#",
     description:
-      "Samsung Medison received approval from the French government for Foreign Direct Investment (FDI) to acquire 100% of the shares of Sonio, a French AI startup specializing in obstetrics ultrasound reporting software, and subsequently concluded the acquisition process on August 30.",
+      "Samsung Medison forms strategic partnership with a leading global healthcare provider to expand the reach of innovative medical imaging solutions and improve patient care worldwide.",
   },
 ];
+
 export default function WhatsNew() {
+  const [hoveredId, setHoveredId] = useState(null);
+
   return (
-    <div className="w-full flex flex-wrap sm:flex-row justify-center items-center pt-[100px]  ">
-      <Card className=" bg-white border-none xl:w-[95%] lg:w-[100%]  flex flex-col justify-center text-left items-center gap-4  ">
-        <h1 className="sm:text-5xl text-2xl font-bold font-sans pb-4">What&apos;s <span className="text-green-600">New</span></h1>
-        <div className="flex lg:flex-row flex-col gap-4 w-[96%] justify-center">
-          <div className="lg:w-[50%] w-[100%] relative rounded-lg overflow-hidden">
-            <img src="/hand.png" className="w-full h-full object-cover" />
-            <Card className="absolute w-full h-full bg-green-950 top-[50%] translate-y-[-50%] p-5 opacity-0 hover:opacity-90 cursor-pointer text-white">
-              <h1 className="lg:text-xl text-sm pb-2">
-                Samsung Medison concludes acquisition of French AI Startup{" "}
-              </h1>
-              <p className="text-xs sm:text-lg ">
-                Samsung Medison received approval from the French government for
-                Foreign Direct Investment (FDI) to acquire 100% of the shares of
-                Sonio, a French AI startup specializing in obstetrics ultrasound
-                reporting software, and subsequently concluded the acquisition
-                process on August 30.
-              </p>
-              <h1 className="underline">Learn More</h1>
-            </Card>
-          </div>
+    <div className="w-full flex flex-col items-center pt-20 px-4 sm:px-6 lg:px-8">
+      <Card className="bg-white border-none w-full max-w-7xl">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-sans pb-8 text-center">
+          What&apos;s <span className="text-green-600">New</span>
+        </h1>
 
-          <div className="lg:w-[50%] w-[100%] relative rounded-lg overflow-hidden ">
-            <img src="/hand.png" className="w-full" />
-            <Card className="absolute w-full h-full bg-green-950 top-[50%] translate-y-[-50%] p-5 opacity-0 hover:opacity-90 cursor-pointer text-white">
-              <h1 className="lg:text-xl text-sm pb-2">
-                Samsung Medison concludes acquisition of French AI Startup{" "}
-              </h1>
-              <p className="text-xs sm:text-lg">
-                Samsung Medison received approval from the French government for
-                Foreign Direct Investment (FDI) to acquire 100% of the shares of
-                Sonio, a French AI startup specializing in obstetrics ultrasound
-                reporting software, and subsequently concluded the acquisition
-                process on August 30.
-              </p>
-              <h1 className="underline">Learn More</h1>
-            </Card>
-          </div>
+        <div className="relative rounded-lg overflow-hidden aspect-video cursor-pointer md:aspect-[16/5] mb-8">
+          <Image
+            src="/hand.png"
+            alt="Featured news"
+            layout="fill"
+            objectFit="cover"
+          />
+          <motion.div
+            className="absolute inset-0 bg-green-950 p-4 sm:p-6 flex flex-col justify-end text-white"
+            initial={{ opacity: 0 }}
+            whileHover={{ opacity: 0.95 }}
+            transition={{ duration: 0.3 }}
+          >
+            <h2 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2">
+              Samsung Medison concludes acquisition of French AI Startup
+            </h2>
+            <p className="text-xs sm:text-sm mb-2 line-clamp-2 sm:line-clamp-3">
+              Samsung Medison received approval from the French government for
+              Foreign Direct Investment (FDI) to acquire 100% of the shares of
+              Sonio, a French AI startup specializing in obstetrics ultrasound
+              reporting software, and subsequently concluded the acquisition
+              process on August 30.
+            </p>
+            <button className="text-xs sm:text-sm underline self-start">
+              Learn More
+            </button>
+          </motion.div>
         </div>
-        {/* <div className="w-[96%] flex flex-col gap-4 sm:flex-row flex-wrap"> */}
-        <div className="w-[96%] grid lg:grid-cols-3 grid-cols-1 md:grid-cols-2 gap-4">
-          {WhatsNewItems.map((item) => (
-            <Card
-              className="w-[100%] relative overflow-hidden bg-gray-0 "
-              key={item.id}
-            >
-              <div className="overflow-hidden ">
-                <img src={item.img} className=" w-full"></img>
-              </div>
 
-              <h2 className="text-xl p-5">{item.label}</h2>
-              <Card className="w-full h-full bg-green-950 absolute top-[50%] translate-y-[-50%] p-5 opacity-0 hover:opacity-90 cursor-pointer text-white">
-                <h1 className="text-xl pb-2"> {item.label}</h1>
-                <p> {item.description}</p>
-                <h1 className="underline">Learn More</h1>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {WhatsNewItems.map((item) => (
+            <Link href={item.slug}>
+              <Card
+                key={item.id}
+                className="relative overflow-hidden bg-gray-100 rounded-lg cursor-pointer"
+                onMouseEnter={() => setHoveredId(item.id)}
+                onMouseLeave={() => setHoveredId(null)}
+              >
+                <div className="aspect-video relative">
+                  <Image
+                    src={item.img}
+                    alt={item.label}
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                </div>
+                <h2 className="text-lg font-semibold p-4">{item.label}</h2>
+                <motion.div
+                  className="absolute inset-0 bg-green-950 p-4 flex flex-col justify-end text-white"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{
+                    opacity: hoveredId === item.id ? 0.95 : 0,
+                    y: hoveredId === item.id ? 0 : 20,
+                  }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <h3 className="text-lg font-semibold mb-2">{item.label}</h3>
+                  <p className="text-sm mb-4">{item.description}</p>
+                  <button className="text-sm underline self-start">
+                    Learn More
+                  </button>
+                </motion.div>
               </Card>
-            </Card>
+            </Link>
           ))}
         </div>
       </Card>
