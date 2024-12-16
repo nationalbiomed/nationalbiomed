@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { User, Menu, X, ChevronDown } from 'lucide-react'
+import { User, Menu, X, ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react'
 import { useInView } from 'react-intersection-observer'
 
 const MENU_ITEMS = [
@@ -33,11 +33,11 @@ export default function Header() {
   const [isSticky, setIsSticky] = useState(false)
   const { ref, inView } = useInView({
     threshold: 0,
-    rootMargin: '-100px 0px 0px 0px',
-  })
+    rootMargin: '-1px 0px 0px 0px',
+  });
 
   useEffect(() => {
-    setIsSticky(!inView)
+    setIsSticky(!inView);
   }, [inView])
 
   return (
@@ -45,7 +45,7 @@ export default function Header() {
       <div ref={ref} className="h-1 absolute top-0 left-0 right-0" />
       <header 
         className={`w-full fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
-          isSticky ? '' : 'bg-transparent'
+          isSticky ? 'bg-white shadow-md' : 'bg-transparent'
         }`}
       >
         <TopNav isSticky={isSticky} />
@@ -69,17 +69,17 @@ function TopNav({ isSticky }) {
           <ul className="flex space-x-3">
             <li className="border-r border-gray-300 pr-3">
               <Link href="/media" className={`hover:text-primary transition-colors ${
-                isSticky ? 'text-white' : 'text-white'
+                isSticky ? 'text-gray-800' : 'text-white'
               }`}>Media Center</Link>
             </li>
             <li className="border-r border-gray-300 pr-3">
               <Link href="/investors" className={`hover:text-primary transition-colors ${
-                isSticky ? 'text-white' : 'text-white'
+                isSticky ? 'text-gray-800' : 'text-white'
               }`}>Investor Relations</Link>
             </li>
             <li>
               <Link href="/contact" className={`hover:text-primary transition-colors ${
-                isSticky ? 'text-white' : 'text-white'
+                isSticky ? 'text-gray-800' : 'text-white'
               }`}>Contact Us</Link>
             </li>
           </ul>
@@ -112,7 +112,7 @@ function NavBar({ mobileMenuOpen, setMobileMenuOpen, isSticky }) {
                 {item.megaMenu ? (
                   <>
                     <button className={`flex items-center hover:text-primary transition-colors py-2 ${
-                      isSticky ? 'text-white' : 'text-white'
+                      isSticky ? 'text-gray-800' : 'text-white'
                     }`}>
                       {item.title}
                       <ChevronDown className={`ml-1 w-4 h-4 transition-transform duration-300 ${activeDropdown === item.title ? 'rotate-180' : ''}`} />
@@ -132,7 +132,7 @@ function NavBar({ mobileMenuOpen, setMobileMenuOpen, isSticky }) {
                   </>
                 ) : (
                   <Link href={item.href} className={`hover:text-primary transition-colors py-2 block ${
-                    isSticky ? 'text-white' : 'text-white'
+                    isSticky ? 'text-gray-800' : 'text-white'
                   }`}>
                     {item.title}
                   </Link>
@@ -144,7 +144,7 @@ function NavBar({ mobileMenuOpen, setMobileMenuOpen, isSticky }) {
         
         <div className="flex items-center space-x-4">
           <Link href="/account" className={`hover:text-primary transition-colors ${
-            isSticky ? 'text-white' : 'text-white'
+            isSticky ? 'text-gray-800' : 'text-white'
           }`}>
             <User className="w-6 h-6" />
           </Link>
@@ -205,4 +205,3 @@ function NavBar({ mobileMenuOpen, setMobileMenuOpen, isSticky }) {
     </nav>
   )
 }
-
