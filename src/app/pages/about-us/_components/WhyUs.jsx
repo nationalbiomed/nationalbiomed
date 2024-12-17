@@ -5,7 +5,7 @@ export default function WhyUs() {
   return (
     <div>
       <MobileWhyUs />
-      <div className="hidden lg:block w-full aspect-video  overflow-hidden relative mb-[50px]" data-aos="fade-right">
+      <div className="hidden lg:block w-full aspect-video  overflow-hidden relative " data-aos="fade-right">
         <Card className="bg-gradient-to-r from-green-400 from-10% via-emerald-300 via-30% to-green-100 to-90% absolute xl:-top-[10%] -top-[13%]  lg:left-[-20%] left-0  lg:rounded-full rounded-none lg:w-[60%]  w-full aspect-square  mt-[50px]  flex justify-center items-center flex-row">
           <div className="grid lg:grid-cols-2  grid-cols-1  ">
             <div className="xl:w-[700px] lg:w-[500px] w-full xl:pl-80 lg:pl-60 pl-20 ">

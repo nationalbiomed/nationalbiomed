@@ -1,6 +1,7 @@
 
 import Introduction from "./_components/Introduction";
 import Missions from "./_components/Missions";
+import OurCustomers from "./_components/OurCustomers";
 import WhyUs from "./_components/WhyUs";
 export default function AboutUs() {
   return (
@@ -8,6 +9,7 @@ export default function AboutUs() {
     <Introduction />
     <Missions />
     <WhyUs />
+    <OurCustomers />  
     </div>
   );
 }

@@ -20,7 +20,7 @@ const Contact6 = () => {
           </p>
         </div>
         <div className="grid gap-10 md:grid-cols-2 ">
-          <div className="grid sm:gap-10 gap-2 sm:grid-cols-2 sm:px-5 px-3 gap-y-10">
+          <div className="grid sm:gap-10 gap-2 sm:grid-cols-2 sm:px-5 px-3 gap-y-10 " data-aos="fade-right">
             <div>
               <Mail className="mb-3 h-5 w-auto" />
               <p className=" text-lg">Email Us</p>
@@ -74,7 +74,7 @@ const Contact6 = () => {
               ></iframe>
             </div>
           </div>
-          <div className="mx-auto flex w-full flex-col gap-6 rounded-lg md:max-w-[464px] bg-muted p-10">
+          <div className="mx-auto flex w-full flex-col gap-6 rounded-lg md:max-w-[464px] bg-muted p-10" data-aos="fade-left">
             <div className="grid gap-4 md:grid-cols-2">
               <div className="grid w-full items-center gap-1.5">
                 <Label htmlFor="firstname">
