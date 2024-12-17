@@ -9,7 +9,7 @@ export default function HomeLayout({
     <>
     
       {children}
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

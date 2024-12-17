@@ -19,7 +19,7 @@ const Product = [
 ];
 export default function ProductServices() {
   return (
-    <div className="flex flex-wrap justify-center mt-16  ">
+    <div className="flex flex-wrap justify-center my-16  ">
       <Card className=" bg-gray-200 container max-w-8xl flex flex-col justify-center text-center items-center gap-4 py-16">
         <h1 className="sm:text-5xl text-2xl font-bold font-sans pb-12">
           Product & <span className="text-green-600"> Services</span>

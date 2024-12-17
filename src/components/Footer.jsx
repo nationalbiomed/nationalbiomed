@@ -6,6 +6,7 @@ import {
   Linkedin,
   Phone,
   Mail,
+  MapPin,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 // import { MobileIcon } from "@radix-ui/react-icons";
@@ -21,14 +22,14 @@ export default function Footer() {
 
 export function Footer2() {
   return (
-    <div className="bg-primary py-2">
-      <div className="container max-w-7xl mx-auto block space-y-2 pb-4 md:pb-0 text-center md:flex md:justify-between  text-white text-baseline">
+    <div className=" py-2 border-t-2 border-primary">
+      <div className="container max-w-7xl mx-auto block space-y-2 pb-4 md:pb-0 text-center md:flex md:justify-between  text-gray-900 text-baseline">
         <p className="mt-2">
           Copyright &copy; National Biomedical Suppliers
         </p>
         <p>
           <strong>
-            <span style={{ color: "white" }}>Developed By: </span>
+            <span className="text-gray-900">Developed By: </span>
             <a
               href="https://www.nepaltechinnov.com/"
               target="_blank"
@@ -47,24 +48,23 @@ export function Footer2() {
 
 export function Footer1() {
   return (
-    <footer className="relative z-10 bg-green-200 pt-10  lg:pt-10 border-t-2 border-primary">
-      <div className="container max-w-7xl mx-auto px-4">
-        <div className="flex flex-wrap mx-4 justify-between">
+    <footer className="relative z-10 bg-gray-900 text-white pt-10  lg:pt-10 ">
+      <div className="container max-w-8xl mx-auto px-4">
+        <div className="flex flex-wrap  justify-between">
           <div className="w-full px-4 sm:w-2/3 lg:w-3/12">
             <div className="mb-10 w-full">
-              <Link href="/" className="mb-6 inline-block max-w-[160px]">
+              <Link href="/" className="mb-6 inline-block max-w-[160px] bg-white rounded-sm">
                 <img
                   src="/logo.png?height=20&width=100"
                   alt="Logo"
-                  className="h-16 md:h-24 w-auto object-contain"
+                  className="h-16 md:h-32 w-auto object-contain"
                 />
-              
               </Link>
-              <p className="mb-7 text-base text-muted-foreground text-justify">
-              National Biomedical Suppliers, Tripura Marg, Kathmandu, Nepal
+              <p className="mb-7 text-base text-gray-300 text-justify">
+                Your one-stop shop for all your e-commerce needs. Quality products, fast shipping, and excellent customer service.
               </p>
 
-              <h4 className="mb-2 text-lg font-semibold text-foreground">
+              <h4 className="mb-2 text-lg font-semibold text-white">
                 Follow Us On
               </h4>
               <div className="mb-2 flex items-center">
@@ -93,50 +93,43 @@ export function Footer1() {
             </div>
           </div>
 
-          <LinkGroup header="Company">
-            <NavLink href="/about-us" label="About Us" />
-            <NavLink href="/contact" label="Contact & Support" />
-            <NavLink href="/our-clients" label="Our Customers" />
+          <LinkGroup header="Shop">
+            <NavLink href="/products" label="All Products" />
+            <NavLink href="/categories" label="Categories" />
+            <NavLink href="/deals" label="Special Deals" />
           </LinkGroup>
-          <LinkGroup header="Quick Links">
-            <NavLink href="/demands" label="Whats new" />
-            <NavLink
-              href="/procedure/recruitment-procedure"
-              label="Our Services"
-            />
-            <NavLink href="/our-categories" label="Our Categories" />
-            <NavLink href="/teams" label="Know Our Team" />
+          <LinkGroup header="Customer Service">
+            <NavLink href="/faq" label="FAQ" />
+            <NavLink href="/shipping" label="Shipping Info" />
+            <NavLink href="/returns" label="Returns & Exchanges" />
+          </LinkGroup>
+          <LinkGroup header="Company">
+            <NavLink href="/about" label="About Us" />
+            <NavLink href="/contact" label="Contact Us" />
+            <NavLink href="/terms" label="Terms of Service" />
+            <NavLink href="/privacy" label="Privacy Policy" />
           </LinkGroup>
 
           <div className="w-full px-4 sm:w-1/2 lg:w-3/12">
             <div className="mb-10 w-full">
-              <h4 className="mb-4 text-lg font-semibold text-foreground">
+              <h4 className="mb-4 text-lg font-semibold text-white">
                 Contact Us
               </h4>
-              <div className="space-y-3 mb-2">
-              <div className="flex items-center font-medium text-foreground">
-                  <Phone className="mr-3 h-5 w-5 text-primary" />
-                  <span className="text-sm">Phone:</span>
+              <div className=" mb-2 flex space-x-2 ">
+                <div className="flex items-center font-semibold text-white">
+                  <MapPin className="mr-3 h-5 w-5 text-gray-400" />
+                  <span className="text-sm">Address:</span>
                 </div>
-                <div className="pl-8 space-y-1">
-                  <ContactLink href="tel:+97714582136" label="01-4222353" />
-               
+                
+                <p>Tripurewshor, Kathmandu</p>
+              </div>
+              <div className=" mb-2 flex space-x-2 ">
+                <div className="flex items-center font-semibold text-white">
+                  <Phone className="mr-3 h-5 w-5 text-gray-400" />
+                  <span className="text-sm">Customer Support:</span>
                 </div>
-                {/* <div className="flex items-center font-medium text-foreground">
-                  <Phone className="mr-3 h-5 w-5 text-primary" />
-                  <span className="text-sm">Direct:</span>
-                </div>
-                <div className="pl-8 space-y-1">
-                  <ContactLink href="tel:+97714582136" label="+977-1-4582136" />
-                  <ContactLink href="tel:+97714584937" label="+977-1-4584937" />
-                 
-                </div>
-                <ContactLink
-                  icon={<Phone className="h-5 w-5 text-primary" />}
-                  href="tel:+9779802343347"
-                  label="Mobile: +977-9802343347"
-                />
-              </div> */}
+                
+                <ContactLink href="tel:+1234567890" label="1-800-123-4567" />
               </div>
               <EmailList />
             </div>
@@ -152,7 +145,7 @@ function ContactLink({ icon, href, label }) {
   return (
     <a
       href={href}
-      className="flex items-center font-medium text-foreground hover:text-primary transition-colors duration-200"
+      className="flex items-center font-medium text-white hover:text-primary transition-colors duration-200"
     >
       {icon && <span className="mr-3">{icon}</span>}
       <span className="text-sm">{label}</span>
@@ -163,7 +156,7 @@ function LinkGroup({ children, header }) {
   return (
     <div className="w-full px-4 sm:w-1/2 lg:w-2/12">
       <div className="mb-10 w-full">
-        <h4 className="mb-9 text-lg font-semibold text-foreground">{header}</h4>
+        <h4 className="mb-9 text-lg font-semibold text-white">{header}</h4>
         <ul className="space-y-3">{children}</ul>
       </div>
     </div>
@@ -175,7 +168,7 @@ function NavLink({ href, label }) {
     <li>
       <Link
         href={href}
-        className="text-base text-muted-foreground hover:text-primary"
+        className="text-base text-gray-300 hover:text-white"
       >
         {label}
       </Link>
@@ -185,138 +178,52 @@ function NavLink({ href, label }) {
 
 function SocialLink({ href, icon, label }) {
   return (
-    <Button
-      variant="outline"
-      size="icon"
-      className="mr-3 h-8 w-8 rounded-full border-muted-foreground/25"
-      asChild
+    <a
+      href={href}
+      aria-label={label}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="mr-3 text-gray-400 hover:text-white transition-colors duration-200"
     >
-      <Link
-        href={href}
-        aria-label={label}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {icon}
-      </Link>
-    </Button>
+      {icon}
+    </a>
   );
 }
 
 function BackgroundDecoration() {
   return (
-    <>
-      <span className="absolute left-0 bottom-0 z-[-1]">
-        <svg
-          width="217"
-          height="229"
-          viewBox="0 0 217 229"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="opacity-20"
-        >
-          <path
-            d="M-64 140.5C-64 62.904 -1.096 1.90666e-05 76.5 1.22829e-05C154.096 5.49924e-06 217 62.904 217 140.5C217 218.096 154.096 281 76.5 281C-1.09598 281 -64 218.096 -64 140.5Z"
-            fill="url(#paint0_linear_1179_5)"
-          />
-          <defs>
-            <linearGradient
-              id="paint0_linear_1179_5"
-              x1="76.5"
-              y1="281"
-              x2="76.5"
-              y2="1.22829e-05"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop stopColor="currentColor" stopOpacity="0.08" />
-              <stop offset="1" stopColor="#C4C4C4" stopOpacity="0" />
-            </linearGradient>
-          </defs>
-        </svg>
-      </span>
-      <span className="absolute right-10 top-10 z-[-1]">
-        <svg
-          width="75"
-          height="75"
-          viewBox="0 0 75 75"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="opacity-20"
-        >
-          <path
-            d="M37.5 -1.63918e-06C58.2107 -2.54447e-06 75 16.7893 75 37.5C75 58.2107 58.2107 75 37.5 75C16.7893 75 -7.33885e-07 58.2107 -1.63918e-06 37.5C-2.54447e-06 16.7893 16.7893 -7.33885e-07 37.5 -1.63918e-06Z"
-            fill="url(#paint0_linear_1179_4)"
-          />
-          <defs>
-            <linearGradient
-              id="paint0_linear_1179_4"
-              x1="-1.63917e-06"
-              y1="37.5"
-              x2="75"
-              y2="37.5"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop stopColor="currentColor" stopOpacity="0.31" />
-              <stop offset="1" stopColor="#C4C4C4" stopOpacity="0" />
-            </linearGradient>
-          </defs>
-        </svg>
-      </span>
-    </>
-  );
-}
-
-const emailLinkClass = "hover:text-primary transition-colors duration-200";
-
-function EmailList() {
-  return (
-    <div className="space-y-2">
-      <p className="flex items-center text-base font-medium text-foreground">
-        <Mail className="mr-3 h-5 w-5 text-primary" />
-        <span className="text-sm">Email Us:</span>
-      </p>
-      <ul className="list-none pl-8 space-y-1 text-sm text-foreground">
-        <li>
-          <a
-            href="mailto:md@centralcapitalservices.com"
-            className={emailLinkClass}
-          >
-           biomedsuppliers2018@gmail.com
-          </a>
-        </li>
-        </ul>
-      
-      {/* <ul className="list-none pl-8 space-y-1 text-sm text-foreground">
-        <li>
-          <a
-            href="mailto:md@centralcapitalservices.com"
-            className={emailLinkClass}
-          >
-           biomedsuppliers2018@gmail.com
-          </a>
-        </li>
-        <li>
-          <a
-            href="mailto:info@centralcapitalservices.com"
-            className={emailLinkClass}
-          >
-            info@centralcapitalservices.com
-          </a>
-        </li>
-        <li>
-          <a href="mailto:ccsriya01@gmail.com" className={emailLinkClass}>
-            ccsriya01@gmail.com
-          </a>
-        </li>
-        <li>
-          <a
-            href="mailto:servicescentralcapital@gmail.com"
-            className={emailLinkClass}
-          >
-            servicescentralcapital@gmail.com
-          </a>
-        </li>
-      </ul> */}
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <svg
+        className="absolute bottom-0 left-0 w-full text-gray-800 opacity-50"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320"
+      >
+        <path
+          fill="currentColor"
+          fillOpacity="1"
+          d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,224C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+        ></path>
+      </svg>
     </div>
   );
 }
+
+const emailLinkClass = "hover:text-white transition-colors duration-200";
+
+function EmailList() {
+  return (
+    <div className="space-x-2 flex ">
+      <p className="flex items-center text-base font-medium text-white">
+        <Mail className="mr-3 h-5 w-5 text-gray-400" />
+        <span className="text-sm font-semibold">Email Us:</span>
+      </p>
+      <a
+            href="mailto:support@yourecommerce.com"
+            className="hover:text-white transition-colors duration-200"
+          >
+            support@yourecommerce.com
+          </a>
+    </div>
+  );
+}
+
