@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { User, Menu, X, ChevronDown } from 'lucide-react'
@@ -29,16 +29,34 @@ const MENU_ITEMS = [
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [headerHeight, setHeaderHeight] = useState(0)
+  const headerRef = useRef(null)
+
+  useEffect(() => {
+    const updateHeaderHeight = () => {
+      if (headerRef.current) {
+        setHeaderHeight(headerRef.current.offsetHeight)
+      }
+    }
+
+    updateHeaderHeight()
+    window.addEventListener('resize', updateHeaderHeight)
+
+    return () => {
+      window.removeEventListener('resize', updateHeaderHeight)
+    }
+  }, [])
 
   return (
     <>
-      <header className="w-full fixed top-0 left-0 right-0 z-50">
+      <header ref={headerRef} className="w-full fixed top-0 left-0 right-0 z-50 bg-white">
         <TopNav />
         <NavBar 
           mobileMenuOpen={mobileMenuOpen}
           setMobileMenuOpen={setMobileMenuOpen}
         />
       </header>
+      <div style={{ height: `${headerHeight}px` }} />
     </>
   )
 }
@@ -173,3 +191,4 @@ function NavBar({ mobileMenuOpen, setMobileMenuOpen }) {
     </nav>
   )
 }
+
