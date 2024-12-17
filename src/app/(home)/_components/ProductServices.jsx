@@ -19,12 +19,12 @@ const Product = [
 ];
 export default function ProductServices() {
   return (
-    <div className="flex flex-wrap justify-center sm:py-[100px] py-[50px] ">
-      <Card className=" bg-gray-200 w-[95%] flex flex-col justify-center text-center items-center gap-4 sm:py-[100px] py-[50px]">
-        <h1 className="sm:text-5xl text-2xl font-bold font-sans pb-4">
-          Product and <span className="text-green-600"> services</span>
+    <div className="flex flex-wrap justify-center mt-16  ">
+      <Card className=" bg-gray-200 container max-w-8xl flex flex-col justify-center text-center items-center gap-4 py-16">
+        <h1 className="sm:text-5xl text-2xl font-bold font-sans pb-12">
+          Product & <span className="text-green-600"> Services</span>
         </h1>
-        <div className="grid sm:grid-cols-4 grid-cols-2 sm:gap-6 gap-3">
+        <div className="grid grid-cols-2 px-4 md:grid-cols-4  sm:gap-6 gap-3">
           {Product.map((items) => (
             <Card className="w-[100%] overflow-hidden" key={items.id}>
               <div className="overflow-hidden">
@@ -34,7 +34,7 @@ export default function ProductServices() {
                 ></img>
               </div>
 
-              <h2 className="sm:text-2xl text-lg py-2">{items.label}</h2>
+              <h2 className=" text-xl font-sans font-semibold py-2">{items.label}</h2>
             </Card>
           ))}
           <div className="sm:space-y-6 space-y-3 text-center">
