@@ -61,9 +61,13 @@ export default function Header() {
 
 function TopNav({ isSticky }) {
   return (
-    <div className={`w-full border-b  hidden sm:block transition-all duration-300 ${
-      isSticky ? 'border-gray-200' : 'border-transparent'
-    }`}>
+    <div 
+    // className={`w-full border-b  hidden sm:block transition-all duration-300 ${
+    //   isSticky ? 'border-gray-200' : 'border-transparent'
+    // }`}
+
+    className='border-b-1 border-gray-300'
+    >
       <div className="container max-w-7xl mx-auto flex justify-end">
         <div className="text-xs px-3 py-3">
           <ul className="flex space-x-3">
@@ -97,7 +101,9 @@ function NavBar({ mobileMenuOpen, setMobileMenuOpen, isSticky }) {
   }
 
   return (
-    <nav className="w-full">
+    <nav className={`w-full fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
+          isSticky ? 'bg-white shadow-md' : 'bg-transparent top-5'
+        }`}>
       <div className="container max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
         <div className="w-16 h-16">
           <Link href="/">

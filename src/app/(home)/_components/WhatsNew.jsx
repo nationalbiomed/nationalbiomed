@@ -11,7 +11,7 @@ const WhatsNewItems = [
     id: 1,
     label: "Samsung Medison concludes acquisition of French AI Startup",
     img: "/hand.png",
-    slug:"#",
+    slug: "#",
     description:
       "Samsung Medison received approval from the French government for Foreign Direct Investment (FDI) to acquire 100% of the shares of Sonio, a French AI startup specializing in obstetrics ultrasound reporting software, and subsequently concluded the acquisition process on August 30.",
   },
@@ -19,7 +19,7 @@ const WhatsNewItems = [
     id: 2,
     label: "New AI-powered ultrasound technology unveiled",
     img: "/ultrasound.png",
-    slug:"#",
+    slug: "#",
     description:
       "Samsung Medison introduces groundbreaking AI-powered ultrasound technology, revolutionizing medical imaging with enhanced accuracy and efficiency in diagnostics.",
   },
@@ -27,11 +27,18 @@ const WhatsNewItems = [
     id: 3,
     label: "Partnership announced with leading healthcare provider",
     img: "/partnership.png",
-    slug:"#",
+    slug: "#",
     description:
       "Samsung Medison forms strategic partnership with a leading global healthcare provider to expand the reach of innovative medical imaging solutions and improve patient care worldwide.",
   },
 ];
+
+const FeaturedNews = {
+  img: "/hand.png",
+  label: "Samsung Medison concludes acquisition of French AI Startup",
+  description:
+    "Samsung Medison received approval from the French government for Foreign Direct Investment (FDI) to acquire 100% of the shares of Sonio, a French AI startup specializing in obstetrics ultrasound reporting software, and subsequently concluded the acquisition process on August 30.",
+};
 
 export default function WhatsNew() {
   const [hoveredId, setHoveredId] = useState(null);
@@ -43,9 +50,10 @@ export default function WhatsNew() {
           What&apos;s <span className="text-green-600">New</span>
         </h1>
 
+        {/* Featured News Section */}
         <div className="relative rounded-lg overflow-hidden aspect-video cursor-pointer md:aspect-[16/5] mb-8">
           <Image
-            src="/hand.png"
+            src={FeaturedNews.img}
             alt="Featured news"
             layout="fill"
             objectFit="cover"
@@ -57,14 +65,10 @@ export default function WhatsNew() {
             transition={{ duration: 0.3 }}
           >
             <h2 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2">
-              Samsung Medison concludes acquisition of French AI Startup
+              {FeaturedNews.label}
             </h2>
             <p className="text-xs sm:text-sm mb-2 line-clamp-2 sm:line-clamp-3">
-              Samsung Medison received approval from the French government for
-              Foreign Direct Investment (FDI) to acquire 100% of the shares of
-              Sonio, a French AI startup specializing in obstetrics ultrasound
-              reporting software, and subsequently concluded the acquisition
-              process on August 30.
+              {FeaturedNews.description}
             </p>
             <button className="text-xs sm:text-sm underline self-start">
               Learn More
@@ -72,11 +76,11 @@ export default function WhatsNew() {
           </motion.div>
         </div>
 
+        {/* List of What's New Items */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {WhatsNewItems.map((item) => (
-            <Link href={item.slug}>
+            <Link href={item.slug} key={item.id}>
               <Card
-                key={item.id}
                 className="relative overflow-hidden bg-gray-100 rounded-lg cursor-pointer"
                 onMouseEnter={() => setHoveredId(item.id)}
                 onMouseLeave={() => setHoveredId(null)}
