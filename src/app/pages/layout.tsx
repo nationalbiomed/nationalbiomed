@@ -9,7 +9,7 @@ export default function PagesLayout({
     <>
     <Header/>
       {children}
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }
