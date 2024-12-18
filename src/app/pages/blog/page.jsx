@@ -94,9 +94,9 @@ export default function BlogSection() {
                   <p className="text-sm text-gray-300 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     {post.description}
                   </p>
-                  <span className="inline-block px-3 py-1 bg-white/20 text-white text-sm rounded-full">
+                  {/* <span className="inline-block px-3 py-1 bg-white/20 text-white text-sm rounded-full">
                     {post.slug}
-                  </span>
+                  </span> */}
                 </div>
               </div>
             </Link>

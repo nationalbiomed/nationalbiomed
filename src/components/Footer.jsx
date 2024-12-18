@@ -115,17 +115,17 @@ export function Footer1() {
               <h4 className="mb-4 text-lg font-semibold text-white">
                 Contact Us
               </h4>
-              <div className=" mb-2 flex space-x-2 ">
+              <div className=" mb-2 flex space-x-1 ">
                 <div className="flex items-center font-semibold text-white">
-                  <MapPin className="mr-3 h-5 w-5 text-gray-400" />
+                  <MapPin className="mr-1 h-5 w-5 text-gray-400" />
                   <span className="text-sm">Address:</span>
                 </div>
                 
                 <p>Tripurewshor, Kathmandu</p>
               </div>
-              <div className=" mb-2 flex space-x-2 ">
+              <div className=" mb-2 flex space-x-1 ">
                 <div className="flex items-center font-semibold text-white">
-                  <Phone className="mr-3 h-5 w-5 text-gray-400" />
+                  <Phone className="mr-1 h-5 w-5 text-gray-400" />
                   <span className="text-sm">Customer Support:</span>
                 </div>
                 
@@ -212,16 +212,16 @@ const emailLinkClass = "hover:text-white transition-colors duration-200";
 
 function EmailList() {
   return (
-    <div className="space-x-2 flex ">
+    <div className="space-x-1 flex ">
       <p className="flex items-center text-base font-medium text-white">
-        <Mail className="mr-3 h-5 w-5 text-gray-400" />
+        <Mail className="mr-1 h-5 w-5 text-gray-400" />
         <span className="text-sm font-semibold">Email Us:</span>
       </p>
       <a
             href="mailto:support@yourecommerce.com"
             className="hover:text-white transition-colors duration-200"
           >
-            support@yourecommerce.com
+            info@nationalbiomed.com
           </a>
     </div>
   );
