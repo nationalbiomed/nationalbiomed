@@ -16,7 +16,7 @@ export default function BlogSectionClient({ blogs, meta }) {
           {blogs.map((post) => (
             <Link
               key={post.slug}
-              href={`/blog/${post.slug}`}
+              href={`/pages/blog/${post.slug}`}
               className="group relative overflow-hidden rounded-lg"
             >
               <div className="aspect-[4/3] relative">

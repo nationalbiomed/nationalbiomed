@@ -56,4 +56,4 @@ model Images {
 model Video {
     id        Int     @id @default(autoincrement())
     videoLink String?
-}
+} 
