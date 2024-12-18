@@ -9,15 +9,15 @@ export async function DELETE(req) {
       return NextResponse.json({ error: "ID is required" }, { status: 400 });
     }
 
-    const deletedData = await db.gallery.delete({
+    const deletedData = await db.images.delete({
       where: { id: Number(id) },
     });
 
     return NextResponse.json(deletedData, { status: 200 });
   } catch (error) {
-    console.error("Error Deleting Gallery:", error);
+    console.error("Error Deleting images:", error);
     return NextResponse.json(
-      { error: "Error Deleting Gallery" },
+      { error: "Error Deleting images" },
       { status: 500 }
     );
   }

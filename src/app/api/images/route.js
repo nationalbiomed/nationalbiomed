@@ -10,17 +10,17 @@ export async function GET(req) {
 
     const skip = (page - 1) * limit;
 
-    const gallery = await db.gallery.findMany({
+    const images = await db.images.findMany({
       skip,
       take: limit,
     });
 
-    const totalCount = await db.gallery.count();
+    const totalCount = await db.images.count();
     const totalPages = Math.ceil(totalCount / limit);
 
     return NextResponse.json(
       {
-        data: gallery,
+        data: images,
         meta: {
           page,
           limit,
@@ -31,9 +31,9 @@ export async function GET(req) {
       { status: 200 }
     );
   } catch (error) {
-    console.error("Error fetching gallery:", error);
+    console.error("Error fetching images:", error);
     return NextResponse.json(
-      { error: "Error getting Gallery" },
+      { error: "Error getting images" },
       { status: 500 }
     );
   }
