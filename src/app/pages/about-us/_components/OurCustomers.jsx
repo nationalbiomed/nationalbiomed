@@ -2,32 +2,32 @@ const Customers = [
     {
         id:1,
         name:"Department of Health Services",
-        logo: "/Emblem_of_Nepal.png",
+        logo: "/OurCustomers/Emblem_of_Nepal.png",
         description:"Ministry of Health",
     },
     {
         id:2,
         name:"FHI360",
-        logo: "/fhi360-logo.svg",
+        logo: "/OurCustomers/fhi360-logo.svg",
         description:"Nepal Country Office",
     },
     {
         id:3,
         name:"Oppourtunity Village Network",
-        logo: "/OVN.jpg",
+        logo: "/OurCustomers/OVN.jpg",
         description:"Ministry of Health",
     },
     {
         id:4,
-        name:"Department of Health Services",
-        logo: "/Emblem_of_Nepal.png",
-        description:"Ministry of Health",
+        name:"Province Health Logistics Management Center",
+        logo: "/OurCustomers/Emblem_of_Nepal.png",
+        description:"Gandaki-Province",
     },
     {
         id:5,
-        name:"Department of Health Services",
-        logo: "/Emblem_of_Nepal.png",
-        description:"Ministry of Health",
+        name:"Save The Children",
+        logo: "/OurCustomers/stc_logo.svg",
+        description:"Nepal Country Office",
     },
 ]
 
