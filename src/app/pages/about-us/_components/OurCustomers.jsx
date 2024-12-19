@@ -35,9 +35,9 @@ const Customers = [
 export default function OurCustomers(){
     return(
      <div className=" py-10 w-full mb-[50px] shadow-xl">
-<h1 className="text-4xl font-bold text-green-600  px-20 ">Our Customers</h1>
-<div className="relative overflow-x-hidden">
-       <div className="flex gap-40 text-center animate-marquee mt-10">
+<h1 className="text-4xl font-bold text-green-600  px-20 mb-7">Our <span className="text-black">Customers</span></h1>
+<div className="relative overflow-x-hidden bg-green-50 py-3">
+       <div className="flex gap-40 text-center animate-marquee ">
             {Customers.map((items)=>(
                 <div key={items.id} className="w-40 flex-shrink-0 text-center mx-auto">
                     <img src={items.logo} />
