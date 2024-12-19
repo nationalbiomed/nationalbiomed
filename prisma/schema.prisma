@@ -57,3 +57,20 @@ model Video {
     id        Int     @id @default(autoincrement())
     videoLink String?
 } 
+
+
+model Job {
+  id               String   @id @default(cuid())
+  title            String
+  slug             String   @unique
+  type             String
+  level            String?
+  vacancies        Int?
+  salary           String?
+  skills           String[] @default([])
+  responsibilities String[] @default([])
+  qualifications   String[] @default([])
+  experience       String?
+  applyBefore      DateTime?
+  createdAt        DateTime @default(now())
+}
