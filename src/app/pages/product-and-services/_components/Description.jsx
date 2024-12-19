@@ -9,9 +9,9 @@ const CategotyDescription=[
 export default function Description(){
     return(
         
-       <div className="w-[100%] mb-[100px] lg:mx-[100px] mx-0 relative overflow-hidden">
+       <div className="w-[100%] mb-[100px] lg:mx-[100px] mx-0 relative overflow-hidden" data-aos="fade-right">
          <div className="md:w-[50%] w-[100%]">
-       <img src="/about.jpg" className=""></img>
+       <img src="/about.jpg" className="" ></img>
        </div>
        {CategotyDescription.map((items)=>(
 

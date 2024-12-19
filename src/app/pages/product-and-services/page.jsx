@@ -1,4 +1,3 @@
-import AboutProduct from "./_components/AboutProduct";
 import Description from "./_components/Description";
 import Products from "./_components/Products";
 
@@ -8,7 +7,6 @@ export default function ProductAndServices(){
               <h1 className="text-4xl font-bold text-green-600 mb-10"> Product And Services</h1>
               <Description />
               <Products />
-              <AboutProduct />
 
           
         </div>
