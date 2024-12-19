@@ -11,7 +11,7 @@ const nextConfig: NextConfig = {
     ];
   },
   images: {
-    domains: ["mindray.scene7.com", "i.ibb.co"],
+    domains: ["mindray.scene7.com", "i.ibb.co", "img.youtube.com"],
   },
 };
 
