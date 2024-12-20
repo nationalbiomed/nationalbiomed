@@ -2,6 +2,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "aos/dist/aos.css";
+import AuthProvider from "../app/admin/_components/AuthProvider";
+
 
 import { AOSProvider } from "@/lib/utils/AOSProvider";
 
@@ -18,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <AOSProvider />
-      <body className="">{children}</body>
+      <body className=""><AuthProvider>{children}</AuthProvider></body>
     </html>
   );
 }
