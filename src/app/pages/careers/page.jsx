@@ -5,43 +5,17 @@ import { Briefcase } from 'lucide-react'
 import Link from "next/link"
 
 
+async function getJobs() {
+  const res = await fetch('http://localhost:3000/api/career', { cache: 'no-store' })
+  if (!res.ok) {
+    throw new Error('Failed to fetch jobs')
+  }
+  return res.json()
+}
 
-const jobs = [
-  {
-    id:1,
-    slug: "wordpress-developer",
-    title: "WordPress Developer",
-    type: "Full Time",
-    level: "Mid Level",
-    status: "active",
-  },
-  {
-    id:2,
-    slug: "sales-and-marketing-officer-female",
-    title: "Sales and Marketing Officer (Female)",
-    type: "Full Time",
-    level: "Junior Level",
-    status: "active",
-  },
-  {
-    id:3,
-    slug: "technical-writer",
-    title: "Technical Writer",
-    type: "Full Time",
-    level: "Mid Level",
-    status: "active",
-  },
-  {
-    id:4,
-    slug: "system-and-cloud-admin",
-    title: "System and Cloud Admin",
-    type: "Full Time",
-    level: "Mid Level",
-    status: "active",
-  },
-]
+export default async function CareersPage() {
+  const jobs = await getJobs()
 
-export default function CareersPage() {
   return (
     <div className="container max-w-7xl mx-auto px-4 py-12">
       <div className="relative">
@@ -67,11 +41,14 @@ export default function CareersPage() {
                 <div className="mb-4 text-gray-600">{job.type}</div>
                 <div className="mb-4 flex gap-2">
                   <Badge variant="secondary">{job.level}</Badge>
-                  <Badge variant={job.status === "active" ? "success" : "destructive"}>
-                    {job.status === "active" ? "Open" : "Closed"}
-                  </Badge>
+                  <Badge variant="success">Open</Badge>
                 </div>
-                <Link href={`/careers/${job.slug}`} passHref>
+                {job.applyBefore && (
+                  <div className="mb-4 text-sm text-gray-500">
+                    Apply before: {new Date(job.applyBefore).toLocaleDateString()}
+                  </div>
+                )}
+                <Link href={`/pages/careers/${job.slug}`} passHref>
                   <Button variant="outline" className="w-full">
                     View Details
                   </Button>

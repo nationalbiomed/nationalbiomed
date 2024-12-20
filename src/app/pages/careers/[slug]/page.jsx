@@ -1,54 +1,45 @@
+
+
+import { notFound } from 'next/navigation'
+import Link from 'next/link'
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ArrowLeft, ArrowUpRight, Briefcase, Calendar, Users } from 'lucide-react'
-import Link from 'next/link'
-import { notFound } from 'next/navigation'
 
+async function getJob(slug) {
+  const res = await fetch(`http://localhost:3000/api/career/get/${slug}`)
+  if (!res.ok) {
+    throw new Error('Failed to fetch job data')
+  }
+  return res.json()
+}
 
+function formatDate(dateString) {
+  const date = new Date(dateString)
+  const now = new Date()
+  const diffTime = Math.abs(now.getTime() - date.getTime())
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
+  return `${diffDays} days ago`
+}
 
-const jobs = [
-  {
-    id: "wordpress-developer",
-    title: "WordPress Developer",
-    type: "Full Time",
-    level: "Mid Level",
-    status: "active",
-    vacancies: 2,
-    salary: "Negotiable",
-    skills: ["Web Development", "WordPress", "PHP", "Laravel"],
-    responsibilities: [
-      "Develop and maintain WordPress websites for a variety of clients.",
-      "Customize themes and plugins to meet specific project requirements.",
-      "Optimize websites for performance, speed, and SEO.",
-      "Troubleshoot and resolve website issues.",
-      "Collaborate with designers and other developers to ensure project success.",
-    ],
-    qualifications: [
-      "Proven experience as a WordPress Developer.",
-      "Strong understanding of front-end technologies, including HTML5, CSS3, JavaScript, and jQuery.",
-      "Experience with PHP and MySQL.",
-      "Familiarity with website analytics and SEO best practices.",
-      "Ability to work independently and as part of a team.",
-      "Excellent problem-solving skills and attention to detail.",
-    ],
-    experience: "1 Year",
-    postedDate: "142 days ago",
-    applyBefore: "August 30, 2024",
-  },
-
-]
-
-export default function JobDetailPage({ params }) {
-  const job = jobs.find(j => j.id === params.slug)
+export default async function JobDetailPage({  params: asyncParams }) {
+  const params = await asyncParams; // Await the `params` object
+  let job;
+  try {
+    job = await getJob(params.slug);
+  } catch (error) {
+    console.error(error);
+    notFound();
+  }
 
   if (!job) {
-    notFound()
+    notFound();
   }
 
   return (
-    <div className="container mx-auto px-4 py-12">
-      <Link href="/careers" className="mb-8 inline-flex items-center text-primary hover:underline">
+    <div className="container max-w-6xl mx-auto px-4 py-12">
+      <Link href="/pages/careers" className="mb-8 inline-flex items-center text-primary hover:underline">
         <ArrowLeft className="mr-2 h-4 w-4" />
         Back to all jobs
       </Link>
@@ -127,25 +118,23 @@ export default function JobDetailPage({ params }) {
               </div>
               <div>
                 <div className="text-sm text-gray-500">Posted:</div>
-                <div className="font-medium">{job.postedDate}</div>
+                <div className="font-medium">{formatDate(job.createdAt)}</div>
               </div>
-              <div>
-                <div className="text-sm text-gray-500">Apply Before:</div>
-                <div className="font-medium">{job.applyBefore}</div>
-              </div>
+              {job.applyBefore && (
+                <div>
+                  <div className="text-sm text-gray-500">Apply Before:</div>
+                  <div className="font-medium">{new Date(job.applyBefore).toLocaleDateString()}</div>
+                </div>
+              )}
             </div>
 
             <div className="mb-8 text-gray-600">
               Email us at{" "}
-              <a href="mailto:info@appharu.com" className="text-primary hover:underline">
-                info@appharu.com
+              <a href="mailto:info@nationalbiomed.com" className="text-primary hover:underline">
+                info@nationalbiomed.com
               </a>{" "}
               for more information.
             </div>
-
-            <Button size="lg" className="w-full md:w-auto">
-              Apply Now
-            </Button>
           </div>
         </CardContent>
       </Card>
