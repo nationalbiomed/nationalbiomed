@@ -23,8 +23,8 @@ const MENU_ITEMS = [
   },
   { title: 'Services', href: '/services' },
   { title: 'ESG', href: '/esg' },
-  { title: 'Career', href: '/career' },
-  { title: 'About Us', href: '/about' },
+  { title: 'Career', href: '/pages/careers' },
+  { title: 'About Us', href: '/pages/about-us' },
 ]
 
 export default function Header() {
@@ -67,12 +67,12 @@ function TopNav() {
       <div className="container max-w-7xl mx-auto flex justify-end">
         <div className="text-xs px-3 py-3">
           <ul className="flex space-x-3">
-            <li className="border-r border-gray-300 pr-3">
+            {/* <li className="border-r border-gray-300 pr-3">
               <Link href="/media" className="hover:text-primary transition-colors text-gray-800">Media Center</Link>
             </li>
             <li className="border-r border-gray-300 pr-3">
               <Link href="/investors" className="hover:text-primary transition-colors text-gray-800">Investor Relations</Link>
-            </li>
+            </li> */}
             <li>
               <Link href="/contact" className="hover:text-primary transition-colors text-gray-800">Contact Us</Link>
             </li>
