@@ -74,3 +74,35 @@ model Job {
   applyBefore      DateTime?
   createdAt        DateTime @default(now())
 }
+
+
+model Product {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  excrept     String?
+  images      String[]
+  pimage      String
+  categoryId  String
+  brandId     String
+  category    Category  @relation(fields: [categoryId], references: [id])
+  brand       Brand     @relation(fields: [brandId], references: [id])
+}
+
+model Category {
+  id   String @id @default(cuid())
+  name String
+
+  products Product[] 
+
+  @@map("pcategory")
+}
+
+model Brand {
+  id   String @id @default(cuid())
+  name String
+
+  products Product[] 
+
+  @@map("brand")
+}
