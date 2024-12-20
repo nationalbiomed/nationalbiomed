@@ -1,15 +1,17 @@
-import { Suspense } from 'react';
-import Gallery from './_components/Gallery';
-import { GalleryFallback } from './_components/GalleryFallback';
+import { Suspense } from "react";
+import Gallery from "./_components/Gallery";
+import { GalleryFallback } from "./_components/GalleryFallback";
 
 async function getVideos(page) {
-  const res = await fetch(`https://nationalbiomedical.vercel.app/api/video?page=${page}`, { cache: 'no-store' });
-  if (!res.ok) throw new Error('Failed to fetch videos');
+  const res = await fetch(`http://localhost:3000//api/video?page=${page}`, {
+    cache: "no-store",
+  });
+  if (!res.ok) throw new Error("Failed to fetch videos");
   return res.json();
 }
 
 export default async function GalleryPage({ searchParams }) {
-  const pageParam =await searchParams?.page;
+  const pageParam = await searchParams?.page;
   const page = Number(pageParam) || 1;
   const { data, meta } = await getVideos(page);
 
@@ -22,4 +24,3 @@ export default async function GalleryPage({ searchParams }) {
     </main>
   );
 }
-

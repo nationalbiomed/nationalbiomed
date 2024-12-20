@@ -4,7 +4,7 @@ import MobileNav from "./_components/MobileNav";
 export default function AdminLayout({ children }) {
   return (
     <div className="flex w-full h-full ">
-      <div className="w-[15%] border-r min-h-screen  relative p-2 ">
+      <div className="w-[15%] border-r min-h-screen  relative p-2  bg-green-100">
         <div className="hidden lg:block fixed w-[14%] ">
           <SideBar />
         </div>
