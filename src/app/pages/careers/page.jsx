@@ -6,7 +6,7 @@ import Link from "next/link"
 
 
 async function getJobs() {
-  const res = await fetch('http://localhost:3000/api/career', { cache: 'no-store' })
+  const res = await fetch('https://nationalbiomedical.vercel.app/api/career', { cache: 'no-store' })
   if (!res.ok) {
     throw new Error('Failed to fetch jobs')
   }

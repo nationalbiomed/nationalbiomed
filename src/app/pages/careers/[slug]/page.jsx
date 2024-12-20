@@ -8,7 +8,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { ArrowLeft, ArrowUpRight, Briefcase, Calendar, Users } from 'lucide-react'
 
 async function getJob(slug) {
-  const res = await fetch(`http://localhost:3000/api/career/get/${slug}`)
+  const res = await fetch(`https://nationalbiomedical.vercel.app/api/career/get/${slug}`)
   if (!res.ok) {
     throw new Error('Failed to fetch job data')
   }
