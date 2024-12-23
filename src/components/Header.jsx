@@ -66,10 +66,10 @@ function TopNav({ isSticky }) {
     //   isSticky ? 'border-gray-200' : 'border-transparent'
     // }`}
 
-    className='border-b-1 border-gray-300'
+    className='border-b-1 border-gray-300 '
     >
-      <div className="container max-w-7xl mx-auto flex justify-end">
-        <div className="text-xs px-3 py-3">
+      <div className="container max-w-7xl mx-auto flex justify-end bg-white bg-opacity-50 lg:bg-transparent ">
+        <div className="text-xs px-3 py-2">
           <ul className="flex space-x-3">
             {/* <li className="border-r border-gray-300 pr-3">
               <Link href="/media" className={`hover:text-primary transition-colors ${
@@ -83,7 +83,7 @@ function TopNav({ isSticky }) {
             </li> */}
             <li>
               <Link href="/pages/contact" className={`hover:text-primary transition-colors ${
-                isSticky ? 'text-gray-800' : 'text-white'
+                isSticky ? 'text-gray-800' : 'text-gray-800 lg:text-white'
               }`}>Contact Us</Link>
             </li>
           </ul>
@@ -101,10 +101,10 @@ function NavBar({ mobileMenuOpen, setMobileMenuOpen, isSticky }) {
   }
 
   return (
-    <nav className={`w-full fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
-          isSticky ? 'bg-white shadow-md' : 'bg-transparent top-5'
+    <nav className={`w-full fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out  ${
+          isSticky ? 'bg-white shadow-md' : 'bg-transparent top-8'
         }`}>
-      <div className="container max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
+      <div className="container max-w-7xl mx-auto flex justify-between items-center px-4 py-3 bg-white bg-opacity-50 lg:rounded-full">
         <div className="w-16 h-16">
           <Link href="/">
             <Image src="/logo.png" alt="logo" width={64} height={64} className="w-full h-auto object-contain" />
@@ -118,7 +118,7 @@ function NavBar({ mobileMenuOpen, setMobileMenuOpen, isSticky }) {
                 {item.megaMenu ? (
                   <>
                     <button className={`flex items-center hover:text-primary transition-colors py-2 ${
-                      isSticky ? 'text-gray-800' : 'text-white'
+                      isSticky ? 'text-gray-800' : 'text-gray-800'
                     }`}>
                       {item.title}
                       <ChevronDown className={`ml-1 w-4 h-4 transition-transform duration-300 ${activeDropdown === item.title ? 'rotate-180' : ''}`} />
@@ -138,7 +138,7 @@ function NavBar({ mobileMenuOpen, setMobileMenuOpen, isSticky }) {
                   </>
                 ) : (
                   <Link href={item.href} className={`hover:text-primary transition-colors py-2 block ${
-                    isSticky ? 'text-gray-800' : 'text-white'
+                    isSticky ? 'text-gray-800' : 'text-gray-800'
                   }`}>
                     {item.title}
                   </Link>
@@ -150,7 +150,7 @@ function NavBar({ mobileMenuOpen, setMobileMenuOpen, isSticky }) {
         
         <div className="flex items-center space-x-4">
           <Link href="/account" className={`hover:text-primary transition-colors ${
-            isSticky ? 'text-gray-800' : 'text-white'
+            isSticky ? 'text-gray-800' : 'text-gray-800'
           }`}>
             <User className="w-6 h-6" />
           </Link>
