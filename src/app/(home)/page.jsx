@@ -18,3 +18,37 @@ export default function Home() {
     </>
   );
 }
+
+
+// async function getData() {
+//   const [bannerRes, newsRes, teamsRes] = await Promise.all([
+//     fetch("http://localhost:3000/api/banner", { cache: "no-store" }),
+//     fetch("http://localhost:3000/api/customer", { cache: "no-store" }),
+//     fetch("http://localhost:3000/api/team", { cache: "no-store" }),
+//   ]);
+
+//   if (!bannerRes.ok || !newsRes.ok || !teamsRes.ok) {
+//     throw new Error("Failed to fetch data");
+//   }
+
+//   const [banner, news, teams] = await Promise.all([
+//     bannerRes.json(),
+//     newsRes.json(),
+//     teamsRes.json(),
+//   ]);
+
+//   return { banner, news, teams };
+// }
+
+// export default async function Home() {
+//   const { banner, news, teams } = await getData();
+
+//   return (
+//     <>
+//       <Carousel bannerdata={banner} />
+//       <TemplePage />
+//       <News newsData={news} />
+//       <Teams teamMembers={teams} />
+//     </>
+//   );
+// }
