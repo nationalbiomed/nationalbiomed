@@ -120,3 +120,11 @@ model Customer {
 
   @@map("customers")
 }
+
+model Distributor {
+  id       Int    @id @default(autoincrement())
+  image    String
+  position Int
+
+  @@map("distributors")
+}
