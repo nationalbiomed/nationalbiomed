@@ -7,74 +7,63 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Banner {
-  id    Int    @id @default(autoincrement())
-  image String
-
-  @@map("banners")
-}
-
-
 model User {
-    id       Int     @id @default(autoincrement())
-    name     String?
-    email    String  @unique
-    password String
+  id       Int     @id @default(autoincrement())
+  name     String?
+  email    String  @unique
+  password String
 
-    @@map("users")
+  @@map("users")
 }
 
 model Team {
-    id        Int    @id @default(autoincrement())
-    post      String
-    teamOrder Int
-    name      String
-    slug      String
-    image     String
-    message   String
+  id        Int    @id @default(autoincrement())
+  post      String
+  teamOrder Int
+  name      String
+  slug      String
+  image     String
+  message   String
 
-    @@map("teams")
+  @@map("teams")
 }
 
 model Blog {
-    id          Int      @id @default(autoincrement())
-    title       String
-    slug        String
-    date        DateTime @default(now())
-    image       String
-    description String
+  id          Int      @id @default(autoincrement())
+  title       String
+  slug        String
+  date        DateTime @default(now())
+  image       String
+  description String
 
-    @@map("blogs")
+  @@map("blogs")
 }
 
-
 model Images {
-    id        Int     @id @default(autoincrement())
-    image     String?
+  id    Int     @id @default(autoincrement())
+  image String?
 }
 
 model Video {
-    id        Int     @id @default(autoincrement())
-    videoLink String?
-} 
-
+  id        Int     @id @default(autoincrement())
+  videoLink String?
+}
 
 model Job {
-  id               String   @id @default(cuid())
+  id               String    @id @default(cuid())
   title            String
-  slug             String   @unique
+  slug             String    @unique
   type             String
   level            String?
   vacancies        Int?
   salary           String?
-  skills           String[] @default([])
-  responsibilities String[] @default([])
-  qualifications   String[] @default([])
+  skills           String[]  @default([])
+  responsibilities String[]  @default([])
+  qualifications   String[]  @default([])
   experience       String?
   applyBefore      DateTime?
-  createdAt        DateTime @default(now())
+  createdAt        DateTime  @default(now())
 }
-
 
 model Product {
   id          String   @id @default(cuid())
@@ -84,28 +73,50 @@ model Product {
   excrept     String?
   images      String[]
   pimage      String
-  categoryId  Int      
-  brandId     Int      
-  category    Category  @relation(fields: [categoryId], references: [id])
-  brand       Brand     @relation(fields: [brandId], references: [id])
+  categoryId  Int
+  brandId     Int
+  category    Category @relation(fields: [categoryId], references: [id])
+  brand       Brand    @relation(fields: [brandId], references: [id])
 }
 
 model Category {
-  id   Int     @id @default(autoincrement())
+  id   Int    @id @default(autoincrement())
   name String
   slug String
 
-  products Product[] 
+  products Product[]
 
   @@map("pcategory")
 }
 
 model Brand {
-  id   Int     @id @default(autoincrement())
+  id   Int    @id @default(autoincrement())
   name String
   slug String
 
-  products Product[] 
+  products Product[]
 
   @@map("brand")
+}
+
+model Banner {
+  id          Int    @id @default(autoincrement())
+  image       String
+  title       String
+  position    Int
+  description String
+  text        String
+  link        String
+
+  @@map("banners")
+}
+
+model Customer {
+  id          Int    @id @default(autoincrement())
+  image       String
+  title       String
+  position    Int
+  description String
+
+  @@map("customers")
 }

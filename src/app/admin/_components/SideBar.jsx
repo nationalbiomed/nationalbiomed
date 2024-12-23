@@ -5,20 +5,10 @@ import { useSession } from "next-auth/react";
 import {
   LayoutGrid,
   ImagePlay,
-  Flag,
-  CircleUserRound,
-  UsersRound,
-  UserPen,
   ScanSearch,
-  Images,
   ClipboardCopy,
-  BookOpenText,
   LogOut,
-  UserCircle,
-  Handshake,
-  Users,
 } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 export default function Sidebar() {
   const { data: session, status } = useSession({
@@ -47,9 +37,16 @@ export default function Sidebar() {
         className="w-full py-2 flex justify-center lg:justify-start xl:pl-4 gap-4 text-primary font-semibold hover:bg-inherit hover:text-green-600   "
       >
         <ImagePlay />
+        <span className="hidden lg:block">Banner</span>
+      </Link>
+      <Link
+        href="/admin/banner"
+        className="w-full py-2 flex justify-center lg:justify-start xl:pl-4 gap-4 text-primary font-semibold hover:bg-inherit hover:text-green-600   "
+      >
+        <ImagePlay />
         <span className="hidden lg:block">Products</span>
       </Link>
-       {/*
+      {/*
       <Link
         href="/admin/country"
         className="w-full py-2 flex justify-center lg:justify-start xl:pl-4 gap-4 text-primary font-semibold hover:bg-textColor hover:text-green-600   "
@@ -102,7 +99,7 @@ export default function Sidebar() {
         <ClipboardCopy />
         <span className="hidden lg:block">Blogs</span>
       </Link>
-  {/* 
+      {/* 
         {session?.token?.email &&
           session?.token?.email == "admin@nepaltech.com" && (
             <>
