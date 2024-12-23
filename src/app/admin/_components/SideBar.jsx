@@ -30,7 +30,7 @@ export default function Sidebar() {
       <div className="img-wrapper mx-auto w-[41%] py-[3%] ">
         <img
           src="/logo.png"
-          alt="Central Capital Service"
+          alt="National Biomedical Suppliers"
           className="w-full h-auto"
         />
       </div>
@@ -44,7 +44,7 @@ export default function Sidebar() {
       {/* <div className="w-full  border border-textColor" /> */}
       <Link
         href="/admin/banner"
-        className="w-full py-2 flex justify-center lg:justify-start xl:pl-4 gap-4 text-primary font-semibold hover:bg-textColor hover:text-green-600   "
+        className="w-full py-2 flex justify-center lg:justify-start xl:pl-4 gap-4 text-primary font-semibold hover:bg-inherit hover:text-green-600   "
       >
         <ImagePlay />
         <span className="hidden lg:block">Products</span>

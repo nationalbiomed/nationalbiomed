@@ -39,16 +39,16 @@ export default function MobileNav() {
 
   const links = [
     { href: "/admin", label: "Home", icon: LayoutGrid },
-    { href: "/admin/banner", label: "Banner", icon: ImagePlay },
-    { href: "/admin/country", label: "Country", icon: Flag },
-    { href: "/admin/client", label: "Client", icon: UserCircle },
-    { href: "/admin/sister_concern", label: "Client", icon: Users },
-    { href: "/admin/testimonials", label: "Testimonials", icon: UserPen },
-    { href: "/admin/demands", label: "Demand", icon: ScanSearch },
+    { href: "/admin/banner", label: "Products", icon: ImagePlay },
+    // { href: "/admin/country", label: "Country", icon: Flag },
+    // { href: "/admin/client", label: "Client", icon: UserCircle },
+    // { href: "/admin/sister_concern", label: "Client", icon: Users },
+    // { href: "/admin/testimonials", label: "Testimonials", icon: UserPen },
+    { href: "/admin/demands", label: "Career", icon: ScanSearch },
     { href: "/admin/blog", label: "Blogs", icon: ClipboardCopy },
-    { href: "/admin/teams", label: "Teams", icon: UsersRound },
-    { href: "/admin/gallery", label: "Gallery", icon: Images },
-    { href: "/admin/document", label: "Document", icon: BookOpenText },
+    // { href: "/admin/teams", label: "Teams", icon: UsersRound },
+    // { href: "/admin/gallery", label: "Gallery", icon: Images },
+    // { href: "/admin/document", label: "Document", icon: BookOpenText },
     { href: "/api/auth/signout?callbackUrl=/", label: "Logout", icon: LogOut },
   ];
 
@@ -74,7 +74,7 @@ export default function MobileNav() {
         <div>
           <Link
             href={"/admin"}
-            className="w-full  py-2 flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-white"
+            className="w-full  py-2 flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-green-600 "
             onClick={handleClose}
           >
             <LayoutGrid />
@@ -83,70 +83,70 @@ export default function MobileNav() {
 
           <Link
             href={"/admin/banner"}
-            className="w-full py-2  flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-white"
+            className="w-full py-2  flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-green-600 "
             onClick={handleClose}
           >
             <ImagePlay />
-            <span className="lg:block">Banner</span>
+            <span className="lg:block">Products</span>
           </Link>
-
+{/* 
           <Link
             href={"/admin/country"}
-            className="w-full py-2  flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-white"
+            className="w-full py-2  flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-green-600 "
             onClick={handleClose}
           >
             <Flag />
             <span className="lg:block">Country</span>
-          </Link>
+          </Link> */}
 
-          <Link
+          {/* <Link
             href={"/admin/client"}
-            className="w-full py-2  flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-white"
+            className="w-full py-2  flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-green-600 "
             onClick={handleClose}
           >
             <UserCircle />
             <span className="lg:block">Client</span>
-          </Link>
+          </Link> */}
 
-          <Link
+          {/* <Link
             href={"/admin/client-list"}
-            className="w-full py-2  flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-white"
+            className="w-full py-2  flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-green-600 "
             onClick={handleClose}
           >
             <UsersRound />
             <span className="lg:block">Client List</span>
-          </Link>
+          </Link> */}
 
-          <Link
+          {/* <Link
             href={"/admin/sister_concern"}
-            className="w-full py-2 flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-white"
+            className="w-full py-2 flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-green-600 "
             onClick={handleClose}
           >
             <Handshake />
             <span className="lg:block">Sister Concern</span>
-          </Link>
+          </Link> */}
 
-          <Link
+          {/* <Link
             href={"/admin/testimonials"}
-            className="w-full py-2 flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-white"
+            className="w-full py-2 flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-green-600 "
             onClick={handleClose}
           >
             <UserPen />
             <span className="lg:block">Testimonials</span>
-          </Link>
+          </Link> */}
 
           <Link
             href={"/admin/demands"}
-            className="w-full py-2 flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-white"
+            className="w-full py-2 flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-green-600 "
             onClick={handleClose}
           >
             <ScanSearch />
-            <span className="lg:block">Demand</span>
+            <span className="lg:block">Career</span>
           </Link>
 
           <Link
             href={"/admin/blog"}
-            className="w-full py-2 flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-white"
+            className="w-full py-2 flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-green-600 "
             onClick={handleClose}
           >
             <ClipboardCopy />
@@ -156,43 +156,43 @@ export default function MobileNav() {
           {session?.token?.email === "admin@nepaltech.com" && (
             <Link
               href="/admin/users"
-              className="w-full py-2 flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-white"
+              className="w-full py-2 flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-green-600 "
               onClick={handleClose} // Close the sheet for admin-specific link
             >
               <CircleUserRound />
               <span className="lg:block">Users</span>
             </Link>
           )}
-          <Link
+          {/* <Link
             href={"/admin/teams"}
-            className="w-full py-2 flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-white"
+            className="w-full py-2 flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-green-600 "
             onClick={handleClose}
           >
             <UsersRound />
             <span className="lg:block">Teams</span>
-          </Link>
+          </Link> */}
 
-          <Link
+          {/* <Link
             href={"/admin/gallery"}
-            className="w-full py-2  flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-white"
+            className="w-full py-2  flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-green-600 "
             onClick={handleClose}
           >
             <Images />
             <span className="lg:block">Gallery</span>
-          </Link>
-
+          </Link> */}
+{/* 
           <Link
             href={"/admin/document"}
-            className="w-full py-2 flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-white"
+            className="w-full py-2 flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-green-600 "
             onClick={handleClose}
           >
             <BookOpenText />
             <span className="lg:block">Document</span>
-          </Link>
+          </Link> */}
 
           <Link
             href={"/api/auth/signout?callbackUrl=/"}
-            className="w-full py-2 flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-white"
+            className="w-full py-2 flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-green-600 "
             onClick={handleClose}
           >
             <LogOut />
