@@ -49,12 +49,21 @@ export default function Sidebar() {
       </Link>
 
       <Link
+        href="/admin/teams"
+        className="w-full py-2 flex justify-center lg:justify-start xl:pl-4 gap-4 text-primary font-semibold hover:bg-inherit hover:text-green-600   "
+      >
+        <ImagePlay />
+        <span className="hidden lg:block">Teams</span>
+      </Link>
+
+      <Link
         href="/admin/sole-distributor"
         className="w-full py-2 flex justify-center lg:justify-start xl:pl-4 gap-4 text-primary font-semibold hover:bg-inherit hover:text-green-600   "
       >
         <ImagePlay />
         <span className="hidden lg:block">Sole Distributor</span>
       </Link>
+
       <Link
         href="/admin/banner"
         className="w-full py-2 flex justify-center lg:justify-start xl:pl-4 gap-4 text-primary font-semibold hover:bg-inherit hover:text-green-600   "
