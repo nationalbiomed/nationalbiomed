@@ -48,7 +48,7 @@ export function Footer2() {
 
 export function Footer1() {
   return (
-    <footer className="relative z-10 bg-gray-900 text-white pt-10  lg:pt-10 pb-10 ">
+    <footer className="relative z-10 bg-gray-900 text-white pt-10  lg:pt-10 pb-10 mt-10 ">
       <div className="container max-w-8xl mx-auto px-4">
         <div className="flex flex-wrap  justify-between">
           <div className="w-full px-4 sm:w-2/3 lg:w-3/12">

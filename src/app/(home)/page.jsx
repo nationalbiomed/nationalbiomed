@@ -9,11 +9,11 @@ export default function Home() {
   return (
     <>
     <ImageCarousel/>
+    <OurCustomers />
+    <ProductServices />
    
       <WhatsNew />
-      <ProductServices />
-      <About />
-      <OurCustomers />
+      {/* <About /> */}
       {/* <Vision /> */}
     </>
   );
