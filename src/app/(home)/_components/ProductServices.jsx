@@ -13,8 +13,8 @@ const Product = [
   },
   {
     id: 3,
-    label: "Ultrasound",
-    img: "/ultrasound.png",
+    label: "Anesthesia",
+    img: "/anesthesia.png",
   },
 ];
 export default function ProductServices() {
@@ -45,7 +45,7 @@ export default function ProductServices() {
                 className="transition hover:scale-110 cursor-pointer ease-in-out duration-300"
               ></img>
               <p className="absolute text-2xl top-[50%] left-[50%] text-white translate-x-[-50%] translate-y-[-50%] ">
-                Health{" "}
+                Hospital bed
               </p>
             </div>
             <div className="relative overflow-hidden rounded-2xl">
