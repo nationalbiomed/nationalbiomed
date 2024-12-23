@@ -22,9 +22,9 @@ export default function Home() {
 
 // async function getData() {
 //   const [bannerRes, newsRes, teamsRes] = await Promise.all([
-//     fetch("http://localhost:3000/api/banner", { cache: "no-store" }),
-//     fetch("http://localhost:3000/api/customer", { cache: "no-store" }),
-//     fetch("http://localhost:3000/api/team", { cache: "no-store" }),
+//     fetch("https://nationalbiomedical.vercel.app/api/banner", { cache: "no-store" }),
+//     fetch("https://nationalbiomedical.vercel.app/api/customer", { cache: "no-store" }),
+//     fetch("https://nationalbiomedical.vercel.app/api/team", { cache: "no-store" }),
 //   ]);
 
 //   if (!bannerRes.ok || !newsRes.ok || !teamsRes.ok) {
