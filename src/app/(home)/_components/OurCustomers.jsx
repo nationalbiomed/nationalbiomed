@@ -1,3 +1,8 @@
+'use client'
+
+import { useEffect, useState } from 'react'
+import Image from 'next/image'
+
 const Customers = [
   {
     id: 1,
@@ -13,7 +18,7 @@ const Customers = [
   },
   {
     id: 3,
-    name: "Oppourtunity Village Network",
+    name: "Opportunity Village Network",
     logo: "/OurCustomers/OVN.jpg",
     description: "Ministry of Health",
   },
@@ -32,39 +37,50 @@ const Customers = [
 ];
 
 export default function OurCustomers() {
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) return null
+
   return (
-    <div className=" py-10 w-full mb-[50px] ">
-      <h1 className="sm:text-5xl text-2xl font-bold font-sans pb-12 text-black text-center">
-        Our <span className=" text-green-600">Customers</span>
-      </h1>
-      <div className="relative overflow-x-hidden  py-3">
-        <div className="flex gap-40 text-center animate-marquee items-center">
-          {Customers.map((items) => (
-            <div
-              key={items.id}
-              className="w-40 flex-shrink-0 text-center mx-auto"
-            >
-              <img src={items.logo} />
-              <h1 className="text-lg font-semibold text-green-600 text-center mb-2">
-                {items.name}
-              </h1>
-              <p className="text-sm text-gray-600 text-center">{items.description}</p>
-            </div>
-          ))}
-          {Customers.map((items) => (
-            <div
-              key={items.id}
-              className="w-40 flex-shrink-0 text-center mx-auto"
-            >
-              <img src={items.logo} />
-              <h1 className="text-md font-semibold mt-3 text-green-600">
-                {items.name}
-              </h1>
-              <p className="text-gray-600">{items.description}</p>
-            </div>
-          ))}
+    <section className="bg-gray-50 py-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-12">
+          Our <span className="text-green-600">Customers</span>
+        </h2>
+        <div className="relative overflow-hidden">
+          <div className="flex gap-8 animate-marquee">
+            {[...Customers, ...Customers].map((customer, index) => (
+              <CustomerCard key={`${customer.id}-${index}`} customer={customer} />
+            ))}
+          </div>
         </div>
       </div>
+    </section>
+  );
+}
+
+function CustomerCard({ customer }) {
+  return (
+    <div className="w-64 flex-shrink-0 bg-white rounded-lg shadow-md p-6 flex flex-col items-center justify-center transition-transform duration-300 hover:scale-105">
+      <div className="w-24 h-24 relative mb-4">
+        <Image
+          src={customer.logo}
+          alt={`${customer.name} logo`}
+          layout="fill"
+          objectFit="contain"
+        />
+      </div>
+      <h3 className="text-lg font-semibold text-green-600 text-center mb-2">
+        {customer.name}
+      </h3>
+      <p className="text-sm text-gray-600 text-center">
+        {customer.description}
+      </p>
     </div>
   );
 }
+
