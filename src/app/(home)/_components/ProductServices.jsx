@@ -8,8 +8,8 @@ const Product = [
   },
   {
     id: 2,
-    label: "Ultrasound",
-    img: "/ultrasound.png",
+    label: "Radiology",
+    img: "/radiology.png",
   },
   {
     id: 3,

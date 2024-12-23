@@ -10,7 +10,7 @@ import Header from "@/components/Header"
 
 const slides = [
   {
-    url: "https://mindray.scene7.com/is/image/mindray/surgical-digital-frontiers-home-pc?$image1920-960$",
+    url: "/banner.avif",
     alt: "Surgical digital frontiers",
     title: "Advancing Surgical Frontiers:",
     subtitle: "Exploring the Potential ",
@@ -18,7 +18,7 @@ const slides = [
     ctaText: "Learn More"
   },
   {
-    url: "https://mindray.scene7.com/is/image/mindray/envision-future-smart-healthcare-home-pc?$1920-9650$",
+    url: "/banner2.avif",
     alt: "Smart healthcare future",
     title: "Envision the Future",
     subtitle: "of Smart Healthcare Solutions",
@@ -26,7 +26,7 @@ const slides = [
     ctaText: "Explore Solutions"
   },
   {
-    url: "https://mindray.scene7.com/is/image/mindray/penangs-heart-safe-city-initiative-pc?$1920-96$",
+    url: "/banner3.avif",
     alt: "Heart safe city initiative",
     title: "Building Healthier Communities",
     subtitle: "Through Advanced Medical Technology",

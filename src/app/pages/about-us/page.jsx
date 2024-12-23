@@ -7,7 +7,7 @@ import WhyUs from "./_components/WhyUs";
 export default function AboutUs() {
   return (
     <div>
-    {/* <Introduction /> */}
+    <Introduction />  
     
     <WhyUs />
     <Missions />
