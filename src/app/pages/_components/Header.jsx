@@ -74,7 +74,7 @@ function TopNav() {
               <Link href="/investors" className="hover:text-primary transition-colors text-gray-800">Investor Relations</Link>
             </li> */}
             <li>
-              <Link href="/contact" className="hover:text-primary transition-colors text-gray-800">Contact Us</Link>
+              <Link href="/pages/contact" className="hover:text-primary transition-colors text-gray-800">Contact Us</Link>
             </li>
           </ul>
         </div>

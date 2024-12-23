@@ -7,10 +7,12 @@ import WhyUs from "./_components/WhyUs";
 export default function AboutUs() {
   return (
     <div>
-    <Introduction />
-    <Missions />
+    {/* <Introduction /> */}
+    
     <WhyUs />
-    <OurCustomers />  
+    <Missions />
+    {/* <WhyUs /> */}
+    {/* <OurCustomers />   */}
     <SoleDistributors />
     </div>
   );

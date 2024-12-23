@@ -10,7 +10,7 @@ const WhatsNewItems = [
   {
     id: 1,
     label: "Samsung Medison concludes acquisition of French AI Startup",
-    img: "/hand.png",
+    img: "/whats-new.jpg",
     slug: "#",
     description:
       "Samsung Medison received approval from the French government for Foreign Direct Investment (FDI) to acquire 100% of the shares of Sonio, a French AI startup specializing in obstetrics ultrasound reporting software, and subsequently concluded the acquisition process on August 30.",
@@ -34,7 +34,7 @@ const WhatsNewItems = [
 ];
 
 const FeaturedNews = {
-  img: "/hand.png",
+  img: "/banner.webp",
   label: "Samsung Medison concludes acquisition of French AI Startup",
   description:
     "Samsung Medison received approval from the French government for Foreign Direct Investment (FDI) to acquire 100% of the shares of Sonio, a French AI startup specializing in obstetrics ultrasound reporting software, and subsequently concluded the acquisition process on August 30.",
