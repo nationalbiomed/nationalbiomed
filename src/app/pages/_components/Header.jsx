@@ -9,7 +9,7 @@ const MENU_ITEMS = [
   {
     title: 'Products & Solutions',
     megaMenu: [
-      { title: 'Product A', href: '/products/a' },
+      { title: 'Product A', href: '/pages/product-and-services/products' },
       { title: 'Product B', href: '/products/b' },
       { title: 'Solutions', href: '/solutions' },
     ]
@@ -21,10 +21,17 @@ const MENU_ITEMS = [
       { title: 'Development', href: '/innovations/development' },
     ]
   },
-  { title: 'Services', href: '/services' },
+  { title: 'Services', href: '/pages/product-and-services' },
   { title: 'ESG', href: '/esg' },
-  { title: 'Career', href: '/pages/careers' },
   { title: 'About Us', href: '/pages/about-us' },
+  { title: 'Career', href: '/pages/careers' },
+  {
+    title: 'Gallery',
+    megaMenu: [
+      { title: 'Photo', href: '/pages/gallery/images' },
+      { title: 'Video', href: '/pages/gallery/videos' },
+    ]
+  },
 ]
 
 export default function Header() {

@@ -22,14 +22,14 @@ export default function Footer() {
 
 export function Footer2() {
   return (
-    <div className=" py-2 border-t-2 border-primary">
-      <div className="container max-w-7xl mx-auto block space-y-2 pb-4 md:pb-0 text-center md:flex md:justify-between  text-gray-900 text-baseline">
+    <div className=" py-2  bg-gray-900">
+      <div className="container max-w-7xl mx-auto block space-y-2 pb-4 md:pb-0 text-center md:flex md:justify-between  text-white text-baseline">
         <p className="mt-2">
           Copyright &copy; National Biomedical Suppliers
         </p>
         <p>
           <strong>
-            <span className="text-gray-900">Developed By: </span>
+            <span className="text-white">Developed By: </span>
             <a
               href="https://www.nepaltechinnov.com/"
               target="_blank"
@@ -96,7 +96,7 @@ export function Footer1() {
           <LinkGroup header="Shop">
             <NavLink href="/products" label="All Products" />
             <NavLink href="/categories" label="Categories" />
-            <NavLink href="/deals" label="Special Deals" />
+            {/* <NavLink href="/deals" label="Special Deals" /> */}
           </LinkGroup>
           <LinkGroup header="Customer Service">
             <NavLink href="/faq" label="FAQ" />
@@ -196,7 +196,7 @@ function BackgroundDecoration() {
       <svg
         className="absolute bottom-0 left-0 w-full text-gray-800 opacity-50"
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1440 320"
+        viewBox="0 0 1440 300"
       >
         <path
           fill="currentColor"

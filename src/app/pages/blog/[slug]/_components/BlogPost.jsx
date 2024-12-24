@@ -21,7 +21,7 @@ export default function BlogPost({ post }) {
         <h1 className="text-4xl font-bold my-5">{post.title}</h1>
         <div className="space-y-4 mb-8">
           <div className="flex items-center justify-between">
-            <Link href="/blog">
+            <Link href="/pages/blog">
               <Button variant="ghost" className="group">
                 <ArrowLeft className="w-4 h-4 mr-2 transition-transform group-hover:-translate-x-1" />
                 Back to Blog
