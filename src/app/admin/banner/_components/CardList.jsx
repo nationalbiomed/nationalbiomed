@@ -2,10 +2,7 @@ import React from "react";
 import DeleteForm from "../../_components/DeleteForm";
 import EditForm from "./EditForm";
 
-export default function CardList({
-  data,
-  setData,
-}) {
+export default function CardList({ data, setData }) {
   const handleDeleteCallback = (deletedId) => {
     setData((prevData) => prevData.filter((item) => item.id !== deletedId));
   };
@@ -41,7 +38,7 @@ export default function CardList({
                     <DeleteForm
                       id={data?.id}
                       title={"Banner"}
-                      url={"https://nationalbiomedical.vercel.app/api/banner/delete"}
+                      url={"http://localhost:3000/api/banner/delete"}
                       onDelete={handleDeleteCallback}
                     />
                   </div>

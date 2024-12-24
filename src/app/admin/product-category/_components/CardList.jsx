@@ -1,15 +1,8 @@
 import React from "react";
-import Link from "next/link";
-import { EditIcon, Trash2 } from "lucide-react";
 import DeleteForm from "../../_components/DeleteForm";
 import EditForm from "./EditForm";
 
-export default function CardList({
-  data,
-  setData,
-  editBttn = true,
-  deleteBtnn,
-}) {
+export default function CardList({ data, setData }) {
   const handleDeleteCallback = (deletedId) => {
     setData((prevData) => prevData.filter((item) => item.id !== deletedId));
   };
@@ -25,24 +18,15 @@ export default function CardList({
             >
               <img
                 className="w-full  h-[220px] object-cover "
-                src={data?.image}
+                src={data?.images}
                 alt="Card Image"
               />
 
               <div className="p-4 md:px-3  md:py-4 ">
-                <div className="h-[100%]">
-                  <h3 className="text-xl text-center font-semibold text-gray-800 dark:text-white break-words">
+                <div className="">
+                  <h3 className="text-lg font-bold text-gray-800 dark:text-white break-words">
                     {data?.name}
                   </h3>
-                  <h4 className=" ">
-                    <span className="text-primary text-red-600  font-semibold">
-                      Post:{" "}
-                    </span>
-                    {data?.post}
-                  </h4>
-                  <p className="mt-1 text-justify text-gray-500  line-clamp-3 break-all dark:text-neutral-400">
-                    {data?.message.replace(/<\/?[^>]+(>|$)/g, "").slice(0, 100)}
-                  </p>
                 </div>
 
                 <div className="flex justify-between gap-4 pt-4 ">
@@ -50,8 +34,8 @@ export default function CardList({
                   <div className="w-[50%]">
                     <DeleteForm
                       id={data?.id}
-                      title={"Team"}
-                      url={"http://localhost:3000/api/team/delete"}
+                      title={"Product Category"}
+                      url={"http://localhost:3000/api/category/delete"}
                       onDelete={handleDeleteCallback}
                     />
                   </div>

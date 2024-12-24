@@ -28,10 +28,9 @@ import { useRouter } from "next/navigation";
 import imageToUrl from "@nepaltechinnov/img-to-url";
 
 const formSchema = z.object({
-  title: z.string().min(1, "Required"),
-  image: z.string(),
-  description: z.string(),
-  position: z.preprocess((value) => parseInt(value, 10), z.number().optional()),
+  name: z.string().min(1, "Required"),
+  slug: z.string().min(1, "Slug is required"),
+  images: z.string(),
 });
 export default function AddNew({ setIsOpen }) {
   const [imageFile, setImageFile] = useState();
@@ -43,12 +42,35 @@ export default function AddNew({ setIsOpen }) {
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      title: "",
-      image: "",
-      description: "",
-      position: 1,
+      name: "",
+      slug: "",
+      images: "",
     },
   });
+
+  const uploadData = async (values) => {
+    const response = await fetch(`http://localhost:3000/api/category/add`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(values),
+    });
+    const data = await response.json();
+    if (!response.ok) {
+      setIsLoad(false);
+      toast.error(data.error || "Something went wrong!");
+    } else {
+      router.refresh();
+      setIsOpen(false);
+      setIsLoad(false);
+      form.reset();
+      toast.success("Added Successfully !!!");
+      setTimeout(() => {
+        window.location.reload();
+      }, 500);
+    }
+  };
 
   // Handling image selection
   const handleImageChange = async (event) => {
@@ -66,41 +88,14 @@ export default function AddNew({ setIsOpen }) {
   async function onSubmit(values) {
     setIsLoad(true);
     try {
-      if (imageFile) {
-        const urls = await imageToUrl(imageFile);
-        if (urls) {
-          values.image = urls?.originalUrl;
-          const response = await fetch(
-            `http://localhost:3000/api/customer/add`,
-            {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(values),
-            }
-          );
-          const data = await response.json();
-          if (!response.ok) {
-            setIsLoad(false);
-            toast.error(data.error || "Something went wrong!");
-          } else {
-            router.refresh();
-            setIsOpen(false);
-            setIsLoad(false);
-            form.reset();
-            toast.success("Added Successfully !!!");
-            setTimeout(() => {
-              window.location.reload();
-            }, 500);
-          }
-        } else {
-          setIsLoad(false);
-          toast.error("Unable To Upload Image !!!");
-        }
+      const urls = await imageToUrl(imageFile);
+      if (urls) {
+        values.images = urls?.originalUrl;
+        uploadData(values);
       } else {
+        uploadData(values);
         setIsLoad(false);
-        toast.error("Please Upload Image !!!");
+        toast.error("Unable To Upload Image !!!");
       }
     } catch (e) {
       setIsLoad(false);
@@ -112,7 +107,7 @@ export default function AddNew({ setIsOpen }) {
     <>
       <DialogHeader>
         <DialogTitle className="text-textColor font-semibold ">
-          Add Customer
+          Add Category
         </DialogTitle>
       </DialogHeader>
       <Form {...form}>
@@ -120,7 +115,7 @@ export default function AddNew({ setIsOpen }) {
           <div className="grid  space-y-4 py-4">
             <FormField
               control={form.control}
-              name="title"
+              name="name"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Title</FormLabel>
@@ -134,12 +129,12 @@ export default function AddNew({ setIsOpen }) {
 
             <FormField
               control={form.control}
-              name="position"
+              name="slug"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Position</FormLabel>
+                  <FormLabel>Slug</FormLabel>
                   <FormControl>
-                    <Input placeholder="1" {...field} />
+                    <Input placeholder="unique-slug" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -170,24 +165,6 @@ export default function AddNew({ setIsOpen }) {
                 </div>
               )}
             </div>
-
-            <FormField
-              control={form.control}
-              name="description"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Description</FormLabel>
-                  <FormControl>
-                    <Textarea
-                      placeholder="Tell us a little bit about yourself"
-                      className="resize-none"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
           </div>
           <DialogFooter className="flex sm:justify-center ">
             {isLoad ? (

@@ -31,12 +31,13 @@ import { useRouter } from "next/navigation";
 import imageToUrl from "@nepaltechinnov/img-to-url";
 
 const formSchema = z.object({
-  image: z.string(),
-  position: z.preprocess((value) => parseInt(value, 10), z.number().optional()),
+  name: z.string().min(1, "Required"),
+  slug: z.string().min(1, "Slug is required"),
+  images: z.string(),
 });
 export default function EditForm({ data }) {
   const [imageFile, setImageFile] = useState();
-  const [imagePreview, setImagePreview] = useState(data?.image);
+  const [imagePreview, setImagePreview] = useState(data?.images);
   const [isLoad, setIsLoad] = useState(false);
   const [openBox, setOpenBox] = useState(false);
 
@@ -45,8 +46,9 @@ export default function EditForm({ data }) {
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      image: data?.image,
-      position: data?.position,
+      name: data?.name,
+      images: data?.images,
+      slug: data?.slug,
     },
   });
 
@@ -64,16 +66,13 @@ export default function EditForm({ data }) {
   };
 
   const updateData = async (values) => {
-    const response = await fetch(
-      `http://localhost:3000/api/soledistributor/edit`,
-      {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(values),
-      }
-    );
+    const response = await fetch(`http://localhost:3000/api/category/edit`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(values),
+    });
     const data = await response.json();
     if (!response.ok) {
       setIsLoad(false);
@@ -97,13 +96,13 @@ export default function EditForm({ data }) {
       if (imageFile) {
         const urls = await imageToUrl(imageFile);
         if (urls) {
-          values.image = urls?.originalUrl;
+          values.images = urls?.originalUrl;
           updateData(values);
         } else {
           toast.error("Unable To Upload Image !!!");
         }
       } else {
-        values.image = data?.image;
+        values.images = data?.images;
         updateData(values);
       }
     } catch (e) {
@@ -132,7 +131,7 @@ export default function EditForm({ data }) {
         >
           <DialogHeader>
             <DialogTitle className="text-textColor font-semibold ">
-              Edit Banner
+              Edit Product Category
             </DialogTitle>
           </DialogHeader>
           <Form {...form}>
@@ -140,12 +139,25 @@ export default function EditForm({ data }) {
               <div className="grid  space-y-4 py-4">
                 <FormField
                   control={form.control}
-                  name="position"
+                  name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Position</FormLabel>
+                      <FormLabel>Title</FormLabel>
                       <FormControl>
-                        <Input placeholder="1" {...field} />
+                        <Input placeholder="Title" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="slug"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Slug</FormLabel>
+                      <FormControl>
+                        <Input placeholder="unique-slug" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>

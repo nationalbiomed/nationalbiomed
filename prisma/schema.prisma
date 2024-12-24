@@ -87,13 +87,14 @@ model Category {
 
   products Product[]
 
-  @@map("pcategory")
+  @@map("category")
 }
 
 model Brand {
-  id   Int    @id @default(autoincrement())
-  name String
-  slug String
+  id     Int     @id @default(autoincrement())
+  name   String
+  slug   String
+  images String?
 
   products Product[]
 

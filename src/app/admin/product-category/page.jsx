@@ -13,13 +13,13 @@ export default function Banner() {
   const [data, setData] = useState([]);
   const getAllBanner = async () => {
     setIsLoading(true);
-    const res = await fetch("http://localhost:3000/api/banner");
+    const res = await fetch("http://localhost:3000/api/category");
     if (res.ok) {
       const result = await res.json();
       setData(result);
       setIsLoading(false);
     } else {
-      console.error("Error Fetching Banner");
+      console.error("Error Fetching Product Category");
       setIsLoading(false);
       return;
     }
@@ -32,7 +32,7 @@ export default function Banner() {
   return (
     <>
       <div className="flex mt-5 px-3  sm:mt-2 items-center justify-between mb-4 ">
-        <p className="text-xl font-medium sm:pb-0">Banner</p>
+        <p className="text-xl font-medium sm:pb-0">Product Category</p>
 
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
           <DialogTrigger asChild>
@@ -41,7 +41,7 @@ export default function Banner() {
               className="bg-textColor text-white px-3
   py-5   rounded-sm hover:opacity-85 hover:bg-textColor hover:text-white sm:space-x-3 sm:px-4   flex"
             >
-              <span className="hidden md:block">Add Banner</span>
+              <span className="hidden md:block">Add Category</span>
               <PlusIcon />
             </Button>
           </DialogTrigger>
@@ -63,7 +63,7 @@ export default function Banner() {
         </div>
       ) : (
         <h2 className="text-center text-2xl text-textColor h-[60vh] flex items-center justify-center">
-          No Banner found
+          No Product Category found
         </h2>
       )}
     </>
