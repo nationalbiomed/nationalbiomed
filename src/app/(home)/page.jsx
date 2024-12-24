@@ -40,8 +40,8 @@ export default async function Home() {
     <ErrorBoundary>
       <Suspense fallback={<div>Loading...</div>}>
         <ImageCarousel slides={banner} />
-        <Counter statsData={stat} />
         <ProductServices />
+        <Counter statsData={stat} />
         <Services />
         <OurCustomers Customers={customer} />
         <SoleDistributors Distributors={sole} />

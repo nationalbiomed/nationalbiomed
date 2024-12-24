@@ -66,7 +66,7 @@ export default function Counter({ statsData }) {
   }, []);
 
   return (
-    <div className="container mx-auto px-4 pt-12">
+    <div className="container mx-auto px-4 pt-5">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

@@ -1,6 +1,11 @@
 import { Card } from "@/components/ui/card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBed, faTv, faTabletScreenButton } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBed,
+  faTv,
+  faTabletScreenButton,
+} from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
 
 // Array of service items
 const serviceItems = [
@@ -8,55 +13,55 @@ const serviceItems = [
     id: 1,
     icon: faBed,
     title: "Hospital Bed",
-    link:"/"
+    link: "/",
   },
   {
     id: 2,
     icon: faTv,
     title: "Patient Monitor",
-      link:"/"
+    link: "/",
   },
   {
     id: 3,
     icon: faTabletScreenButton,
     title: "Tablet Ultrasound",
-      link:"/"
+    link: "/",
   },
   {
     id: 4,
     icon: faBed,
     title: "Deluxe Hospital Bed",
-      link:"/"
+    link: "/",
   },
   {
     id: 5,
     icon: faTv,
     title: "Smart Patient Monitor",
-      link:"/"
+    link: "/",
   },
   {
     id: 6,
     icon: faTabletScreenButton,
     title: "Portable Ultrasound",
-      link:"/"
+    link: "/",
   },
   {
     id: 7,
     icon: faBed,
     title: "Adjustable Hospital Bed",
-      link:"/"
+    link: "/",
   },
   {
     id: 8,
     icon: faTv,
     title: "Advanced Monitor",
-      link:"/"
+    link: "/",
   },
   {
     id: 9,
     icon: faBed,
     title: "Ergonomic Hospital Bed",
-      link:"/"
+    link: "/",
   },
 ];
 
@@ -79,11 +84,18 @@ export default function Services() {
 // ServiceCard component
 function ServiceCard({ icon, title, link }) {
   return (
-    <Card className="flex flex-col items-center p-4 transition-all duration-300 hover:shadow-lg group">
-      <div className="w-16 h-16 rounded-full bg-green-600  flex items-center justify-center mb-4 transition-all duration-300 group-hover:bg-primary">
-        <FontAwesomeIcon icon={icon} className="w-8 h-8 text-white transition-all duration-300 group-hover:text-primary-foreground" />
-      </div>
-     <a href={link}> <h3 className="text-sm md:text-base font-medium text-center">{title}</h3></a>
-    </Card>
+    <Link href={link}>
+      <Card className="flex flex-col items-center p-4 transition-all duration-300 hover:shadow-lg group">
+        <div className="w-16 h-16 rounded-full bg-green-600  flex items-center justify-center mb-4 transition-all duration-300 group-hover:bg-primary">
+          <FontAwesomeIcon
+            icon={icon}
+            className="w-8 h-8 text-white transition-all duration-300 group-hover:text-primary-foreground"
+          />
+        </div>{" "}
+        <h3 className="text-sm md:text-base font-medium text-center">
+          {title}
+        </h3>
+      </Card>
+    </Link>
   );
 }
