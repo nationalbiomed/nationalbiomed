@@ -65,6 +65,14 @@ export default function Sidebar() {
       </Link>
 
       <Link
+        href="/admin/blog"
+        className="w-full py-2 flex justify-center lg:justify-start xl:pl-4 gap-4 text-primary font-semibold hover:bg-inherit hover:text-green-600   "
+      >
+        <ImagePlay />
+        <span className="hidden lg:block">Blogs</span>
+      </Link>
+
+      <Link
         href="/admin/banner"
         className="w-full py-2 flex justify-center lg:justify-start xl:pl-4 gap-4 text-primary font-semibold hover:bg-inherit hover:text-green-600   "
       >
