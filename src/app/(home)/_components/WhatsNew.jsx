@@ -6,41 +6,7 @@ import { Card } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-const WhatsNewItems = [
-  {
-    id: 1,
-    label: "New AI-powered ultrasound technology unveiled",
-    img: "/whats-new.jpg",
-    slug: "#",
-    description:
-      "AI-powered ultrasound technology, revolutionizing medical imaging with enhanced accuracy and efficiency in diagnostics.",
-  },
-  {
-    id: 2,
-    label: "New AI-powered ultrasound technology unveiled",
-    img: "/hospitalbed.avif",
-    slug: "#",
-    description:
-      "AI-powered ultrasound technology, revolutionizing medical imaging with enhanced accuracy and efficiency in diagnostics.",
-  },
-  {
-    id: 3,
-    label: "Partnership announced with leading healthcare provider",
-    img: "/new.avif",
-    slug: "#",
-    description:
-      "Leading global healthcare provider to expand the reach of innovative medical imaging solutions and improve patient care worldwide.",
-  },
-];
-
-const FeaturedNews = {
-  img: "/whats.avif",
-  label: "Samsung Medison concludes acquisition of French AI Startup",
-  description:
-    "Foreign Direct Investment (FDI) to acquire 100% of the shares of Sonio, a French AI startup specializing in obstetrics ultrasound reporting software, and subsequently concluded the acquisition process on August 30.",
-};
-
-export default function WhatsNew() {
+export default function WhatsNew({ WhatsNewItems }) {
   const [hoveredId, setHoveredId] = useState(null);
 
   return (
@@ -50,36 +16,9 @@ export default function WhatsNew() {
           What&apos;s <span className="text-green-600">New</span>
         </h1>
 
-        {/* Featured News Section */}
-        {/* <div className="relative rounded-lg overflow-hidden aspect-video cursor-pointer md:aspect-[16/5] mb-8">
-          <Image
-            src={FeaturedNews.img}
-            alt="Featured news"
-            layout="fill"
-            objectFit="cover"
-          />
-          <motion.div
-            className="absolute inset-0 bg-green-950 p-4 sm:p-6 flex flex-col justify-end text-white"
-            initial={{ opacity: 0 }}
-            whileHover={{ opacity: 0.95 }}
-            transition={{ duration: 0.3 }}
-          >
-            <h2 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2">
-              {FeaturedNews.label}
-            </h2>
-            <p className="text-xs sm:text-sm mb-2 line-clamp-2 sm:line-clamp-3">
-              {FeaturedNews.description}
-            </p>
-            <button className="text-xs sm:text-sm underline self-start">
-              Learn More
-            </button>
-          </motion.div>
-        </div> */}
-
-        {/* List of What's New Items */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {WhatsNewItems.map((item) => (
-            <Link href={item.slug} key={item.id}>
+          {WhatsNewItems.blogs.map((item) => (
+            <Link href={`/pages/blog/${item.slug}`} key={item.id}>
               <Card
                 className="relative overflow-hidden bg-gray-100 rounded-none cursor-pointer"
                 onMouseEnter={() => setHoveredId(item.id)}
@@ -87,13 +26,13 @@ export default function WhatsNew() {
               >
                 <div className="aspect-video relative">
                   <Image
-                    src={item.img}
-                    alt={item.label}
+                    src={item.image}
+                    alt={item.title}
                     layout="fill"
                     objectFit="cover"
                   />
                 </div>
-                <h2 className="text-lg font-semibold p-4">{item.label}</h2>
+                <h2 className="text-lg font-semibold p-4">{item.title}</h2>
                 <motion.div
                   className="absolute inset-0 bg-green-950 p-4 flex flex-col justify-end text-white"
                   initial={{ opacity: 0, y: 20 }}
@@ -103,11 +42,13 @@ export default function WhatsNew() {
                   }}
                   transition={{ duration: 0.3 }}
                 >
-                  <h3 className="text-lg font-semibold mb-2">{item.label}</h3>
+                  <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
                   <p className="text-sm mb-4">{item.description}</p>
-                  <button className="text-sm underline self-start">
-                    Learn More
-                  </button>
+                  <Link href={`/pages/blog/${item.slug}`}>
+                    <button className="text-sm underline self-start">
+                      Learn More
+                    </button>
+                  </Link>
                 </motion.div>
               </Card>
             </Link>
