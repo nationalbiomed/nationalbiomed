@@ -19,12 +19,12 @@ const Product = [
 ];
 export default function ProductServices() {
   return (
-    <div className="flex flex-wrap justify-center my-16  ">
+    <div className="flex flex-wrap justify-center my-16  " >
       <Card className=" bg-gray-200 container max-w-8xl flex flex-col justify-center text-center items-center gap-4 py-16">
         <h1 className="sm:text-5xl text-2xl font-bold font-sans pb-12">
           Product & <span className="text-green-600"> Services</span>
         </h1>
-        <div className="grid grid-cols-2 px-4 md:grid-cols-4  sm:gap-6 gap-3">
+        <div className="grid grid-cols-2 px-4 md:grid-cols-4  sm:gap-6 gap-3 " data-aos="fade-up">
           {Product.map((items) => (
             <Card className="w-[100%] overflow-hidden" key={items.id}>
               <div className="overflow-hidden">
