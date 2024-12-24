@@ -18,7 +18,7 @@ const WhatsNewItems = [
   {
     id: 2,
     label: "New AI-powered ultrasound technology unveiled",
-    img: "/ultrasound.png",
+    img: "/hospitalbed.avif",
     slug: "#",
     description:
       "Samsung Medison introduces groundbreaking AI-powered ultrasound technology, revolutionizing medical imaging with enhanced accuracy and efficiency in diagnostics.",
@@ -26,7 +26,7 @@ const WhatsNewItems = [
   {
     id: 3,
     label: "Partnership announced with leading healthcare provider",
-    img: "/partnership.png",
+    img: "/new.avif",
     slug: "#",
     description:
       "Samsung Medison forms strategic partnership with a leading global healthcare provider to expand the reach of innovative medical imaging solutions and improve patient care worldwide.",
@@ -34,7 +34,7 @@ const WhatsNewItems = [
 ];
 
 const FeaturedNews = {
-  img: "/banner.webp",
+  img: "/whats.avif",
   label: "Samsung Medison concludes acquisition of French AI Startup",
   description:
     "Samsung Medison received approval from the French government for Foreign Direct Investment (FDI) to acquire 100% of the shares of Sonio, a French AI startup specializing in obstetrics ultrasound reporting software, and subsequently concluded the acquisition process on August 30.",
@@ -44,7 +44,7 @@ export default function WhatsNew() {
   const [hoveredId, setHoveredId] = useState(null);
 
   return (
-    <div className="w-full flex flex-col items-center pt-20 px-4 sm:px-6 lg:px-8">
+    <div className="w-full flex flex-col items-center pt-10 px-4 sm:px-6 lg:px-8">
       <Card className="bg-white border-none w-full max-w-7xl">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-sans pb-8 text-center">
           What&apos;s <span className="text-green-600">New</span>

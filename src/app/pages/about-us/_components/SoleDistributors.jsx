@@ -38,7 +38,7 @@ export default function SoleDistributors(){
         <div className="">
             <h1 className="text-4xl font-bold text-green-600  px-20 mb-7">Sole <span className="text-black">Distributors</span></h1>
 
-    <div className="grid grid-cols-4 gap-10 px-[50px] text-center" >
+    <div className="grid grid-cols-5 gap-10 px-[50px] text-center" >
         {Distributors.map((items)=>(
             <div className="flex flex-col items-center justify-center " key={items.id}>
                 <img src ={items.logo} className="w-40 "></img>
