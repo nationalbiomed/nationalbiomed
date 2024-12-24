@@ -8,9 +8,8 @@ export default function AboutUs() {
   return (
     <div>
     <Introduction />  
-    
-    <WhyUs />
     <Missions />
+    <WhyUs />
     {/* <WhyUs /> */}
     {/* <OurCustomers />   */}
     {/* <SoleDistributors /> */}
