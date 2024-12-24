@@ -4,16 +4,16 @@ import db from "@/lib/db";
 export async function GET() {
   try {
 
-    const totalProducts = await db.product.count();
-    const totalCustomers = await db.customer.count();
-    const totalTeamMembers = await db.team.count();
+    const Products = await db.product.count();
+    const Customers = await db.customer.count();
+    const TeamMembers = await db.team.count();
 
     
     return NextResponse.json(
       {
-        totalProducts,
-        totalCustomers,
-        totalTeamMembers,
+        Products,
+        Customers,
+        TeamMembers,
       },
       { status: 200 }
     );
