@@ -62,7 +62,7 @@ const serviceItems = [
 
 export default function Services() {
   return (
-    <section className="py-16 px-4 md:px-8">
+    <section className="py-[50px] px-4 md:px-8">
       <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-primary mb-12">
         Our <span className="text-green-600">Services</span>
       </h2>
