@@ -28,9 +28,18 @@ export async function GET(request) {
         const totalBlogs = await db.blog.count();
         const totalPages = Math.ceil(totalBlogs / limit);
 
+        // Process the blogs and trim the description to 100 characters
+        const processedBlogs = blogs.map(blog => {
+            const description = blog.description.replace(/<\/?[^>]+(>|$)/g, ""); // Strip HTML tags
+            return {
+                ...blog,
+                description: description.length > 100 ? description.substring(0, 100) + "..." : description,
+            };
+        });
+
         // Return paginated response with metadata
         return NextResponse.json({
-            blogs,
+            blogs: processedBlogs,
             meta: {
                 currentPage: page,
                 totalPages,
