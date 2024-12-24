@@ -9,11 +9,11 @@ import Link from "next/link";
 const WhatsNewItems = [
   {
     id: 1,
-    label: "Samsung Medison concludes acquisition of French AI Startup",
+    label: "New AI-powered ultrasound technology unveiled",
     img: "/whats-new.jpg",
     slug: "#",
     description:
-      "Samsung Medison received approval from the French government for Foreign Direct Investment (FDI) to acquire 100% of the shares of Sonio, a French AI startup specializing in obstetrics ultrasound reporting software, and subsequently concluded the acquisition process on August 30.",
+      "AI-powered ultrasound technology, revolutionizing medical imaging with enhanced accuracy and efficiency in diagnostics.",
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const WhatsNewItems = [
     img: "/hospitalbed.avif",
     slug: "#",
     description:
-      "Samsung Medison introduces groundbreaking AI-powered ultrasound technology, revolutionizing medical imaging with enhanced accuracy and efficiency in diagnostics.",
+      "AI-powered ultrasound technology, revolutionizing medical imaging with enhanced accuracy and efficiency in diagnostics.",
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ const WhatsNewItems = [
     img: "/new.avif",
     slug: "#",
     description:
-      "Samsung Medison forms strategic partnership with a leading global healthcare provider to expand the reach of innovative medical imaging solutions and improve patient care worldwide.",
+      "Leading global healthcare provider to expand the reach of innovative medical imaging solutions and improve patient care worldwide.",
   },
 ];
 
@@ -37,7 +37,7 @@ const FeaturedNews = {
   img: "/whats.avif",
   label: "Samsung Medison concludes acquisition of French AI Startup",
   description:
-    "Samsung Medison received approval from the French government for Foreign Direct Investment (FDI) to acquire 100% of the shares of Sonio, a French AI startup specializing in obstetrics ultrasound reporting software, and subsequently concluded the acquisition process on August 30.",
+    "Foreign Direct Investment (FDI) to acquire 100% of the shares of Sonio, a French AI startup specializing in obstetrics ultrasound reporting software, and subsequently concluded the acquisition process on August 30.",
 };
 
 export default function WhatsNew() {
@@ -45,13 +45,13 @@ export default function WhatsNew() {
 
   return (
     <div className="w-full flex flex-col items-center pt-10 px-4 sm:px-6 lg:px-8">
-      <Card className="bg-white border-none w-full max-w-7xl">
+      <div className="bg-white border-none w-full max-w-7xl">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-sans pb-8 text-center">
           What&apos;s <span className="text-green-600">New</span>
         </h1>
 
         {/* Featured News Section */}
-        <div className="relative rounded-lg overflow-hidden aspect-video cursor-pointer md:aspect-[16/5] mb-8">
+        {/* <div className="relative rounded-lg overflow-hidden aspect-video cursor-pointer md:aspect-[16/5] mb-8">
           <Image
             src={FeaturedNews.img}
             alt="Featured news"
@@ -74,14 +74,14 @@ export default function WhatsNew() {
               Learn More
             </button>
           </motion.div>
-        </div>
+        </div> */}
 
         {/* List of What's New Items */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {WhatsNewItems.map((item) => (
             <Link href={item.slug} key={item.id}>
               <Card
-                className="relative overflow-hidden bg-gray-100 rounded-lg cursor-pointer"
+                className="relative overflow-hidden bg-gray-100 rounded-none cursor-pointer"
                 onMouseEnter={() => setHoveredId(item.id)}
                 onMouseLeave={() => setHoveredId(null)}
               >
@@ -113,7 +113,7 @@ export default function WhatsNew() {
             </Link>
           ))}
         </div>
-      </Card>
+      </div>
     </div>
   );
 }
