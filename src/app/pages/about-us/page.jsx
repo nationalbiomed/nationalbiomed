@@ -13,7 +13,7 @@ export default function AboutUs() {
     <Missions />
     {/* <WhyUs /> */}
     {/* <OurCustomers />   */}
-    <SoleDistributors />
+    {/* <SoleDistributors /> */}
     </div>
   );
 }

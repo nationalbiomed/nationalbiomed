@@ -8,29 +8,32 @@ import ImageCarousel from "./_components/Carousel";
 import OurCustomers from "./_components/OurCustomers";
 import Services from "./_components/Services"
 import Counter from "./_components/Counter"
+import SoleDistributors from "./_components/Soledistributors"
 
 async function getData() {
-  const [bannerRes, customerRes, statRes] = await Promise.all([
+  const [bannerRes, customerRes, statRes, soleRes] = await Promise.all([
     fetch("http://localhost:3000/api/banner", { cache: "no-store" }),
     fetch("http://localhost:3000/api/customer", { cache: "no-store" }),
     fetch("http://localhost:3000/api/stat", { cache: "no-store" }),
+    fetch("http://localhost:3000/api/soledistributor", { cache: "no-store" }),
   ]);
 
-  if (!bannerRes.ok || !customerRes.ok || !statRes.ok) {
+  if (!bannerRes.ok || !customerRes.ok || !statRes.ok || !soleRes.ok) {
     throw new Error("Failed to fetch data");
   }
 
-  const [banner, customer, stat] = await Promise.all([
+  const [banner, customer, stat, sole] = await Promise.all([
     bannerRes.json(),
     customerRes.json(),
     statRes.json(),
+    soleRes.json(),
   ]);
 
-  return { banner, customer, stat };
+  return { banner, customer, stat, sole };
 }
 
 export default async function Home() {
-  const { banner, customer, stat } = await getData();
+  const { banner, customer, stat, sole } = await getData();
 
 
   return (
@@ -41,6 +44,7 @@ export default async function Home() {
         <ProductServices />
         <Services />
         <OurCustomers Customers={customer} />
+        <SoleDistributors Distributors={sole} />
         <WhatsNew />
       </Suspense>
     </ErrorBoundary>
