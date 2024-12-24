@@ -21,7 +21,7 @@ export default function OurCustomers({Customers}) {
           Our <span className="text-green-600">Customers</span>
         </h2>
         <div className="relative overflow-hidden">
-          <div className="flex gap-8 animate-marquee">
+          <div className="flex gap-8 animate-marquee" data-aos="fade-up">
             {[...Customers, ...Customers].map((customer, index) => (
               <CustomerCard key={`${customer.id}-${index}`} customer={customer} />
             ))}

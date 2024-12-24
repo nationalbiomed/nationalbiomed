@@ -72,7 +72,7 @@ export default function Services() {
         Our <span className="text-green-600">Services</span>
       </h2>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 max-w-7xl mx-auto">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 max-w-7xl mx-auto" data-aos="fade-up">
         {serviceItems.map((item) => (
           <ServiceCard key={item.id} {...item} />
         ))}
