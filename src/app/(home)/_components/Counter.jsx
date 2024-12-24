@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function StatItem({ number, label, duration, index }) {
   const [count, setCount] = useState(0);
@@ -28,13 +30,15 @@ function StatItem({ number, label, duration, index }) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="bg-background rounded-lg shadow-md overflow-hidden border border-gray-200 dark:border-gray-700 
-                 hover:border-[#3893C2] transition-all duration-300 group flex flex-col items-center justify-center p-6"
+                 hover:border-green-600 transition-all duration-300 group flex flex-col items-center justify-center p-6"
+      data-aos="fade-up"
+      data-aos-delay={index * 100} // AOS delay for staggered animation
     >
-      <span className="text-[#3893C2] text-4xl font-playpen font-bold mb-2 group-hover:scale-110 transition-transform duration-300">
+      <span className="text-green-600 text-4xl font-playpen font-bold mb-2 group-hover:scale-110 transition-transform duration-300">
         {count}+
       </span>
-      <span className="text-gray-600 dark:text-gray-300 text-sm font-josefin uppercase tracking-wider text-center group-hover:text-[#3893C2] transition-colors duration-300">
-        {label.split(' ').map((word, i) => (
+      <span className="text-gray-600 dark:text-gray-300 text-sm font-josefin uppercase tracking-wider text-center group-hover:text-green-600 transition-colors duration-300">
+        {label.split(" ").map((word, i) => (
           <span key={i} className="block">{word}</span>
         ))}
       </span>
@@ -43,11 +47,23 @@ function StatItem({ number, label, duration, index }) {
 }
 
 export default function Counter({ statsData }) {
+  // Helper function to convert camel case to spaced words
+  const formatLabel = (key) => {
+    return key
+      .replace(/([a-z])([A-Z])/g, "$1 $2") // Add space before uppercase letters
+      .replace(/_/g, " ") // Replace underscores with spaces
+      .replace(/\b\w/g, (char) => char.toUpperCase()); // Capitalize each word
+  };
+
   const transformedStats = Object.entries(statsData).map(([key, value]) => ({
-    label: key.replace(/_/g, ' '), // Convert underscores to spaces
+    label: formatLabel(key),
     number: value,
     duration: 2, // Adjust duration as needed
   }));
+
+  useEffect(() => {
+    AOS.init({ duration: 1000 }); // Initialize AOS with a default duration
+  }, []);
 
   return (
     <div className="container mx-auto px-4 pt-12">
