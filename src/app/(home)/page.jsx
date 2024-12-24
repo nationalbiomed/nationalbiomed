@@ -6,7 +6,7 @@ import Vision from "./_components/Vision";
 import WhatsNew from "./_components/WhatsNew";
 import ImageCarousel from "./_components/Carousel";
 import OurCustomers from "./_components/OurCustomers";
-import Services from "./_components/Services";
+import Services from "./_components/Services"
 
 async function getData() {
   const [bannerRes, customerRes] = await Promise.all([
@@ -35,6 +35,7 @@ export default async function Home() {
       <Suspense fallback={<div>Loading...</div>}>
         <ImageCarousel slides={banner} />
         <ProductServices />
+        <Services />
         <OurCustomers Customers={customer} />
         <WhatsNew />
       </Suspense>
