@@ -3,40 +3,9 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 
-const Customers = [
-  {
-    id: 1,
-    name: "Department of Health Services",
-    logo: "/OurCustomers/Emblem_of_Nepal.png",
-    description: "Ministry of Health",
-  },
-  {
-    id: 2,
-    name: "FHI360",
-    logo: "/OurCustomers/fhi360-logo.svg",
-    description: "Nepal Country Office",
-  },
-  {
-    id: 3,
-    name: "Opportunity Village Network",
-    logo: "/OurCustomers/OVN.jpg",
-    description: "Ministry of Health",
-  },
-  {
-    id: 4,
-    name: "Province Health Logistics Management Center",
-    logo: "/OurCustomers/Emblem_of_Nepal.png",
-    description: "Gandaki-Province",
-  },
-  {
-    id: 5,
-    name: "Save The Children",
-    logo: "/OurCustomers/stc_logo.svg",
-    description: "Nepal Country Office",
-  },
-];
 
-export default function OurCustomers() {
+
+export default function OurCustomers({Customers}) {
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -68,14 +37,14 @@ function CustomerCard({ customer }) {
     <div className="w-64 flex-shrink-0 bg-white rounded-lg shadow-md p-6 flex flex-col items-center justify-center transition-transform duration-300 hover:scale-105">
       <div className="w-24 h-24 relative mb-4">
         <Image
-          src={customer.logo}
-          alt={`${customer.name} logo`}
+          src={customer.image}
+          alt={`${customer.title} logo`}
           layout="fill"
           objectFit="contain"
         />
       </div>
       <h3 className="text-lg font-semibold text-green-600 text-center mb-2">
-        {customer.name}
+        {customer.title}
       </h3>
       <p className="text-sm text-gray-600 text-center">
         {customer.description}

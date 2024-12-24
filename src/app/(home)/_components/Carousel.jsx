@@ -8,34 +8,9 @@ import 'aos/dist/aos.css'
 import { Button } from "@/components/ui/button"
 import Header from "@/components/Header"
 
-const slides = [
-  {
-    url: "/banner.avif",
-    alt: "Surgical digital frontiers",
-    title: "Advancing Surgical Frontiers:",
-    subtitle: "Exploring the Potential ",
-    description: "Unlock the future of minimally invasive surgery with insights from top experts to enhance surgical precision and patient care.",
-    ctaText: "Learn More"
-  },
-  {
-    url: "/banner2.avif",
-    alt: "Smart healthcare future",
-    title: "Envision the Future",
-    subtitle: "of Smart Healthcare Solutions",
-    description: "Discover how AI and digital technologies are transforming patient care and clinical workflows.",
-    ctaText: "Explore Solutions"
-  },
-  {
-    url: "/banner3.avif",
-    alt: "Heart safe city initiative",
-    title: "Building Healthier Communities",
-    subtitle: "Through Advanced Medical Technology",
-    description: "Learn how our solutions are helping create safer, healthier communities worldwide.",
-    ctaText: "See Impact"
-  }
-]
 
-export default function ImageCarousel() {
+
+export default function ImageCarousel({slides}) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isAnimating, setIsAnimating] = useState(false)
 
@@ -85,8 +60,8 @@ export default function ImageCarousel() {
             className="relative w-full h-screen flex-shrink-0"
           >
             <Image
-              src={slide.url}
-              alt={slide.alt}
+              src={slide.image}
+              alt={slide.title}
               fill
               className="object-cover"
               priority={index === 0}
@@ -132,7 +107,7 @@ export default function ImageCarousel() {
                       variant="outline"
                       className="bg-white/10 text-white border-white/20 hover:bg-white/20 hover:text-white transition-all duration-300 ease-in-out transform hover:scale-105"
                     >
-                      {slide.ctaText}
+                      {slide.text}
                     </Button>
                   </div>
                 </div>
