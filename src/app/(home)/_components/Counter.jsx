@@ -29,7 +29,7 @@ function StatItem({ number, label, duration, index }) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="bg-background rounded-lg shadow-md overflow-hidden border border-gray-200 dark:border-gray-700 
+      className="bg-background rounded-lg shadow-md overflow-hidden border border-gray-200 dark:border-gray-700 mt-[50px]
                  hover:border-green-600 transition-all duration-300 group flex flex-col items-center justify-center p-6"
       data-aos="fade-up"
       data-aos-delay={index * 100} // AOS delay for staggered animation
