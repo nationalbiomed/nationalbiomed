@@ -52,7 +52,7 @@ export default function Related() {
       opts={{
         align: "start",
       }}
-      className="w-full  mb-[50px] "
+      className="w-full  mb-[50px] overflow-hidden "
     >
       <CarouselContent>
         {RelatedList.map((items, index) => (
