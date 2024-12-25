@@ -10,7 +10,7 @@ export default function WhatsNew({ WhatsNewItems }) {
   const [hoveredId, setHoveredId] = useState(null);
 
   return (
-    <div className="w-full flex flex-col items-center pt-10 px-4 sm:px-6 lg:px-8">
+    <div className="w-full flex flex-col items-center pt-10 px-4 sm:px-6 lg:px-8 mb-[100px]">
       <div className="bg-white border-none w-full max-w-7xl">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-sans pb-8 text-center">
           What&apos;s <span className="text-green-600">New</span>

@@ -1,5 +1,5 @@
 "use client";
-import { ChartNoAxesCombined } from "lucide-react";
+import { ChartNoAxesCombined, HandCoins, Layers2, Sparkles, User, Users, Wallpaper } from "lucide-react";
 
 import { useSession } from "next-auth/react";
 import {
@@ -26,7 +26,7 @@ export default function Sidebar() {
       </div>
       <Link
         href="/admin"
-        className="w-full  py-2 flex justify-center lg:justify-start xl:pl-4  gap-4 text-primary font-semibold hover:bg-textColor hover:text-green-600  "
+        className="w-full  py-2 flex justify-center lg:justify-start xl:pl-4  gap-4 text-primary font-semibold hover:bg-textColor hover:text-white  "
       >
         <LayoutGrid />
         <span className="hidden lg:block">Home</span>
@@ -44,7 +44,7 @@ export default function Sidebar() {
         href="/admin/customer"
         className="w-full py-2 flex justify-center lg:justify-start xl:pl-4 gap-4 text-primary font-semibold hover:bg-inherit hover:text-green-600   "
       >
-        <ImagePlay />
+        <User />
         <span className="hidden lg:block">Customer</span>
       </Link>
 
@@ -52,7 +52,7 @@ export default function Sidebar() {
         href="/admin/teams"
         className="w-full py-2 flex justify-center lg:justify-start xl:pl-4 gap-4 text-primary font-semibold hover:bg-inherit hover:text-green-600   "
       >
-        <ImagePlay />
+        <Users />
         <span className="hidden lg:block">Teams</span>
       </Link>
 
@@ -60,7 +60,7 @@ export default function Sidebar() {
         href="/admin/sole-distributor"
         className="w-full py-2 flex justify-center lg:justify-start xl:pl-4 gap-4 text-primary font-semibold hover:bg-inherit hover:text-green-600   "
       >
-        <ImagePlay />
+        <HandCoins />
         <span className="hidden lg:block">Sole Distributor</span>
       </Link>
 
@@ -68,7 +68,7 @@ export default function Sidebar() {
         href="/admin/blog"
         className="w-full py-2 flex justify-center lg:justify-start xl:pl-4 gap-4 text-primary font-semibold hover:bg-inherit hover:text-green-600   "
       >
-        <ImagePlay />
+        <Wallpaper />
         <span className="hidden lg:block">Blogs</span>
       </Link>
 
@@ -76,7 +76,7 @@ export default function Sidebar() {
         href="/admin/product-category"
         className="w-full py-2 flex justify-center lg:justify-start xl:pl-4 gap-4 text-primary font-semibold hover:bg-inherit hover:text-green-600   "
       >
-        <ImagePlay />
+        <LayoutGrid />
         <span className="hidden lg:block">Product Category</span>
       </Link>
 
@@ -84,7 +84,7 @@ export default function Sidebar() {
         href="/admin/brand"
         className="w-full py-2 flex justify-center lg:justify-start xl:pl-4 gap-4 text-primary font-semibold hover:bg-inherit hover:text-green-600   "
       >
-        <ImagePlay />
+        <Sparkles />
         <span className="hidden lg:block">Brand</span>
       </Link>
 
@@ -92,7 +92,7 @@ export default function Sidebar() {
         href="/admin/product"
         className="w-full py-2 flex justify-center lg:justify-start xl:pl-4 gap-4 text-primary font-semibold hover:bg-inherit hover:text-green-600   "
       >
-        <ImagePlay />
+        <Layers2   />
         <span className="hidden lg:block">Products</span>
       </Link>
       {/*
