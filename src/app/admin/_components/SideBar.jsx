@@ -34,7 +34,7 @@ export default function Sidebar() {
       {/* <div className="w-full  border border-textColor" /> */}
       <Link
         href="/admin/banner"
-        className="w-full py-2 flex justify-center lg:justify-start xl:pl-4 gap-4 text-primary font-semibold hover:bg-inherit hover:text-green-600   "
+       className="w-full  py-2 flex justify-center lg:justify-start xl:pl-4  gap-4 text-primary font-semibold hover:bg-textColor hover:text-white  "
       >
         <ImagePlay />
         <span className="hidden lg:block">Banner</span>
@@ -42,7 +42,7 @@ export default function Sidebar() {
 
       <Link
         href="/admin/customer"
-        className="w-full py-2 flex justify-center lg:justify-start xl:pl-4 gap-4 text-primary font-semibold hover:bg-inherit hover:text-green-600   "
+       className="w-full  py-2 flex justify-center lg:justify-start xl:pl-4  gap-4 text-primary font-semibold hover:bg-textColor hover:text-white  "
       >
         <User />
         <span className="hidden lg:block">Customer</span>
@@ -50,7 +50,7 @@ export default function Sidebar() {
 
       <Link
         href="/admin/teams"
-        className="w-full py-2 flex justify-center lg:justify-start xl:pl-4 gap-4 text-primary font-semibold hover:bg-inherit hover:text-green-600   "
+       className="w-full  py-2 flex justify-center lg:justify-start xl:pl-4  gap-4 text-primary font-semibold hover:bg-textColor hover:text-white  "
       >
         <Users />
         <span className="hidden lg:block">Teams</span>
@@ -58,7 +58,7 @@ export default function Sidebar() {
 
       <Link
         href="/admin/sole-distributor"
-        className="w-full py-2 flex justify-center lg:justify-start xl:pl-4 gap-4 text-primary font-semibold hover:bg-inherit hover:text-green-600   "
+       className="w-full  py-2 flex justify-center lg:justify-start xl:pl-4  gap-4 text-primary font-semibold hover:bg-textColor hover:text-white  "
       >
         <HandCoins />
         <span className="hidden lg:block">Sole Distributor</span>
@@ -66,7 +66,7 @@ export default function Sidebar() {
 
       <Link
         href="/admin/blog"
-        className="w-full py-2 flex justify-center lg:justify-start xl:pl-4 gap-4 text-primary font-semibold hover:bg-inherit hover:text-green-600   "
+       className="w-full  py-2 flex justify-center lg:justify-start xl:pl-4  gap-4 text-primary font-semibold hover:bg-textColor hover:text-white  "
       >
         <Wallpaper />
         <span className="hidden lg:block">Blogs</span>
@@ -74,7 +74,7 @@ export default function Sidebar() {
 
       <Link
         href="/admin/product-category"
-        className="w-full py-2 flex justify-center lg:justify-start xl:pl-4 gap-4 text-primary font-semibold hover:bg-inherit hover:text-green-600   "
+       className="w-full  py-2 flex justify-center lg:justify-start xl:pl-4  gap-4 text-primary font-semibold hover:bg-textColor hover:text-white  "
       >
         <LayoutGrid />
         <span className="hidden lg:block">Product Category</span>
@@ -82,7 +82,7 @@ export default function Sidebar() {
 
       <Link
         href="/admin/brand"
-        className="w-full py-2 flex justify-center lg:justify-start xl:pl-4 gap-4 text-primary font-semibold hover:bg-inherit hover:text-green-600   "
+       className="w-full  py-2 flex justify-center lg:justify-start xl:pl-4  gap-4 text-primary font-semibold hover:bg-textColor hover:text-white  "
       >
         <Sparkles />
         <span className="hidden lg:block">Brand</span>
@@ -90,7 +90,7 @@ export default function Sidebar() {
 
       <Link
         href="/admin/product"
-        className="w-full py-2 flex justify-center lg:justify-start xl:pl-4 gap-4 text-primary font-semibold hover:bg-inherit hover:text-green-600   "
+       className="w-full  py-2 flex justify-center lg:justify-start xl:pl-4  gap-4 text-primary font-semibold hover:bg-textColor hover:text-white  "
       >
         <Layers2   />
         <span className="hidden lg:block">Products</span>
@@ -135,7 +135,7 @@ export default function Sidebar() {
       </Link> */}
       <Link
         href="/admin/demands"
-        className="w-full py-2 flex justify-center lg:justify-start xl:pl-4 gap-4 text-primary font-semibold hover:bg-textColor hover:text-green-600   "
+        className="w-full py-2 flex justify-center lg:justify-start xl:pl-4 gap-4 text-primary font-semibold hover:bg-textColor hover:text-white   "
       >
         <ScanSearch />
         <span className="hidden lg:block">Careers</span>
@@ -181,7 +181,7 @@ export default function Sidebar() {
 
       <Link
         href="/api/auth/signout?callbackUrl=/"
-        className="w-full  py-2 flex justify-center lg:justify-start xl:pl-4 gap-4 text-primary font-semibold hover:bg-textColor hover:text-green-600   "
+        className="w-full  py-2 flex justify-center lg:justify-start xl:pl-4 gap-4 text-primary font-semibold hover:bg-textColor hover:text-white  "
       >
         <LogOut />
         <span className="hidden lg:block">Logout</span>
