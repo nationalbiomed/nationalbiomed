@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu } from "lucide-react";
+import { HandCoins, Layers2, Menu, Sparkles, User, Wallpaper } from "lucide-react";
 import {
   Sheet,
   SheetContent,
@@ -39,15 +39,15 @@ export default function MobileNav() {
 
   const links = [
     { href: "/admin", label: "Home", icon: LayoutGrid },
-    { href: "/admin/banner", label: "Products", icon: ImagePlay },
-    // { href: "/admin/country", label: "Country", icon: Flag },
-    // { href: "/admin/client", label: "Client", icon: UserCircle },
-    // { href: "/admin/sister_concern", label: "Client", icon: Users },
-    // { href: "/admin/testimonials", label: "Testimonials", icon: UserPen },
-    { href: "/admin/demands", label: "Career", icon: ScanSearch },
-    { href: "/admin/blog", label: "Blogs", icon: ClipboardCopy },
-    // { href: "/admin/teams", label: "Teams", icon: UsersRound },
-    // { href: "/admin/gallery", label: "Gallery", icon: Images },
+    { href: "/admin/banner", label: "Banner", icon: ImagePlay },
+    { href: "/admin/customer", label: "Customer", icon: User },
+    { href: "/admin/teams", label: "Teams", icon: Users },
+    { href: "/admin/sole-distributor", label: "Sole Distributor", icon: HandCoins },
+    { href: "/admin/blog", label: "Blog", icon: Wallpaper },
+    { href: "/admin/product-category", label: "Product Category", icon: LayoutGrid },
+    { href: "/admin/brand", label: "Brand", icon: Sparkles },
+    { href: "/admin/product", label: "Products", icon: Layers2 },
+    { href: "/admin/careers", label: "Careers", icon: ScanSearch },
     // { href: "/admin/document", label: "Document", icon: BookOpenText },
     { href: "/api/auth/signout?callbackUrl=/", label: "Logout", icon: LogOut },
   ];
