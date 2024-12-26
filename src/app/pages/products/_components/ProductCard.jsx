@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function ProductCard({ product }) {
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden">
-      <Link href={product.slug}>
+    <Link href={`/pages/products/${product.slug}`}>
         <div className="relative h-48">
           <Image
             src={product.pimage}
