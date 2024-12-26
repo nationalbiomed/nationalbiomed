@@ -23,8 +23,8 @@ export default function ProductList({ initialProducts, brands, categories }) {
   };
 
   return (
-    <div className="flex flex-col md:flex-row">
-      <div className="w-full md:w-1/4 mb-4 md:mb-0 md:mr-4">
+    <div className="container mx-auto px-4 py-8">
+      <div className="mb-4 md:hidden">
         <FilterSection 
           brands={brands}
           categories={categories}
@@ -35,10 +35,25 @@ export default function ProductList({ initialProducts, brands, categories }) {
           handleFilter={handleFilter}
         />
       </div>
-      <div className="w-full md:w-3/4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {products.map(product => (
-          <ProductCard key={product.id} product={product} />
-        ))}
+      <div className="flex flex-col md:flex-row">
+        <div className="hidden md:block md:w-1/4 md:pr-4">
+          <FilterSection 
+            brands={brands}
+            categories={categories}
+            selectedBrands={selectedBrands}
+            selectedCategories={selectedCategories}
+            setSelectedBrands={setSelectedBrands}
+            setSelectedCategories={setSelectedCategories}
+            handleFilter={handleFilter}
+          />
+        </div>
+        <div className="w-full md:w-3/4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {products.map(product => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
