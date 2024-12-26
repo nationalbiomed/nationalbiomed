@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { useInView } from "react-intersection-observer";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { title } from "process";
 
 const MENU_ITEMS = [
   {
@@ -34,6 +35,7 @@ const MENU_ITEMS = [
   { title: "ESG", href: "/esg" },
   { title: "About Us", href: "/pages/about-us" },
   { title: "Career", href: "/pages/careers" },
+  { title: "Contact Us", href: "/pages/contact" },
   {
     title: "Gallery",
     megaMenu: [
@@ -121,7 +123,9 @@ function NavBar({ isSticky }) {
         <div className="hidden md:block ">
           <ul className="flex space-x-6 text-sm">
             {MENU_ITEMS.map((item) => (
-              <li key={item.title} className="relative group">
+              <li key={item.title} className={`relative group${
+                !isSticky && item.title === "Contact Us" ? " hidden" : ""
+              }`}>
                 {item.megaMenu ? (
                   <>
                     <button

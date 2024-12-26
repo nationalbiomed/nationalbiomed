@@ -27,6 +27,7 @@ const MENU_ITEMS = [
   { title: "ESG", href: "/esg" },
   { title: "Career", href: "/pages/careers" },
   { title: "About Us", href: "/pages/about-us" },
+  { title: "Contact Us", href: "/pages/contact" },
 ];
 
 export default function Header() {
@@ -54,7 +55,7 @@ export default function Header() {
         ref={headerRef}
         className="w-full fixed top-0 left-0 right-0 z-50 bg-white"
       >
-        <TopNav />
+        {/* <TopNav /> */}
         <NavBar />
       </header>
       <div style={{ height: `${headerHeight}px` }} />
@@ -62,26 +63,6 @@ export default function Header() {
   );
 }
 
-function TopNav() {
-  return (
-    <div className="w-full border-b border-gray-300">
-      <div className="container max-w-7xl mx-auto flex justify-end">
-        <div className="text-xs px-3 py-3">
-          <ul className="flex space-x-3">
-            <li>
-              <Link
-                href="/pages/contact"
-                className="hover:text-primary transition-colors text-gray-800"
-              >
-                Contact Us
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 function NavBar() {
   return (
