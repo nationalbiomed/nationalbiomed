@@ -4,10 +4,20 @@ import db from "@/lib/db";
 export async function POST(request) {
   try {
     const body = await request.json();
-    const { title, slug, description, excrept, images, pimage, categoryId, brandId } = body;
+    const {
+      title,
+      slug,
+      description,
+      excerpt,
+      gallery,
+      pimage,
+      category,
+      brand,
+    } = body;
 
+    console.log(body);
     // Validate input data
-    if (!title || !slug || !categoryId || !brandId || !pimage) {
+    if (!title || !slug || !pimage) {
       return NextResponse.json(
         { error: "Missing required fields" },
         { status: 400 }
@@ -20,11 +30,11 @@ export async function POST(request) {
         title,
         slug,
         description,
-        excrept,
-        images,
+        excrept: excerpt,
+        images: gallery,
         pimage,
-        categoryId,
-        brandId,
+        categoryId: Number(category),
+        brandId: Number(brand),
       },
     });
 
