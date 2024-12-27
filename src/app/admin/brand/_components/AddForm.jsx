@@ -105,7 +105,7 @@ export default function AddNew({ setIsOpen }) {
     <>
       <DialogHeader>
         <DialogTitle className="text-textColor font-semibold ">
-          Add Category
+          Add Brand
         </DialogTitle>
       </DialogHeader>
       <Form {...form}>
@@ -147,7 +147,6 @@ export default function AddNew({ setIsOpen }) {
                   type="file"
                   accept="image/*"
                   onChange={handleImageChange}
-                
                 />
               </div>
 

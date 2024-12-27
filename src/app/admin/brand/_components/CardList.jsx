@@ -16,11 +16,13 @@ export default function CardList({ data, setData }) {
               key={index}
               className="flex  relative   w-[300px] h-[100%] flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70"
             >
-              <img
-                className="w-full  h-[220px] object-cover "
-                src={data?.images}
-                alt="Card Image"
-              />
+              {data?.images && (
+                <img
+                  className="w-full  h-[220px] object-cover "
+                  src={data?.images}
+                  alt="Card Image"
+                />
+              )}
 
               <div className="p-4 md:px-3  md:py-4 ">
                 <div className="">
@@ -34,7 +36,7 @@ export default function CardList({ data, setData }) {
                   <div className="w-[50%]">
                     <DeleteForm
                       id={data?.id}
-                      title={"Product Category"}
+                      title={"Brand"}
                       url={"http://localhost:3000/api/brand/delete"}
                       onDelete={handleDeleteCallback}
                     />
