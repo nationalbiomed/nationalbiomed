@@ -214,7 +214,6 @@ export default function AddNew({ setIsOpen, category, brand }) {
               <Input
                 type="file"
                 accept="image/*"
-                required={true}
                 multiple
                 className="block w-full px-3 py-2 border rounded-none border-gray-300 shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                 id="gallery-upload"

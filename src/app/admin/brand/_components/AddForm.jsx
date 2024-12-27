@@ -147,7 +147,7 @@ export default function AddNew({ setIsOpen }) {
                   type="file"
                   accept="image/*"
                   onChange={handleImageChange}
-                  required
+                
                 />
               </div>
 

@@ -74,7 +74,7 @@ export default function MobileNav() {
         <div>
           <Link
             href={"/admin"}
-            className="w-full  py-2 flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-green-600 "
+              className="w-full py-2  flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-white "
             onClick={handleClose}
           >
             <LayoutGrid />
@@ -83,80 +83,91 @@ export default function MobileNav() {
 
           <Link
             href={"/admin/banner"}
-            className="w-full py-2  flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-green-600 "
+            className="w-full py-2  flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-white "
             onClick={handleClose}
           >
             <ImagePlay />
-            <span className="lg:block">Products</span>
+            <span className="lg:block">Banner</span>
           </Link>
-{/* 
+
           <Link
-            href={"/admin/country"}
-            className="w-full py-2  flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-green-600 "
-            onClick={handleClose}
-          >
-            <Flag />
-            <span className="lg:block">Country</span>
-          </Link> */}
+        href={"/admin/customer"}
+         className="w-full py-2  flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-white "
+      >
+        <User />
+        <span className=" lg:block">Customer</span>
+      </Link>
 
-          {/* <Link
-            href={"/admin/client"}
-            className="w-full py-2  flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-green-600 "
-            onClick={handleClose}
-          >
-            <UserCircle />
-            <span className="lg:block">Client</span>
-          </Link> */}
+      <Link
+        href="/admin/teams"
+         className="w-full py-2  flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-white "
+      >
+        <Users />
+        <span className=" lg:block">Teams</span>
+      </Link>
 
-          {/* <Link
-            href={"/admin/client-list"}
-            className="w-full py-2  flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-green-600 "
-            onClick={handleClose}
-          >
-            <UsersRound />
-            <span className="lg:block">Client List</span>
-          </Link> */}
+      <Link
+        href="/admin/sole-distributor"
+       className="w-full py-2  flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-white "
+      >
+        <HandCoins />
+        <span className=" lg:block">Sole Distributor</span>
+      </Link>
 
-          {/* <Link
-            href={"/admin/sister_concern"}
-            className="w-full py-2 flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-green-600 "
-            onClick={handleClose}
-          >
-            <Handshake />
-            <span className="lg:block">Sister Concern</span>
-          </Link> */}
+      <Link
+        href="/admin/blog"
+         className="w-full py-2  flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-white "
+      >
+        <Wallpaper />
+        <span className=" lg:block">Blogs</span>
+      </Link>
 
-          {/* <Link
-            href={"/admin/testimonials"}
-            className="w-full py-2 flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-green-600 "
-            onClick={handleClose}
-          >
-            <UserPen />
-            <span className="lg:block">Testimonials</span>
-          </Link> */}
+      <Link
+        href="/admin/product-category"
+         className="w-full py-2  flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-white "
+      >
+        <LayoutGrid />
+        <span className=" lg:block">Product Category</span>
+      </Link>
+
+      <Link
+        href="/admin/brand"
+        className="w-full py-2  flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-white "
+      >
+        <Sparkles />
+        <span className=" lg:block">Brand</span>
+      </Link>
+
+      <Link
+        href="/admin/product"
+        className="w-full py-2  flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-white "
+      >
+        <Layers2   />
+        <span className=" lg:block">Products</span>
+      </Link>
 
           <Link
             href={"/admin/demands"}
-            className="w-full py-2 flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-green-600 "
+             className="w-full py-2  flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-white "
             onClick={handleClose}
           >
             <ScanSearch />
             <span className="lg:block">Career</span>
           </Link>
 
-          <Link
+          {/* <Link
             href={"/admin/blog"}
-            className="w-full py-2 flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-green-600 "
+             className="w-full py-2  flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-white "
             onClick={handleClose}
           >
             <ClipboardCopy />
             <span className="lg:block">Blogs</span>
-          </Link>
+          </Link> */}
 
           {session?.token?.email === "admin@nepaltech.com" && (
             <Link
               href="/admin/users"
-              className="w-full py-2 flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-green-600 "
+               className="w-full py-2  flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-white "
               onClick={handleClose} // Close the sheet for admin-specific link
             >
               <CircleUserRound />
@@ -192,7 +203,7 @@ export default function MobileNav() {
 
           <Link
             href={"/api/auth/signout?callbackUrl=/"}
-            className="w-full py-2 flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-green-600 "
+             className="w-full py-2  flex lg:justify-start lg:pl-6 gap-4 text-primary font-semibold hover:bg-textColor hover:text-white "
             onClick={handleClose}
           >
             <LogOut />
