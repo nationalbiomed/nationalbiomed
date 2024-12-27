@@ -22,13 +22,8 @@ import {
 } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { createSlug } from "../../../../lib/slugify";
+
 import dynamic from "next/dynamic";
 
 const ReactQuill = dynamic(() => import("react-quill-new"), { ssr: false });
@@ -36,7 +31,6 @@ import "react-quill-new/dist/quill.snow.css";
 
 const formSchema = z.object({
   title: z.string().min(1, "Title is required"),
-  slug: z.string().min(1, "Slug is required"),
   image: z.instanceof(File).optional(),
   description: z.string().min(1, "Description is required"),
 });
@@ -70,11 +64,12 @@ const AddBlogForm = ({ setIsOpen }) => {
 
   const onSubmit = async (values) => {
     setIsLoad(true);
+    values.slug = createSlug(values.title);
     try {
       if (values.image) {
         const urls = await imageToUrl(values.image);
         if (urls) {
-          values.image = urls?.originalUrl;
+          values.image = urls?.mediumUrl;
 
           const response = await fetch("http://localhost:3000/api/blog/add", {
             method: "POST",
@@ -131,37 +126,6 @@ const AddBlogForm = ({ setIsOpen }) => {
                 </FormItem>
               )}
             />
-            <FormField
-              control={form.control}
-              name="slug"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Slug</FormLabel>
-                  <FormControl>
-                    <Input placeholder="unique-slug" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <Controller
-              name="description"
-              control={form.control}
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Description</FormLabel>
-                  <FormControl>
-                    <ReactQuill
-                      theme="snow"
-                      value={field.value}
-                      onChange={field.onChange}
-                      placeholder="Write a detailed description here"
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
 
             <FormField
               control={form.control}
@@ -187,6 +151,24 @@ const AddBlogForm = ({ setIsOpen }) => {
                       className="mt-4"
                     />
                   )}
+                </FormItem>
+              )}
+            />
+            <Controller
+              name="description"
+              control={form.control}
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Description</FormLabel>
+                  <FormControl>
+                    <ReactQuill
+                      theme="snow"
+                      value={field.value}
+                      onChange={field.onChange}
+                      placeholder="Write a detailed description here"
+                    />
+                  </FormControl>
+                  <FormMessage />
                 </FormItem>
               )}
             />

@@ -30,13 +30,13 @@ import { Input } from "@/components/ui/input";
 import { Dialog } from "@/components/ui/dialog";
 import { EditIcon } from "lucide-react";
 import dynamic from "next/dynamic";
+import { createSlug } from "../../../../lib/slugify";
 
 const ReactQuill = dynamic(() => import("react-quill-new"), { ssr: false });
 import "react-quill-new/dist/quill.snow.css";
 
 const formSchema = z.object({
   title: z.string().min(1, "Title is required"),
-  slug: z.string().min(1, "Slug is required"),
   image: z.union([z.string(), z.instanceof(File)]).optional(),
   description: z.string().min(1, "Description is required"),
 });
@@ -75,10 +75,11 @@ export default function EditForm({ blogData }) {
     setIsLoad(true);
     try {
       values.id = blogData?.id;
+      values.slug = createSlug(values.title);
       if (imageFile) {
         const urls = await imageToUrl(imageFile);
         if (urls) {
-          values.image = urls?.originalUrl;
+          values.image = urls?.mediumUrl;
         } else {
           throw new Error("Unable to upload image!");
         }
@@ -151,37 +152,6 @@ export default function EditForm({ blogData }) {
                   </FormItem>
                 )}
               />
-              <FormField
-                control={form.control}
-                name="slug"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Slug</FormLabel>
-                    <FormControl>
-                      <Input placeholder="unique-slug" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <Controller
-                name="description"
-                control={form.control}
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Description</FormLabel>
-                    <FormControl>
-                      <ReactQuill
-                        theme="snow"
-                        value={field.value}
-                        onChange={field.onChange}
-                        placeholder="Write a detailed description here"
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
 
               <FormField
                 control={form.control}
@@ -209,6 +179,24 @@ export default function EditForm({ blogData }) {
                         />
                       </div>
                     )}
+                  </FormItem>
+                )}
+              />
+              <Controller
+                name="description"
+                control={form.control}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Description</FormLabel>
+                    <FormControl>
+                      <ReactQuill
+                        theme="snow"
+                        value={field.value}
+                        onChange={field.onChange}
+                        placeholder="Write a detailed description here"
+                      />
+                    </FormControl>
+                    <FormMessage />
                   </FormItem>
                 )}
               />
