@@ -85,7 +85,7 @@ export default function AddNew({ setIsOpen }) {
         const urls = await imageToUrl(imageFile);
         if (urls) {
           values.image = urls?.originalUrl;
-          const response = await fetch(`http://localhost:3000/api/team/add`, {
+          const response = await fetch(`https://nationalbiomedical.vercel.app/api/team/add`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

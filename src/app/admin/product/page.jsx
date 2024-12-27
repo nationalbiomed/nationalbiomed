@@ -15,7 +15,7 @@ export default function Banner() {
   const [category, setCategory] = useState([]);
   const getAllBanner = async () => {
     setIsLoading(true);
-    const res = await fetch("http://localhost:3000/api/product");
+    const res = await fetch("https://nationalbiomedical.vercel.app/api/product");
     if (res.ok) {
       const result = await res.json();
       setData(result?.data);
@@ -28,7 +28,7 @@ export default function Banner() {
   };
 
   const getAllBrand = async () => {
-    const res = await fetch("http://localhost:3000/api/brand");
+    const res = await fetch("https://nationalbiomedical.vercel.app/api/brand");
     if (res.ok) {
       const result = await res.json();
       setBrand(result);
@@ -39,7 +39,7 @@ export default function Banner() {
   };
 
   const getAllCategory = async () => {
-    const res = await fetch("http://localhost:3000/api/category");
+    const res = await fetch("https://nationalbiomedical.vercel.app/api/category");
     if (res.ok) {
       const result = await res.json();
       setCategory(result);
