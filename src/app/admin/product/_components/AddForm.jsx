@@ -35,12 +35,12 @@ import {
 } from "@/components/ui/select";
 import "react-quill-new/dist/quill.snow.css";
 import dynamic from "next/dynamic";
+import { createSlug } from "../../../../lib/slugify";
 
 const ReactQuill = dynamic(() => import("react-quill-new"), { ssr: false });
 
 const formSchema = z.object({
   title: z.string().min(1, "Required"),
-  slug: z.string().min(1, "Required"),
   pimage: z.string(),
   description: z.string().optional(),
   excerpt: z.string().optional(),
@@ -96,6 +96,7 @@ export default function AddNew({ setIsOpen, category, brand }) {
       values.gallery = galleryImages;
       values.category = cat;
       values.brand = selectedBrand;
+      values.slug = createSlug(values.title);
 
       const response = await fetch(`/api/product/add`, {
         method: "POST",
@@ -112,6 +113,9 @@ export default function AddNew({ setIsOpen, category, brand }) {
       toast.success("Product  added successfully!");
       setIsOpen(false);
       router.refresh();
+      setTimeout(() => {
+        window.location.reload();
+      }, 500);
     } catch (error) {
       toast.error(error.message || "Something went wrong!");
       setIsLoading(false);
@@ -135,20 +139,6 @@ export default function AddNew({ setIsOpen, category, brand }) {
                 <FormLabel>Title</FormLabel>
                 <FormControl>
                   <Input placeholder="Title" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name="slug"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Slug</FormLabel>
-                <FormControl>
-                  <Input placeholder="unique-slug" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
