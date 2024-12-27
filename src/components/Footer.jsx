@@ -49,7 +49,7 @@ export function Footer2() {
 export function Footer1() {
   return (
     <footer className="relative z-10 bg-gray-900 text-white pt-10  lg:pt-10 pb-10 mt-10 ">
-      <div className="container max-w-8xl mx-auto px-4">
+      <div className="container max-w-7xl mx-auto px-4">
         <div className="flex flex-wrap  justify-between">
           <div className="w-full px-4 sm:w-2/3 lg:w-3/12">
             <div className="mb-10 w-full">
@@ -60,9 +60,9 @@ export function Footer1() {
                   className="h-16 md:h-32 w-auto object-contain"
                 />
               </Link>
-              {/* <p className="mb-7 text-base text-gray-300 text-justify">
-                Your one-stop shop for all your e-commerce needs. Quality products, fast shipping, and excellent customer service.
-              </p> */}
+              <p className="mb-7 text-base text-gray-300 text-justify">
+                National Biomedical Suppliers Pvt. Ltd.
+              </p>
 
               <h4 className="mb-2 text-lg font-semibold text-white">
                 Follow Us On
@@ -94,15 +94,15 @@ export function Footer1() {
           </div>
 
           <LinkGroup header="Shop">
-            <NavLink href="/products" label="All Products" />
-            <NavLink href="/categories" label="Categories" />
+            <NavLink href="/pages/products" label="All Products" />
+            {/* <NavLink href="/categories" label="Categories" /> */}
             {/* <NavLink href="/deals" label="Special Deals" /> */}
           </LinkGroup>
-          <LinkGroup header="Customer Service">
+          {/* <LinkGroup header="Customer Service">
             <NavLink href="/faq" label="FAQ" />
             <NavLink href="/shipping" label="Shipping Info" />
             <NavLink href="/returns" label="Returns & Exchanges" />
-          </LinkGroup>
+          </LinkGroup> */}
           <LinkGroup header="Company">
             <NavLink href="/pages/about-us" label="About Us" />
             <NavLink href="/pages/contact" label="Contact Us" />
@@ -110,7 +110,7 @@ export function Footer1() {
             <NavLink href="/pages/legal/privacy-policy" label="Privacy Policy" />
           </LinkGroup>
 
-          <div className="w-full px-4 sm:w-1/2 lg:w-3/12">
+          <div className="w-full px-4 sm:w-1/2 lg:w-4/12">
             <div className="mb-10 w-full">
               <h4 className="mb-4 text-lg font-semibold text-white">
                 Contact Us
@@ -129,7 +129,7 @@ export function Footer1() {
                   <span className="text-sm">Customer Support:</span>
                 </div>
                 
-                <ContactLink href="tel:+1234567890" label="1-800-123-4567" />
+                <ContactLink href="tel:01-4222353" label="01-4222353" />
               </div>
               <EmailList />
             </div>
@@ -218,10 +218,10 @@ function EmailList() {
         <span className="text-sm font-semibold">Email Us:</span>
       </p>
       <a
-            href="mailto:support@yourecommerce.com"
+            href="mailto:biomedsuppliers2018@gmail.com"
             className="hover:text-white transition-colors duration-200"
           >
-            info@nationalbiomed.com
+            biomedsuppliers2018@gmail.com
           </a>
     </div>
   );
