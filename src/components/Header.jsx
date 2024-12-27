@@ -16,6 +16,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { title } from "process";
 
 const MENU_ITEMS = [
+  { title: "Our Products", href: "/pages/products" },
   {
     title: "Products & Solutions",
     megaMenu: [
@@ -24,25 +25,10 @@ const MENU_ITEMS = [
       { title: "Solutions", href: "/solutions" },
     ],
   },
-  {
-    title: "Innovations",
-    megaMenu: [
-      { title: "Research", href: "/innovations/research" },
-      { title: "Development", href: "/innovations/development" },
-    ],
-  },
-  { title: "Services", href: "/pages/product-and-services" },
-  { title: "ESG", href: "/esg" },
   { title: "About Us", href: "/pages/about-us" },
-  { title: "Career", href: "/pages/careers" },
+  // { title: "Career", href: "/pages/careers" },
+  { title: "Teams", href: "/pages/teams" },
   { title: "Contact Us", href: "/pages/contact" },
-  {
-    title: "Gallery",
-    megaMenu: [
-      { title: "Photo", href: "/pages/gallery/images" },
-      { title: "Video", href: "/pages/gallery/videos" },
-    ],
-  },
 ];
 
 export default function Header() {
