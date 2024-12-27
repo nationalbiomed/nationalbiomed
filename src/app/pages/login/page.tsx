@@ -62,7 +62,7 @@ function LoginPage() {
   }
 
   return (
-    <Card className="mx-auto my-[2%] w-[30%]">
+    <Card className="mx-auto my-[2%] w-[90%] md:w-[40%] lg:w-[30%]">
       <CardHeader>
         <CardTitle className="text-2xl text-textColor">Log In</CardTitle>
         {/* Divider */}

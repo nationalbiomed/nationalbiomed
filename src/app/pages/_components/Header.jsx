@@ -118,7 +118,7 @@ function NavBar() {
 
         <div className="flex items-center space-x-4">
           <Link
-            href="/account"
+            href="/pages/login"
             className="hover:text-primary transition-colors text-gray-800"
           >
             <User className="w-6 h-6" />

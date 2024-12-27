@@ -170,7 +170,7 @@ function NavBar({ isSticky }) {
 
         <div className="flex items-center space-x-4">
           <Link
-            href="/account"
+            href="/pages/login"
             className={`hover:text-primary transition-colors ${
               isSticky ? "text-gray-800" : "text-gray-800"
             }`}
