@@ -95,7 +95,6 @@ export default function AddNew({ setIsOpen }) {
       } else {
         uploadData(values);
         setIsLoad(false);
-        toast.error("Unable To Upload Image !!!");
       }
     } catch (e) {
       setIsLoad(false);
@@ -149,7 +148,6 @@ export default function AddNew({ setIsOpen }) {
                   type="file"
                   accept="image/*"
                   onChange={handleImageChange}
-                  required
                 />
               </div>
 
