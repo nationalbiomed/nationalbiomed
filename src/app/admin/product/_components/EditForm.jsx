@@ -51,12 +51,12 @@ const formSchema = z.object({
   excerpt: z.string().optional(),
 });
 export default function EditForm({ data, brand, category }) {
-  const [imagePreview, setImagePreview] = useState(null);
-  const [galleryImages, setGalleryImages] = useState([]);
+  const [imagePreview, setImagePreview] = useState(data?.pimage);
+  const [galleryImages, setGalleryImages] = useState(data?.images || []);
   const [isLoading, setIsLoading] = useState(false);
   const [openBox, setOpenBox] = useState(false);
 
-  const [cat, setCat] = useState(category[0]?.id);
+  const [cat, setCat] = useState(data?.category?.id);
   const [selectedBrand, setSelectedBrand] = useState(brand[0]?.id);
 
   const router = useRouter();
@@ -64,11 +64,11 @@ export default function EditForm({ data, brand, category }) {
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      title: "",
-      slug: "",
-      pimage: "",
-      excerpt: "",
-      description: "",
+      title: data?.title,
+      slug: data?.slug,
+      pimage: data?.pimage,
+      excerpt: data?.excrept,
+      description: data?.description,
     },
   });
 
@@ -77,7 +77,7 @@ export default function EditForm({ data, brand, category }) {
     const file = event.target.files?.[0];
     if (file) {
       const urls = await imageToUrl(file);
-      setImagePreview(urls.mediumUrl);
+      setImagePreview(urls.originalUrl);
     }
   };
 
@@ -85,7 +85,7 @@ export default function EditForm({ data, brand, category }) {
   const handleGalleryChange = async (event) => {
     const files = Array.from(event.target.files);
     const uploadedUrls = await Promise.all(
-      files.map((file) => imageToUrl(file).then((res) => res.mediumUrl))
+      files.map((file) => imageToUrl(file).then((res) => res.originalUrl))
     );
     setGalleryImages((prev) => [...prev, ...uploadedUrls]);
   };
@@ -98,14 +98,15 @@ export default function EditForm({ data, brand, category }) {
   const onSubmit = async (values) => {
     setIsLoading(true);
     try {
+      values.id = data?.id;
       values.pimage = imagePreview;
       values.gallery = galleryImages;
       values.category = cat;
       values.brand = selectedBrand;
       values.slug = createSlug(values.title);
 
-      const response = await fetch(`/api/product/add`, {
-        method: "POST",
+      const response = await fetch(`/api/product/edit`, {
+        method: "PATCH",
         headers: {
           "Content-Type": "application/json",
         },
@@ -113,15 +114,15 @@ export default function EditForm({ data, brand, category }) {
       });
 
       if (!response.ok) {
-        throw new Error("Error adding Product");
+        throw new Error("Error Updating Product");
       }
 
-      toast.success("Product  added successfully!");
-      setIsOpen(false);
+      toast.success("Product Updated successfully!");
+      setOpenBox(false);
       router.refresh();
       setTimeout(() => {
         window.location.reload();
-      }, 500);
+      }, 1000);
     } catch (error) {
       toast.error(error.message || "Something went wrong!");
       setIsLoading(false);
@@ -173,7 +174,7 @@ export default function EditForm({ data, brand, category }) {
                 <h3>Select Category</h3>
                 <Select onValueChange={(value) => setCat(value)}>
                   <SelectTrigger>
-                    <SelectValue placeholder={category[0]?.name} />
+                    <SelectValue placeholder={data?.category?.name} />
                   </SelectTrigger>
                   <SelectContent>
                     {category.map((d) => (
@@ -189,7 +190,7 @@ export default function EditForm({ data, brand, category }) {
                 <h3>Select Brand</h3>
                 <Select onValueChange={(value) => setSelectedBrand(value)}>
                   <SelectTrigger>
-                    <SelectValue placeholder={brand[0]?.name} />
+                    <SelectValue placeholder={data?.brand?.name} />
                   </SelectTrigger>
                   <SelectContent>
                     {brand.map((d) => (
@@ -206,7 +207,6 @@ export default function EditForm({ data, brand, category }) {
                 <Input
                   type="file"
                   accept="image/*"
-                  required={true}
                   onChange={handleImageChange}
                 />
                 {imagePreview && (

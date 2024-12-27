@@ -4,14 +4,20 @@ import db from "@/lib/db";
 export async function PATCH(request) {
   try {
     const body = await request.json();
-    const { id, title, slug, description, excrept, images, pimage, categoryId, brandId } = body;
-
+    const {
+      id,
+      title,
+      slug,
+      description,
+      excerpt,
+      gallery,
+      pimage,
+      category,
+      brand,
+    } = body;
     // Validate request body
     if (!id) {
-      return NextResponse.json(
-        { error: "'id' is required" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "'id' is required" }, { status: 400 });
     }
 
     // Update the product with the provided data
@@ -21,11 +27,11 @@ export async function PATCH(request) {
         title,
         slug,
         description,
-        excrept,
-        images,
+        excrept: excerpt,
+        images: gallery,
         pimage,
-        categoryId,
-        brandId,
+        categoryId: Number(category),
+        brandId: Number(brand),
       },
     });
 

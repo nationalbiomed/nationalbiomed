@@ -71,7 +71,7 @@ export default function AddNew({ setIsOpen, category, brand }) {
     const file = event.target.files?.[0];
     if (file) {
       const urls = await imageToUrl(file);
-      setImagePreview(urls.mediumUrl);
+      setImagePreview(urls.originalUrl);
     }
   };
 
