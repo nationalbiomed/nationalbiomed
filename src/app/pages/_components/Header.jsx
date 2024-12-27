@@ -19,7 +19,7 @@ const MENU_ITEMS = [
   },
   { title: "About Us", href: "/pages/about-us" },
   // { title: "Career", href: "/pages/careers" },
-  { title: "Teams", href: "/pages/teams" },
+  { title: "Teams", href: "/pages/team" },
   { title: "Contact Us", href: "/pages/contact" },
 ];
 
