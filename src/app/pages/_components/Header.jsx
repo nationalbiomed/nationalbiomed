@@ -65,8 +65,8 @@ function NavBar() {
             <Image
               src="/nationallogo.png"
               alt="logo"
-              width={64}
-              height={64}
+              width={120}
+              height={120}
               className="w-full h-auto object-contain"
             />
           </Link>

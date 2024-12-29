@@ -25,7 +25,9 @@ const staggerChildren = {
 };
 
 export default function ProductDetail({ product }) {
-  const [selectedImage, setSelectedImage] = useState(product.images[0]);
+  // Include `pimage` in the images array
+  const allImages = [product.pimage, ...product.images];
+  const [selectedImage, setSelectedImage] = useState(allImages[0]);
 
   return (
     <motion.div
@@ -38,7 +40,7 @@ export default function ProductDetail({ product }) {
         {/* Left side - Image Gallery */}
         <motion.div className="flex gap-4" variants={fadeInUp}>
           <div className="flex flex-col gap-4">
-            {product.images.map((image, index) => (
+            {allImages.map((image, index) => (
               <button
                 key={`${image}-${index}`} // Combine image URL and index for unique key
                 onClick={() => setSelectedImage(image)}
