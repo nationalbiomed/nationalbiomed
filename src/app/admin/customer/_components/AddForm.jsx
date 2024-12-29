@@ -71,7 +71,7 @@ export default function AddNew({ setIsOpen }) {
         if (urls) {
           values.image = urls?.originalUrl;
           const response = await fetch(
-            `https://nationalbiomedical.vercel.app/api/customer/add`,
+            `http://localhost:3000/api/customer/add`,
             {
               method: "POST",
               headers: {

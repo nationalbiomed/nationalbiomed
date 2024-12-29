@@ -56,7 +56,6 @@ export default function Header() {
   );
 }
 
-
 function NavBar() {
   return (
     <nav className="w-full bg-white shadow-md transition-all duration-300">
@@ -64,7 +63,7 @@ function NavBar() {
         <div className="w-16 h-16">
           <Link href="/">
             <Image
-              src="/logo.png"
+              src="/nationallogo.jpg"
               alt="logo"
               width={64}
               height={64}
@@ -145,7 +144,7 @@ function MobileNav() {
       <div className="w-16 h-16">
         <Link href="/">
           <Image
-            src="/logo.png"
+            src="/nationallogo.jpg"
             alt="logo"
             width={64}
             height={64}

@@ -19,7 +19,7 @@ export default function Sidebar() {
     <div className="w-full ">
       <div className="img-wrapper mx-auto w-[41%] py-[3%] ">
         <img
-          src="/logo.png"
+          src="/nationallogo.jpg"
           alt="National Biomedical Suppliers"
           className="w-full h-auto"
         />
