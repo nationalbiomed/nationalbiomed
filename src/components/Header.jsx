@@ -94,10 +94,10 @@ function NavBar({ isSticky }) {
       }`}
     >
       <div className="container max-w-7xl mx-auto flex justify-between items-center px-4 py-3 bg-white bg-opacity-50 lg:rounded-full">
-        <div className="w-16 h-16">
+        <div className="">
           <Link href="/">
             <Image
-              src="/nationallogo.jpg"
+              src="/nationallogo.png"
               alt="logo"
               width={64}
               height={64}
@@ -179,10 +179,10 @@ function NavBar({ isSticky }) {
               </button>
             </SheetTrigger>
             <SheetContent side="left" className="w-[300px] sm:w-[400px]">
-              <div className="w-16 h-16">
+              <div className="">
                 <Link href="/">
                   <Image
-                    src="/nationallogo.jpg"
+                    src="/nationallogo.png"
                     alt="logo"
                     width={64}
                     height={64}

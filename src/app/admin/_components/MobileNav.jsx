@@ -80,7 +80,7 @@ export default function MobileNav() {
           <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
           <div className="img-wrapper  w-[25%] py-[1%] mb-[2%]">
             <img
-              src="/nationallogo.jpg"
+              src="/nationallogo.png"
               alt="National Biomedical Suppliers"
               className="w-full h-full "
             />

@@ -55,7 +55,7 @@ export function Footer1() {
                 className="mb-6 inline-block max-w-[160px] bg-white rounded-sm"
               >
                 <img
-                  src="/nationallogo.jpg?height=20&width=100"
+                  src="/nationallogo.png?height=20&width=100"
                   alt="Logo"
                   className="h-16 md:h-32 w-auto object-contain"
                 />

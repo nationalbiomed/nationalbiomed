@@ -60,10 +60,10 @@ function NavBar() {
   return (
     <nav className="w-full bg-white shadow-md transition-all duration-300">
       <div className="container max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
-        <div className="w-16 h-16">
+        <div className="">
           <Link href="/">
             <Image
-              src="/nationallogo.jpg"
+              src="/nationallogo.png"
               alt="logo"
               width={64}
               height={64}
@@ -141,10 +141,10 @@ function MobileNav() {
 
   return (
     <div className="py-4">
-      <div className="w-16 h-16">
+      <div className="">
         <Link href="/">
           <Image
-            src="/nationallogo.jpg"
+            src="/nationallogo.png"
             alt="logo"
             width={64}
             height={64}
@@ -152,7 +152,7 @@ function MobileNav() {
           />
         </Link>
       </div>
-      <ul className="space-y-2">
+      <ul className="space-y-2 ">
         {MENU_ITEMS.map((item) => (
           <li key={item.title}>
             {item.megaMenu ? (
