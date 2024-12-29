@@ -13,8 +13,8 @@ export async function GET(req) {
       skip,
       take: limit,
       include: {
-        category: true, // Include the related category
-        brand: true,    // Include the related brand
+        category: true,
+        brand: true,
       },
     });
 
