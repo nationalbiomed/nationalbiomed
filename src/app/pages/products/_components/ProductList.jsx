@@ -1,25 +1,43 @@
-'use client'
-
-import { useState } from 'react';
+"use client"
+import { useState, useEffect } from 'react';
 import ProductCard from './ProductCard';
 import FilterSection from './FilterSection';
+import { Button } from '@/components/ui/button';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-
-
-export default function ProductList({ initialProducts, brands, categories }) {
+export default function ProductList({ initialProducts, brands, categories, metadata }) {
   const [products, setProducts] = useState(initialProducts);
   const [selectedBrands, setSelectedBrands] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
+  const [currentPage, setCurrentPage] = useState(metadata.page);
+  const [currentMetadata, setCurrentMetadata] = useState(metadata);
 
-  const filterProducts = () => {
-    return initialProducts.filter(product => 
-      (selectedBrands.length === 0 || selectedBrands.includes(product.brandId)) &&
-      (selectedCategories.length === 0 || selectedCategories.includes(product.categoryId))
-    );
+  useEffect(() => {
+    fetchProducts();
+  }, [currentPage, selectedBrands, selectedCategories]);
+
+  const fetchProducts = async () => {
+    const brandParams = selectedBrands.map(b => `brandId=${b}`).join('&');
+    const categoryParams = selectedCategories.map(c => `categoryId=${c}`).join('&');
+    const url = `/api/product?page=${currentPage}&${brandParams}&${categoryParams}`;
+    
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      setProducts(data.data);
+      setCurrentMetadata(data.meta);
+    } catch (error) {
+      console.error('Error fetching products:', error);
+    }
   };
 
   const handleFilter = () => {
-    setProducts(filterProducts());
+    setCurrentPage(1);
+    fetchProducts();
+  };
+
+  const handlePageChange = (newPage) => {
+    setCurrentPage(newPage);
   };
 
   return (
@@ -52,6 +70,27 @@ export default function ProductList({ initialProducts, brands, categories }) {
             {products.map(product => (
               <ProductCard key={product.id} product={product} />
             ))}
+          </div>
+          <div className="mt-8 flex justify-center items-center space-x-4">
+            <Button
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+              variant="outline"
+            >
+              <ChevronLeft className="h-4 w-4 mr-2" />
+              Previous
+            </Button>
+            <span className="text-sm font-medium">
+              Page {currentPage} of {currentMetadata.totalPages}
+            </span>
+            <Button
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === currentMetadata.totalPages}
+              variant="outline"
+            >
+              Next
+              <ChevronRight className="h-4 w-4 ml-2" />
+            </Button>
           </div>
         </div>
       </div>

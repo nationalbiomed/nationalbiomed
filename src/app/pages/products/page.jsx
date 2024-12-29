@@ -61,6 +61,7 @@ export default async function ProductsPage() {
           initialProducts={productData.data} 
           brands={brandData.brands} 
           categories={categoryData.pcategorys} 
+          metadata={productData.meta}
         />
       </div>
     )

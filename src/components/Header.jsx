@@ -17,14 +17,14 @@ import { title } from "process";
 
 const MENU_ITEMS = [
   { title: "Our Products", href: "/pages/products" },
-  {
-    title: "Products & Solutions",
-    megaMenu: [
-      { title: "Product A", href: "/pages/product-and-services/products" },
-      { title: "Product B", href: "/products/b" },
-      { title: "Solutions", href: "/solutions" },
-    ],
-  },
+  // {
+  //   title: "Products & Solutions",
+  //   megaMenu: [
+  //     { title: "Product A", href: "/pages/product-and-services/products" },
+  //     { title: "Product B", href: "/products/b" },
+  //     { title: "Solutions", href: "/solutions" },
+  //   ],
+  // },
   { title: "About Us", href: "/pages/about-us" },
   // { title: "Career", href: "/pages/careers" },
   { title: "Teams", href: "/pages/team" },
