@@ -28,7 +28,7 @@ export default function Introduction() {
           Engineers & Technicians.
           
         </p>
-        <Button className=" bg-green-600"> Contact us <ChevronsRight/></Button>
+        <a href="/pages/contact"><Button className=" bg-green-600"> Contact us <ChevronsRight/></Button></a>
       </div>
       <div >
         <img src="/aboutimg.jpg" className="rounded-lg"  data-aos="fade-left"/>
