@@ -11,10 +11,11 @@ import Counter from "./_components/Counter";
 import SoleDistributors from "./_components/Soledistributors";
 
 async function getData() {
-  const [bannerRes, customerRes, statRes, soleRes, newsRes] = await Promise.all(
+  const [bannerRes, customerRes, productRes, statRes, soleRes, newsRes] = await Promise.all(
     [
       fetch("http://localhost:3000/api/banner", { cache: "no-store" }),
       fetch("http://localhost:3000/api/customer", { cache: "no-store" }),
+      fetch("http://localhost:3000/api/product/front", { cache: "no-store" }),
       fetch("http://localhost:3000/api/stat", { cache: "no-store" }),
       fetch("http://localhost:3000/api/soledistributor", { cache: "no-store" }),
       fetch("http://localhost:3000/api/blog", { cache: "no-store" }),
@@ -24,6 +25,7 @@ async function getData() {
   if (
     !bannerRes.ok ||
     !customerRes.ok ||
+    !productRes.ok ||
     !statRes.ok ||
     !soleRes.ok ||
     !newsRes.ok
@@ -31,26 +33,27 @@ async function getData() {
     throw new Error("Failed to fetch data");
   }
 
-  const [banner, customer, stat, sole, news] = await Promise.all([
+  const [banner, customer, product, stat, sole, news] = await Promise.all([
     bannerRes.json(),
     customerRes.json(),
+    productRes.json(),
     statRes.json(),
     soleRes.json(),
     newsRes.json(),
   ]);
 
-  return { banner, customer, stat, sole, news };
+  return { banner, customer, product, stat, sole, news };
 }
 
 export default async function Home() {
-  const { banner, customer, stat, sole, news } = await getData();
+  const { banner, customer, product, stat, sole, news } = await getData();
 
   return (
     <ErrorBoundary>
       <Suspense fallback={<div>Loading...</div>}>
         <ImageCarousel slides={banner} />
         <Counter statsData={stat} />
-        <ProductServices />
+        <ProductServices Product={product} />
         <Services />
         <OurCustomers Customers={customer} />
         <SoleDistributors Distributors={sole} />
