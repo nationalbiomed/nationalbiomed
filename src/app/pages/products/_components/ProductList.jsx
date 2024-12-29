@@ -1,5 +1,4 @@
-'use client'
-
+"use client"
 import { useState, useEffect } from 'react';
 import ProductCard from './ProductCard';
 import FilterSection from './FilterSection';
@@ -11,24 +10,30 @@ export default function ProductList({ initialProducts, brands, categories, metad
   const [selectedBrands, setSelectedBrands] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [currentPage, setCurrentPage] = useState(metadata.page);
+  const [currentMetadata, setCurrentMetadata] = useState(metadata);
 
   useEffect(() => {
-    handleFilter();
+    fetchProducts();
   }, [currentPage, selectedBrands, selectedCategories]);
 
-  const filterProducts = () => {
-    const filteredProducts = initialProducts.filter(product => 
-      (selectedBrands.length === 0 || selectedBrands.includes(product.brandId)) &&
-      (selectedCategories.length === 0 || selectedCategories.includes(product.categoryId))
-    );
-
-    const startIndex = (currentPage - 1) * metadata.limit;
-    const endIndex = startIndex + metadata.limit;
-    return filteredProducts.slice(startIndex, endIndex);
+  const fetchProducts = async () => {
+    const brandParams = selectedBrands.map(b => `brandId=${b}`).join('&');
+    const categoryParams = selectedCategories.map(c => `categoryId=${c}`).join('&');
+    const url = `/api/product?page=${currentPage}&${brandParams}&${categoryParams}`;
+    
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      setProducts(data.data);
+      setCurrentMetadata(data.meta);
+    } catch (error) {
+      console.error('Error fetching products:', error);
+    }
   };
 
   const handleFilter = () => {
-    setProducts(filterProducts());
+    setCurrentPage(1);
+    fetchProducts();
   };
 
   const handlePageChange = (newPage) => {
@@ -76,11 +81,11 @@ export default function ProductList({ initialProducts, brands, categories, metad
               Previous
             </Button>
             <span className="text-sm font-medium">
-              Page {currentPage} of {metadata.totalPages}
+              Page {currentPage} of {currentMetadata.totalPages}
             </span>
             <Button
               onClick={() => handlePageChange(currentPage + 1)}
-              disabled={currentPage === metadata.totalPages}
+              disabled={currentPage === currentMetadata.totalPages}
               variant="outline"
             >
               Next
