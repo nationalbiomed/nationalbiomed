@@ -37,7 +37,7 @@ export default function CardList({ data, setData }) {
                   <div className="w-[50%]">
                     <DeleteForm
                       id={data?.id}
-                      title={"Customer"}
+                      title={"Sole Distributor"}
                       url={"http://localhost:3000/api/soledistributor/delete"}
                       onDelete={handleDeleteCallback}
                     />
