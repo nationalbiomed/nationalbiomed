@@ -14,7 +14,6 @@ import { Button } from "@/components/ui/button";
 export default function Footer() {
   return (
     <>
-    
       <Footer1 /> <Footer2 />
     </>
   );
@@ -24,9 +23,7 @@ export function Footer2() {
   return (
     <div className=" py-2  bg-gray-900">
       <div className="container max-w-7xl mx-auto block space-y-2 pb-4 md:pb-0 text-center md:flex md:justify-between  text-white text-baseline">
-        <p className="mt-2">
-          Copyright &copy; National Biomedical Suppliers
-        </p>
+        <p className="mt-2">Copyright &copy; National Biomedical Suppliers</p>
         <p>
           <strong>
             <span className="text-white">Developed By: </span>
@@ -53,9 +50,12 @@ export function Footer1() {
         <div className="flex flex-wrap  justify-between">
           <div className="w-full px-4 sm:w-2/3 lg:w-3/12">
             <div className="mb-10 w-full">
-              <Link href="/" className="mb-6 inline-block max-w-[160px] bg-white rounded-sm">
+              <Link
+                href="/"
+                className="mb-6 inline-block max-w-[160px] bg-white rounded-sm"
+              >
                 <img
-                  src="/logo.png?height=20&width=100"
+                  src="/nationallogo.jpg?height=20&width=100"
                   alt="Logo"
                   className="h-16 md:h-32 w-auto object-contain"
                 />
@@ -89,7 +89,6 @@ export function Footer1() {
                   label="LinkedIn"
                 />
               </div>
-
             </div>
           </div>
 
@@ -107,7 +106,10 @@ export function Footer1() {
             <NavLink href="/pages/about-us" label="About Us" />
             <NavLink href="/pages/contact" label="Contact Us" />
             <NavLink href="/pages/legal/terms" label="Terms of Service" />
-            <NavLink href="/pages/legal/privacy-policy" label="Privacy Policy" />
+            <NavLink
+              href="/pages/legal/privacy-policy"
+              label="Privacy Policy"
+            />
           </LinkGroup>
 
           <div className="w-full px-4 sm:w-1/2 lg:w-4/12">
@@ -120,7 +122,7 @@ export function Footer1() {
                   <MapPin className="mr-1 h-5 w-5 text-gray-400" />
                   <span className="text-sm">Address:</span>
                 </div>
-                
+
                 <p>Tripurewshor, Kathmandu</p>
               </div>
               <div className=" mb-2 flex space-x-1 ">
@@ -128,7 +130,7 @@ export function Footer1() {
                   <Phone className="mr-1 h-5 w-5 text-gray-400" />
                   <span className="text-sm">Customer Support:</span>
                 </div>
-                
+
                 <ContactLink href="tel:01-4222353" label="01-4222353" />
               </div>
               <EmailList />
@@ -166,10 +168,7 @@ function LinkGroup({ children, header }) {
 function NavLink({ href, label }) {
   return (
     <li>
-      <Link
-        href={href}
-        className="text-base text-gray-300 hover:text-white"
-      >
+      <Link href={href} className="text-base text-gray-300 hover:text-white">
         {label}
       </Link>
     </li>
@@ -218,12 +217,11 @@ function EmailList() {
         <span className="text-sm font-semibold">Email Us:</span>
       </p>
       <a
-            href="mailto:biomedsuppliers2018@gmail.com"
-            className="hover:text-white transition-colors duration-200"
-          >
-            biomedsuppliers2018@gmail.com
-          </a>
+        href="mailto:biomedsuppliers2018@gmail.com"
+        className="hover:text-white transition-colors duration-200"
+      >
+        biomedsuppliers2018@gmail.com
+      </a>
     </div>
   );
 }
-

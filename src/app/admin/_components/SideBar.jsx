@@ -1,5 +1,13 @@
 "use client";
-import { ChartNoAxesCombined, HandCoins, Layers2, Sparkles, User, Users, Wallpaper } from "lucide-react";
+import {
+  ChartNoAxesCombined,
+  HandCoins,
+  Layers2,
+  Sparkles,
+  User,
+  Users,
+  Wallpaper,
+} from "lucide-react";
 
 import { useSession } from "next-auth/react";
 import {
@@ -19,7 +27,7 @@ export default function Sidebar() {
     <div className="w-full ">
       <div className="img-wrapper mx-auto w-[41%] py-[3%] ">
         <img
-          src="/logo.png"
+          src="/nationallogo.jpg"
           alt="National Biomedical Suppliers"
           className="w-full h-auto"
         />
@@ -34,7 +42,7 @@ export default function Sidebar() {
       {/* <div className="w-full  border border-textColor" /> */}
       <Link
         href="/admin/banner"
-       className="w-full  py-2 flex justify-center lg:justify-start xl:pl-4  gap-4 text-primary font-semibold hover:bg-textColor hover:text-white  "
+        className="w-full  py-2 flex justify-center lg:justify-start xl:pl-4  gap-4 text-primary font-semibold hover:bg-textColor hover:text-white  "
       >
         <ImagePlay />
         <span className="hidden lg:block">Banner</span>
@@ -42,7 +50,7 @@ export default function Sidebar() {
 
       <Link
         href="/admin/customer"
-       className="w-full  py-2 flex justify-center lg:justify-start xl:pl-4  gap-4 text-primary font-semibold hover:bg-textColor hover:text-white  "
+        className="w-full  py-2 flex justify-center lg:justify-start xl:pl-4  gap-4 text-primary font-semibold hover:bg-textColor hover:text-white  "
       >
         <User />
         <span className="hidden lg:block">Customer</span>
@@ -50,7 +58,7 @@ export default function Sidebar() {
 
       <Link
         href="/admin/teams"
-       className="w-full  py-2 flex justify-center lg:justify-start xl:pl-4  gap-4 text-primary font-semibold hover:bg-textColor hover:text-white  "
+        className="w-full  py-2 flex justify-center lg:justify-start xl:pl-4  gap-4 text-primary font-semibold hover:bg-textColor hover:text-white  "
       >
         <Users />
         <span className="hidden lg:block">Teams</span>
@@ -58,7 +66,7 @@ export default function Sidebar() {
 
       <Link
         href="/admin/sole-distributor"
-       className="w-full  py-2 flex justify-center lg:justify-start xl:pl-4  gap-4 text-primary font-semibold hover:bg-textColor hover:text-white  "
+        className="w-full  py-2 flex justify-center lg:justify-start xl:pl-4  gap-4 text-primary font-semibold hover:bg-textColor hover:text-white  "
       >
         <HandCoins />
         <span className="hidden lg:block">Sole Distributor</span>
@@ -66,7 +74,7 @@ export default function Sidebar() {
 
       <Link
         href="/admin/blog"
-       className="w-full  py-2 flex justify-center lg:justify-start xl:pl-4  gap-4 text-primary font-semibold hover:bg-textColor hover:text-white  "
+        className="w-full  py-2 flex justify-center lg:justify-start xl:pl-4  gap-4 text-primary font-semibold hover:bg-textColor hover:text-white  "
       >
         <Wallpaper />
         <span className="hidden lg:block">Blogs</span>
@@ -74,7 +82,7 @@ export default function Sidebar() {
 
       <Link
         href="/admin/product-category"
-       className="w-full  py-2 flex justify-center lg:justify-start xl:pl-4  gap-4 text-primary font-semibold hover:bg-textColor hover:text-white  "
+        className="w-full  py-2 flex justify-center lg:justify-start xl:pl-4  gap-4 text-primary font-semibold hover:bg-textColor hover:text-white  "
       >
         <LayoutGrid />
         <span className="hidden lg:block">Product Category</span>
@@ -82,7 +90,7 @@ export default function Sidebar() {
 
       <Link
         href="/admin/brand"
-       className="w-full  py-2 flex justify-center lg:justify-start xl:pl-4  gap-4 text-primary font-semibold hover:bg-textColor hover:text-white  "
+        className="w-full  py-2 flex justify-center lg:justify-start xl:pl-4  gap-4 text-primary font-semibold hover:bg-textColor hover:text-white  "
       >
         <Sparkles />
         <span className="hidden lg:block">Brand</span>
@@ -90,9 +98,9 @@ export default function Sidebar() {
 
       <Link
         href="/admin/product"
-       className="w-full  py-2 flex justify-center lg:justify-start xl:pl-4  gap-4 text-primary font-semibold hover:bg-textColor hover:text-white  "
+        className="w-full  py-2 flex justify-center lg:justify-start xl:pl-4  gap-4 text-primary font-semibold hover:bg-textColor hover:text-white  "
       >
-        <Layers2   />
+        <Layers2 />
         <span className="hidden lg:block">Products</span>
       </Link>
       {/*
@@ -133,13 +141,13 @@ export default function Sidebar() {
         <UserPen />
         <span className="hidden lg:block">Testimonials</span>
       </Link> */}
-      <Link
+      {/* <Link
         href="/admin/demands"
         className="w-full py-2 flex justify-center lg:justify-start xl:pl-4 gap-4 text-primary font-semibold hover:bg-textColor hover:text-white   "
       >
         <ScanSearch />
         <span className="hidden lg:block">Careers</span>
-      </Link>
+      </Link> */}
 
       {/* 
         {session?.token?.email &&

@@ -10,7 +10,7 @@ export default function ProductCard({ product }) {
             src={product.pimage}
             alt={product.title}
             layout="fill"
-            objectFit="cover"
+            objectFit="contain"
           />
         </div>
         <div className="p-4">

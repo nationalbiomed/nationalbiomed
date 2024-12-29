@@ -71,7 +71,7 @@ export default function AddNew({ setIsOpen, category, brand }) {
     const file = event.target.files?.[0];
     if (file) {
       const urls = await imageToUrl(file);
-      setImagePreview(urls.mediumUrl);
+      setImagePreview(urls.originalUrl);
     }
   };
 
@@ -79,7 +79,7 @@ export default function AddNew({ setIsOpen, category, brand }) {
   const handleGalleryChange = async (event) => {
     const files = Array.from(event.target.files);
     const uploadedUrls = await Promise.all(
-      files.map((file) => imageToUrl(file).then((res) => res.mediumUrl))
+      files.map((file) => imageToUrl(file).then((res) => res.originalUrl))
     );
     setGalleryImages((prev) => [...prev, ...uploadedUrls]);
   };

@@ -97,7 +97,7 @@ function NavBar({ isSticky }) {
         <div className="w-16 h-16">
           <Link href="/">
             <Image
-              src="/logo.png"
+              src="/nationallogo.jpg"
               alt="logo"
               width={64}
               height={64}
@@ -109,9 +109,12 @@ function NavBar({ isSticky }) {
         <div className="hidden md:block ">
           <ul className="flex space-x-6 text-sm">
             {MENU_ITEMS.map((item) => (
-              <li key={item.title} className={`relative group${
-                !isSticky && item.title === "Contact Us" ? " hidden" : ""
-              }`}>
+              <li
+                key={item.title}
+                className={`relative group${
+                  !isSticky && item.title === "Contact Us" ? " hidden" : ""
+                }`}
+              >
                 {item.megaMenu ? (
                   <>
                     <button
@@ -179,7 +182,7 @@ function NavBar({ isSticky }) {
               <div className="w-16 h-16">
                 <Link href="/">
                   <Image
-                    src="/logo.png"
+                    src="/nationallogo.jpg"
                     alt="logo"
                     width={64}
                     height={64}

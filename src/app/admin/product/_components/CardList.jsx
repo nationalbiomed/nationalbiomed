@@ -2,7 +2,7 @@ import React from "react";
 import DeleteForm from "../../_components/DeleteForm";
 import EditForm from "./EditForm";
 
-export default function CardList({ data, setData }) {
+export default function CardList({ data, setData, category, brand }) {
   const handleDeleteCallback = (deletedId) => {
     setData((prevData) => prevData.filter((item) => item.id !== deletedId));
   };
@@ -36,7 +36,7 @@ export default function CardList({ data, setData }) {
                 </div>
 
                 <div className="flex justify-between gap-4 pt-4 ">
-                  <EditForm data={data} />
+                  <EditForm data={data} category={category} brand={brand} />
                   <div className="w-[50%]">
                     <DeleteForm
                       id={data?.id}
