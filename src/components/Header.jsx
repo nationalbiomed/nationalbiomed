@@ -118,7 +118,7 @@ function NavBar({ isSticky }) {
                 {item.megaMenu ? (
                   <>
                     <button
-                      className={`flex items-center hover:text-primary transition-colors py-2 ${
+                      className={`flex items-center hover:text-primary font-semibold transition-colors py-2 ${
                         isSticky ? "text-gray-800" : "text-gray-800"
                       }`}
                     >
@@ -135,7 +135,7 @@ function NavBar({ isSticky }) {
                         <Link
                           key={subItem.title}
                           href={subItem.href}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+                          className="block px-4 py-2 text-sm text-gray-700 font-semibold hover:bg-gray-100 transition-colors"
                         >
                           {subItem.title}
                         </Link>
@@ -145,7 +145,7 @@ function NavBar({ isSticky }) {
                 ) : (
                   <Link
                     href={item.href}
-                    className={`hover:text-primary transition-colors py-2 block ${
+                    className={`hover:text-primary transition-colors font-semibold py-2 block ${
                       isSticky ? "text-gray-800" : "text-gray-800"
                     }`}
                   >
@@ -196,7 +196,7 @@ function NavBar({ isSticky }) {
                     {item.megaMenu ? (
                       <div>
                         <button
-                          className="flex items-center justify-between w-full py-2 hover:text-primary transition-colors"
+                          className="flex items-center justify-between font-semibold w-full py-2 hover:text-primary transition-colors"
                           onClick={() => toggleDropdown(item.title)}
                           aria-expanded={activeDropdown === item.title}
                         >
@@ -208,7 +208,7 @@ function NavBar({ isSticky }) {
                           />
                         </button>
                         <ul
-                          className={`pl-4 mt-1 space-y-1 overflow-hidden transition-all duration-300 ${
+                          className={`pl-4 mt-1 space-y-1 overflow-hidden font-semibold transition-all duration-300 ${
                             activeDropdown === item.title
                               ? "max-h-96 opacity-100"
                               : "max-h-0 opacity-0"
@@ -218,7 +218,7 @@ function NavBar({ isSticky }) {
                             <li key={subItem.title}>
                               <Link
                                 href={subItem.href}
-                                className="block py-1 hover:text-primary transition-colors"
+                                className="block py-1 hover:text-primary font-semibold transition-colors"
                               >
                                 {subItem.title}
                               </Link>
@@ -229,7 +229,7 @@ function NavBar({ isSticky }) {
                     ) : (
                       <Link
                         href={item.href}
-                        className="block py-2 hover:text-primary transition-colors"
+                        className="block py-2 hover:text-primary font-semibold transition-colors"
                       >
                         {item.title}
                       </Link>

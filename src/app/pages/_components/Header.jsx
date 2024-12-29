@@ -78,7 +78,7 @@ function NavBar() {
               <li key={item.title} className="relative group">
                 {item.megaMenu ? (
                   <>
-                    <button className="flex items-center hover:text-primary transition-colors py-2 text-gray-800">
+                    <button className="flex items-center hover:text-primary transition-colors font-semibold py-2 text-gray-800">
                       {item.title}
                       <ChevronDown className="ml-1 w-4 h-4" />
                     </button>
@@ -88,7 +88,7 @@ function NavBar() {
                         <Link
                           key={subItem.title}
                           href={subItem.href}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+                          className="block px-4 py-2 text-sm text-gray-700 font-semibold hover:bg-gray-100 transition-colors"
                         >
                           {subItem.title}
                         </Link>
@@ -98,7 +98,7 @@ function NavBar() {
                 ) : (
                   <Link
                     href={item.href}
-                    className="hover:text-primary transition-colors py-2 block text-gray-800"
+                    className="hover:text-primary transition-colors py-2 font-semibold block text-gray-800"
                   >
                     {item.title}
                   </Link>
@@ -158,13 +158,13 @@ function MobileNav() {
             {item.megaMenu ? (
               <div>
                 <button
-                  className="flex items-center justify-between w-full py-2 hover:text-primary transition-colors"
+                  className="flex items-center justify-between w-full py-2 font-semibold hover:text-primary transition-colors"
                   onClick={() => toggleDropdown(item.title)}
                   aria-expanded={activeDropdown === item.title}
                 >
                   {item.title}
                   <ChevronRight
-                    className={`w-4 h-4 transition-transform duration-300 ${
+                    className={`w-4 h-4 transition-transform  duration-300 ${
                       activeDropdown === item.title ? "rotate-90" : ""
                     }`}
                   />
@@ -180,7 +180,7 @@ function MobileNav() {
                     <li key={subItem.title}>
                       <Link
                         href={subItem.href}
-                        className="block py-1 hover:text-primary transition-colors"
+                        className="block py-1 hover:text-primary font-semibold transition-colors"
                       >
                         {subItem.title}
                       </Link>
@@ -191,7 +191,7 @@ function MobileNav() {
             ) : (
               <Link
                 href={item.href}
-                className="block py-2 hover:text-primary transition-colors"
+                className="block py-2 hover:text-primary font-semibold transition-colors"
               >
                 {item.title}
               </Link>
