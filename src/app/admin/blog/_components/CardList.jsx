@@ -55,7 +55,7 @@ export default function CardList({ data, setData }) {
                 </CardHeader>
 
                 <CardFooter className="mt-auto block">
-                  <div>
+                  {/* <div>
                     <Link
                       href={`/blog/details/${data?.slug}?preview=true`}
                       passHref
@@ -65,7 +65,7 @@ export default function CardList({ data, setData }) {
                         View Details
                       </Button>
                     </Link>
-                  </div>
+                  </div> */}
                   <div className="flex justify-between gap-4 pt-4 ">
                     <EditForm blogData={data} />
                     <div className="w-[50%]">

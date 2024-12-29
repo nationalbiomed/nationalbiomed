@@ -79,7 +79,7 @@ export default function EditForm({ blogData }) {
       if (imageFile) {
         const urls = await imageToUrl(imageFile);
         if (urls) {
-          values.image = urls?.mediumUrl;
+          values.image = urls?.originalUrl || urls?.mediumUrl;
         } else {
           throw new Error("Unable to upload image!");
         }

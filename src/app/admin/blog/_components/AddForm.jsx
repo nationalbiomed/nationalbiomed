@@ -69,7 +69,7 @@ const AddBlogForm = ({ setIsOpen }) => {
       if (values.image) {
         const urls = await imageToUrl(values.image);
         if (urls) {
-          values.image = urls?.mediumUrl;
+          values.image = urls?.originalUrl || urls?.mediumUrl;
 
           const response = await fetch("http://localhost:3000/api/blog/add", {
             method: "POST",
