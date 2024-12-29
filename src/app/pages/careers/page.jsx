@@ -5,7 +5,7 @@ import { Briefcase } from "lucide-react";
 import Link from "next/link";
 
 async function getJobs() {
-  const res = await fetch("https://nationalbiomedical.vercel.app/api/career", {
+  const res = await fetch("http://localhost:3000/api/career", {
     cache: "no-store",
   });
   if (!res.ok) {
