@@ -55,7 +55,7 @@ export default async function ProductsPage() {
     ])
 
     return (
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-8 mt-5">
         <h1 className="text-3xl font-bold">Our Products</h1>
         <ProductList 
           initialProducts={productData.data} 

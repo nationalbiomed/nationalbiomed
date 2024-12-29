@@ -3,18 +3,21 @@ import { Card } from "@/components/ui/card";
 const Product = [
   {
     id: 1,
-    label: "Ultrasound",
-    img: "/ultrasound.png",
+    label: "ADONIS HF X- RAY MACHINE",
+    img: "/adonis-x-ray-machine.jpg",
+    link:"/pages/products/x-ray-machine-100ma",
   },
   {
     id: 2,
-    label: "Radiology",
-    img: "/radiology.png",
+    label: "H9 Vital Signs Monitor",
+    img: "/H9-Vital-Signs-Monitor.webp",
+    link:"/pages/products/h9-vital-signs-monitor",
   },
   {
     id: 3,
-    label: "Anesthesia",
-    img: "/anesthesia.png",
+    label: "CHISON C BIT 9",
+    img: "/chisoncbit.webp",
+    link:"/products/chison-c-bit-9",
   },
 ];
 export default function ProductServices() {
@@ -24,9 +27,9 @@ export default function ProductServices() {
         <h1 className="sm:text-5xl text-2xl font-bold font-sans pb-12">
           Product & <span className="text-green-600"> Services</span>
         </h1>
-        <div className="grid grid-cols-2 px-4 md:grid-cols-4  sm:gap-6 gap-3 " data-aos="fade-up">
+        <div className="grid grid-cols-2 px-2 md:grid-cols-4   sm:gap-6 gap-3 " data-aos="fade-up">
           {Product.map((items) => (
-            <Card className="w-[100%] overflow-hidden" key={items.id}>
+           <a href={items.link} key={items.id}> <Card className="w-[100%] overflow-hidden" >
               <div className="overflow-hidden">
                 <img
                   src={items.img}
@@ -36,6 +39,7 @@ export default function ProductServices() {
 
               <h2 className=" text-xl font-sans font-semibold py-2">{items.label}</h2>
             </Card>
+            </a>
           ))}
           <div className="sm:space-y-6 space-y-3 text-center">
             <div className="relative overflow-hidden rounded-2xl">
@@ -45,7 +49,7 @@ export default function ProductServices() {
                 className="transition hover:scale-110 cursor-pointer ease-in-out duration-300"
               ></img>
               <p className="absolute text-2xl top-[50%] left-[50%] text-white translate-x-[-50%] translate-y-[-50%] ">
-                Hospital bed
+              ARI Timer
               </p>
             </div>
             <div className="relative overflow-hidden rounded-2xl">

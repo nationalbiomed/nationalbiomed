@@ -11,9 +11,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
-import { Filter } from 'lucide-react'
-
-
+import { Filter, ChevronDown, ChevronUp } from 'lucide-react'
 
 export default function FilterSection({
   brands,
@@ -25,6 +23,8 @@ export default function FilterSection({
   handleFilter
 }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [showAllBrands, setShowAllBrands] = useState(false);
+  const [showAllCategories, setShowAllCategories] = useState(false);
 
   const toggleBrand = (brandId) => {
     setSelectedBrands(
@@ -46,7 +46,7 @@ export default function FilterSection({
     <>
       <div className="mb-4">
         <h3 className="font-semibold mb-2">Brands</h3>
-        {brands.map(brand => (
+        {brands.slice(0, showAllBrands ? brands.length : 5).map(brand => (
           <div key={brand.id} className="flex items-center mb-2">
             <Checkbox
               id={`brand-${brand.id}`}
@@ -58,10 +58,29 @@ export default function FilterSection({
             </label>
           </div>
         ))}
+        {brands.length > 5 && (
+          <Button
+            variant="link"
+            onClick={() => setShowAllBrands(!showAllBrands)}
+            className="p-0 h-auto font-normal"
+          >
+            {showAllBrands ? (
+              <>
+                <ChevronUp className="mr-2 h-4 w-4" />
+                Show Less
+              </>
+            ) : (
+              <>
+                <ChevronDown className="mr-2 h-4 w-4" />
+                View More
+              </>
+            )}
+          </Button>
+        )}
       </div>
       <div className="mb-4">
         <h3 className="font-semibold mb-2">Categories</h3>
-        {categories.map(category => (
+        {categories.slice(0, showAllCategories ? categories.length : 5).map(category => (
           <div key={category.id} className="flex items-center mb-2">
             <Checkbox
               id={`category-${category.id}`}
@@ -73,6 +92,25 @@ export default function FilterSection({
             </label>
           </div>
         ))}
+        {categories.length > 5 && (
+          <Button
+            variant="link"
+            onClick={() => setShowAllCategories(!showAllCategories)}
+            className="p-0 h-auto font-normal"
+          >
+            {showAllCategories ? (
+              <>
+                <ChevronUp className="mr-2 h-4 w-4" />
+                Show Less
+              </>
+            ) : (
+              <>
+                <ChevronDown className="mr-2 h-4 w-4" />
+                View More
+              </>
+            )}
+          </Button>
+        )}
       </div>
     </>
   );
@@ -101,7 +139,7 @@ export default function FilterSection({
                   handleFilter(); 
                   setIsOpen(false); 
                 }} 
-                className="w-full"
+                className="w-full mt-4"
               >
                 Apply Filters
               </Button>
@@ -114,7 +152,7 @@ export default function FilterSection({
       <div className="hidden md:block bg-white rounded-lg shadow p-4">
         <h2 className="text-xl font-semibold mb-4">Filters</h2>
         <FilterContent />
-        <Button onClick={handleFilter} className="w-full">
+        <Button onClick={handleFilter} className="w-full mt-4">
           Apply Filters
         </Button>
       </div>

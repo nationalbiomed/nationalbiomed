@@ -93,14 +93,14 @@ function NavBar({ isSticky }) {
         isSticky ? "bg-white shadow-md" : "bg-transparent top-8"
       }`}
     >
-      <div className="container max-w-7xl mx-auto flex justify-between items-center px-4 py-3 bg-white bg-opacity-50 lg:rounded-full">
+      <div className="container max-w-7xl mx-auto flex justify-between items-center px-8 py-3 bg-white bg-opacity-50 lg:rounded-full">
         <div className="">
           <Link href="/">
             <Image
               src="/nationallogo.png"
               alt="logo"
-              width={64}
-              height={64}
+              width={120}
+              height={120}
               className="w-full h-auto object-contain"
             />
           </Link>
