@@ -110,7 +110,7 @@ export default function ProductDetail({ product }) {
         <Tabs defaultValue="description" className="w-full">
           <TabsList>
             <TabsTrigger value="description">Description</TabsTrigger>
-            <TabsTrigger value="additional">Additional Information</TabsTrigger>
+            {/* <TabsTrigger value="additional">Additional Information</TabsTrigger> */}
           </TabsList>
           <AnimatePresence mode="wait">
             <TabsContent value="description">
