@@ -12,6 +12,9 @@ export async function GET(req) {
     const products = await db.product.findMany({
       skip,
       take: limit,
+      orderBy: {
+        id: "desc",
+      },
       include: {
         category: true,
         brand: true,

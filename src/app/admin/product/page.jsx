@@ -15,11 +15,13 @@ export default function Banner() {
   const [category, setCategory] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const limit = 10;
+  const limit = 20;
 
   const getAllBanner = async (page = 1) => {
     setIsLoading(true);
-    const res = await fetch("http://localhost:3000/api/product");
+    const res = await fetch(
+      `http://localhost:3000/api/product?page=${page}&limit=${limit}`
+    );
     if (res.ok) {
       const result = await res.json();
       setData(result?.data);
