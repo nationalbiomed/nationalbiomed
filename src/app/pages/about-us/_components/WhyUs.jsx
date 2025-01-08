@@ -84,8 +84,9 @@ function MobileWhyUs() {
           <h1 className="text-slate-900 font-bold  text-4xl mb-2">Why</h1>
           <h2 className="text-gray-700 text-3xl mb-5 "> Choose Us?</h2>
           <p className="">
-            National Biomed bla bla bla good bla bla bla bla bla bla bla good
-            bla bla bla bla bla bla bla good bla bla bla bla
+          National Biomed is a conerstone of value. Innovation alone would not deliver
+                      real value without also delivering quality. These values
+                      are interwoven and interdependent.
           </p>
         </div>
       </div>
