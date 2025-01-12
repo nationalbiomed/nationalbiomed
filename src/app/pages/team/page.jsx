@@ -17,7 +17,7 @@ export default async function Team() {
 }
 
 async function TeamContent() {
-  const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://nationalbiomedical.vercel.app";
+  const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 
   const [chairmanData, teamData] = await Promise.all([
     fetchWithErrorHandling(`${BASE_URL}/api/team/get/chairman`),

@@ -7,6 +7,7 @@ import { ToastContainer } from "react-toastify";
 
 import { AOSProvider } from "@/lib/utils/AOSProvider";
 import TawkToChat from '@/components/tawk-to-chat';
+import WhatsAppWidget from "@/components/whatsapp-widget";
 
 
 export const metadata: Metadata = {
@@ -23,7 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <AOSProvider />
       <body className="">
-        <AuthProvider>{children} <TawkToChat /> </AuthProvider>
+        <AuthProvider>{children} <TawkToChat /> <WhatsAppWidget /></AuthProvider>
         <ToastContainer />
       </body>
     </html>
