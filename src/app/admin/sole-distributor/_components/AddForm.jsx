@@ -67,7 +67,7 @@ export default function AddNew({ setIsOpen }) {
         if (urls) {
           values.image = urls?.originalUrl;
           const response = await fetch(
-            `http://localhost:3000/api/soledistributor/add`,
+            `https://nationalbiomedical.vercel.app/api/soledistributor/add`,
             {
               method: "POST",
               headers: {

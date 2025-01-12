@@ -87,7 +87,7 @@ export default function EditForm({ blogData }) {
         values.image = blogData?.image;
       }
 
-      const response = await fetch(`http://localhost:3000/api/blog/edit`, {
+      const response = await fetch(`https://nationalbiomedical.vercel.app/api/blog/edit`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
