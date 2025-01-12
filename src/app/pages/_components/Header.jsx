@@ -8,6 +8,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 
 const MENU_ITEMS = [
+  { title: "Home", href: "/" },
   { title: "Our Products", href: "/pages/products" },
   // {
   //   title: "Products & Solutions",

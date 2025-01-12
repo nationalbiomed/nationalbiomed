@@ -16,6 +16,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { title } from "process";
 
 const MENU_ITEMS = [
+  { title: "Home", href: "/" },
   { title: "Our Products", href: "/pages/products" },
   // {
   //   title: "Products & Solutions",

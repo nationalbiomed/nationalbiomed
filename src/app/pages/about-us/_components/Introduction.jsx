@@ -9,14 +9,14 @@ export default function Introduction() {
       <div  data-aos="fade-right">
         
     <h1 className="text-4xl font-bold text-green-600 mb-4">Information</h1>
-        <p className="text-md  text-gray-700 mb-5">
+        <p className="text-md  text-gray-700 mb-5 text-justify">
           Established in 2008, National Bio-Medical Suppliers is highly reliable
           and reputed importers and suppliers of a vast range of higher-quality
           medical products in Nepal, including hospital/medical/scientific/lab
           equipment, instruments, apparatus, medical disposable, dental
           equipment & materials, surgical instruments, and hospital furniture.
           </p>
-          <p className="text-md text-gray-700 mb-6">
+          <p className="text-md text-gray-700 mb-6 text-justify">
           Almost all products, we deal are manufactured by ISO 9001; ISO13485
           certified companies and the products hold CE certification. Certain
           products are also backed up by US FDA510 (K) and WHO
