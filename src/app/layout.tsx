@@ -6,6 +6,8 @@ import AuthProvider from "../app/admin/_components/AuthProvider";
 import { ToastContainer } from "react-toastify";
 
 import { AOSProvider } from "@/lib/utils/AOSProvider";
+import TawkToChat from '@/components/tawk-to-chat';
+
 
 export const metadata: Metadata = {
   title: "National Biomedical Suppliers",
@@ -21,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <AOSProvider />
       <body className="">
-        <AuthProvider>{children}</AuthProvider>
+        <AuthProvider>{children} <TawkToChat /> </AuthProvider>
         <ToastContainer />
       </body>
     </html>
