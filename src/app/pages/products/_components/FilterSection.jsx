@@ -115,7 +115,7 @@ export default function FilterSection({
           </Button>
         )}
       </div>
-      <Button onClick={applyFilters} className="w-full">
+      <Button onClick={applyFilters} className="w-full hidden md:block">
         Apply Filters
       </Button>
     </>
