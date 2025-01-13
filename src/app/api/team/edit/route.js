@@ -5,7 +5,7 @@ import db from "@/lib/db";
 export async function PATCH(request) {
   try {
     const body = await request.json();
-    const { id, name, post, teamOrder, slug, image, message } = body;
+    const { id, name, post, teamOrder, slug, image, message, category, email, phone } = body;
 
     const team = await db.team.update({
       where: { id },
@@ -16,6 +16,9 @@ export async function PATCH(request) {
         slug,
         image,
         message,
+        category,
+        email,
+        phone,
       },
     });
 

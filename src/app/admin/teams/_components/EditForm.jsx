@@ -47,6 +47,9 @@ const formSchema = z.object({
   ),
   image: z.string(),
   message: z.string(),
+  category: z.string().optional(),
+  email: z.string().optional(),
+  phone: z.string().optional(),
 });
 export default function EditForm({ data }) {
   const [imageFile, setImageFile] = useState();
@@ -65,6 +68,9 @@ export default function EditForm({ data }) {
       teamOrder: data?.teamOrder,
       image: data?.image,
       message: data?.message,
+      category: data?.category,
+      email: data?.email,
+      phone: data?.phone,
     },
   });
 
@@ -208,6 +214,47 @@ export default function EditForm({ data }) {
                     </FormItem>
                   )}
                 />
+                <FormField
+                  control={form.control}
+                  name="category"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Category</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Sales" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Email</FormLabel>
+                      <FormControl>
+                        <Input placeholder="xyz@gmail.com" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="phone"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Phone</FormLabel>
+                      <FormControl>
+                        <Input placeholder="+9779800000000" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
                 <div className="">
                   <div className="space-y-2">
                     <Label htmlFor="image">Image</Label>

@@ -5,7 +5,7 @@ import db from "@/lib/db";
 export async function POST(request) {
   try {
     const body = await request.json();
-    const { name, post, teamOrder, slug, image, message } = body;
+    const { name, post, teamOrder, slug, image, message, category, email, phone } = body;
 
     const team = await db.team.create({
       data: {
@@ -15,6 +15,9 @@ export async function POST(request) {
         teamOrder,
         image,
         message,
+        category,
+        email,
+        phone,
       },
     });
 

@@ -45,6 +45,9 @@ const formSchema = z.object({
   ),
   image: z.string(),
   message: z.string(),
+  category: z.string().optional(),
+  email: z.string().optional(),
+  phone: z.string().optional(),
 });
 export default function AddNew({ setIsOpen }) {
   const [imageFile, setImageFile] = useState();
@@ -62,6 +65,9 @@ export default function AddNew({ setIsOpen }) {
       teamOrder: 1,
       image: "",
       message: "",
+      category: "",
+      email: "",
+      phone: "",
     },
   });
 
@@ -158,6 +164,46 @@ export default function AddNew({ setIsOpen }) {
               )}
             />
 
+            <FormField
+              control={form.control}
+              name="category"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Category</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Sales" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Email</FormLabel>
+                  <FormControl>
+                    <Input placeholder="xyz@gmail.com" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="phone"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Phone</FormLabel>
+                  <FormControl>
+                    <Input placeholder="+9779800000000" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
             <FormField
               control={form.control}
               name="post"
