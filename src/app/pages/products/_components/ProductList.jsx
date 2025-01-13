@@ -1,9 +1,9 @@
-"use client"
-import { useState, useEffect } from 'react';
-import ProductCard from './ProductCard';
-import FilterSection from './FilterSection';
-import { Button } from '@/components/ui/button';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+"use client";
+import { useState, useEffect, useCallback } from "react";
+import ProductCard from "./ProductCard";
+import FilterSection from "./FilterSection";
+import { Button } from "@/components/ui/button";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function ProductList({ initialProducts, brands, categories, metadata }) {
   const [products, setProducts] = useState(initialProducts);
@@ -12,28 +12,34 @@ export default function ProductList({ initialProducts, brands, categories, metad
   const [currentPage, setCurrentPage] = useState(metadata.page);
   const [currentMetadata, setCurrentMetadata] = useState(metadata);
 
+  const fetchProducts = useCallback(async () => {
+    const brandParams = selectedBrands.map((b) => `brandId=${encodeURIComponent(b)}`).join("&");
+    const categoryParams = selectedCategories.map((c) => `categoryId=${encodeURIComponent(c)}`).join("&");
+    // const url = `/api/product/make?page=${currentPage}${
+    //   brandParams ? "&" + brandParams : ""
+    // }${categoryParams ? "&" + categoryParams : ""}`;
+
+    const url = `/api/product/make?${
+      brandParams ? "&" + brandParams : ""
+    }${categoryParams ? "&" + categoryParams : ""}`;
+
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      console.log(data);
+      setProducts(data.data);
+      setCurrentMetadata(data.meta);
+    } catch (error) {
+      console.error("Error fetching products:", error);
+    }
+  }, [currentPage, selectedBrands, selectedCategories]);
+
   useEffect(() => {
     fetchProducts();
   }, [currentPage, selectedBrands, selectedCategories]);
 
-  const fetchProducts = async () => {
-    const brandParams = selectedBrands.map(b => `brandId=${b}`).join('&');
-    const categoryParams = selectedCategories.map(c => `categoryId=${c}`).join('&');
-    const url = `/api/product?page=${currentPage}&${brandParams}&${categoryParams}`;
-    
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-      setProducts(data.data);
-      setCurrentMetadata(data.meta);
-    } catch (error) {
-      console.error('Error fetching products:', error);
-    }
-  };
-
   const handleFilter = () => {
     setCurrentPage(1);
-    fetchProducts();
   };
 
   const handlePageChange = (newPage) => {
@@ -43,7 +49,7 @@ export default function ProductList({ initialProducts, brands, categories, metad
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="mb-4 md:hidden">
-        <FilterSection 
+        <FilterSection
           brands={brands}
           categories={categories}
           selectedBrands={selectedBrands}
@@ -55,7 +61,7 @@ export default function ProductList({ initialProducts, brands, categories, metad
       </div>
       <div className="flex flex-col md:flex-row">
         <div className="hidden md:block md:w-1/4 md:pr-4">
-          <FilterSection 
+          <FilterSection
             brands={brands}
             categories={categories}
             selectedBrands={selectedBrands}
@@ -67,7 +73,7 @@ export default function ProductList({ initialProducts, brands, categories, metad
         </div>
         <div className="w-full md:w-3/4">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {products.map(product => (
+            {products.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>
@@ -81,11 +87,11 @@ export default function ProductList({ initialProducts, brands, categories, metad
               Previous
             </Button>
             <span className="text-sm font-medium">
-              Page {currentPage} of {currentMetadata.totalPages}
+              Page {currentPage} of {currentMetadata?.totalPages}
             </span>
             <Button
               onClick={() => handlePageChange(currentPage + 1)}
-              disabled={currentPage === currentMetadata.totalPages}
+              disabled={currentPage === currentMetadata?.totalPages}
               variant="outline"
             >
               Next
@@ -97,4 +103,3 @@ export default function ProductList({ initialProducts, brands, categories, metad
     </div>
   );
 }
-
