@@ -24,6 +24,7 @@ model Team {
   slug      String
   image     String
   message   String
+  category  String? 
 
   @@map("teams")
 }
