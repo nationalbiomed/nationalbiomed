@@ -83,14 +83,29 @@ function TopNav({ isSticky }) {
 
 function NavBar({ isSticky }) {
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [isSheetOpen, setIsSheetOpen] = useState(false); // State to manage sheet open/close
 
   const toggleDropdown = (title) => {
     setActiveDropdown(activeDropdown === title ? null : title);
   };
 
+  const closeSheet = () => {
+    setIsSheetOpen(false); // Close sheet
+  };
+
+  const handleItemClick = (item) => {
+    if (item.megaMenu) {
+      // If the item has a mega menu, do not close the sheet
+      setActiveDropdown(activeDropdown === item.title ? null : item.title);
+    } else {
+      // If the item doesn't have a mega menu, close the sheet
+      closeSheet();
+    }
+  };
+
   return (
     <nav
-      className={`w-full fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out  ${
+      className={`w-full fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
         isSticky ? "bg-white shadow-md" : "bg-transparent top-8"
       }`}
     >
@@ -107,7 +122,7 @@ function NavBar({ isSticky }) {
           </Link>
         </div>
 
-        <div className="hidden md:block ">
+        <div className="hidden md:block">
           <ul className="flex space-x-6 text-sm">
             {MENU_ITEMS.map((item) => (
               <li
@@ -122,6 +137,7 @@ function NavBar({ isSticky }) {
                       className={`flex items-center hover:text-primary font-semibold transition-colors py-2 ${
                         isSticky ? "text-gray-800" : "text-gray-800"
                       }`}
+                      onClick={() => toggleDropdown(item.title)}
                     >
                       {item.title}
                       <ChevronDown
@@ -149,6 +165,7 @@ function NavBar({ isSticky }) {
                     className={`hover:text-primary transition-colors font-semibold py-2 block ${
                       isSticky ? "text-gray-800" : "text-gray-800"
                     }`}
+                    onClick={() => handleItemClick(item)} // Close sheet on click
                   >
                     {item.title}
                   </Link>
@@ -168,13 +185,14 @@ function NavBar({ isSticky }) {
             <User className="w-6 h-6" />
           </Link>
           {/* Mobile menu */}
-          <Sheet>
+          <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
             <SheetTrigger asChild>
               <button
                 className={`md:hidden hover:text-primary transition-colors ${
                   isSticky ? "text-gray-800" : "text-gray-800"
                 }`}
                 aria-label="Open menu"
+                onClick={() => setIsSheetOpen(true)} // Open the sheet
               >
                 <Menu className="w-6 h-6" />
               </button>
@@ -231,6 +249,7 @@ function NavBar({ isSticky }) {
                       <Link
                         href={item.href}
                         className="block py-2 hover:text-primary font-semibold transition-colors"
+                        onClick={() => closeSheet()} // Close the sheet when no mega menu
                       >
                         {item.title}
                       </Link>

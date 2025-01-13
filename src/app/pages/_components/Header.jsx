@@ -133,16 +133,23 @@ function NavBar() {
   );
 }
 
-function MobileNav() {
+function MobileNav({ onClose }) {
   const [activeDropdown, setActiveDropdown] = useState(null);
 
   const toggleDropdown = (title) => {
     setActiveDropdown(activeDropdown === title ? null : title);
   };
 
+  const handleItemClick = (href, hasMegaMenu) => {
+    // If it's a link with a mega menu, don't close the sheet immediately
+    if (!hasMegaMenu) {
+      onClose(); // Close sheet on click if there's no mega menu
+    }
+  };
+
   return (
     <div className="py-4">
-      <div className="">
+      <div>
         <Link href="/">
           <Image
             src="/nationallogo.png"
@@ -153,7 +160,7 @@ function MobileNav() {
           />
         </Link>
       </div>
-      <ul className="space-y-2 ">
+      <ul className="space-y-2">
         {MENU_ITEMS.map((item) => (
           <li key={item.title}>
             {item.megaMenu ? (
@@ -165,7 +172,7 @@ function MobileNav() {
                 >
                   {item.title}
                   <ChevronRight
-                    className={`w-4 h-4 transition-transform  duration-300 ${
+                    className={`w-4 h-4 transition-transform duration-300 ${
                       activeDropdown === item.title ? "rotate-90" : ""
                     }`}
                   />
@@ -182,6 +189,7 @@ function MobileNav() {
                       <Link
                         href={subItem.href}
                         className="block py-1 hover:text-primary font-semibold transition-colors"
+                        onClick={() => onClose()} // Close the sheet on item click
                       >
                         {subItem.title}
                       </Link>
@@ -193,6 +201,7 @@ function MobileNav() {
               <Link
                 href={item.href}
                 className="block py-2 hover:text-primary font-semibold transition-colors"
+                onClick={() => handleItemClick(item.href, false)} // Close the sheet on item click
               >
                 {item.title}
               </Link>
