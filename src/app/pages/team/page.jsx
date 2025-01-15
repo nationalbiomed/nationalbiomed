@@ -47,11 +47,18 @@
 import Message from "./_components/Message";
 import Teams from "./_components/Teams";
 
-// Fetch function with error handling
+// Enhanced fetch function with better error handling and logging
 async function fetchWithErrorHandling(url) {
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`Failed to fetch from ${url}`);
-  return res.json();
+  try {
+    const res = await fetch(url);
+    if (!res.ok) {
+      throw new Error(`Failed to fetch from ${url}, status: ${res.status}`);
+    }
+    return res.json();
+  } catch (error) {
+    console.error(`Error fetching ${url}:`, error);
+    throw error; // Rethrow to be caught by the outer try-catch
+  }
 }
 
 // Team component with async fetching
@@ -63,18 +70,18 @@ export default async function Team() {
       fetchWithErrorHandling('http://localhost:3000/api/team/makecategory'),
     ]);
 
-    // Fetch team data by category
-    const teamDataByCategory = await Promise.all(
-      categories.map(async (category) => ({
-        category,
-        members: await fetchWithErrorHandling(`http://localhost:3000/api/team/category/${category}`)
-      }))
-    );
+    // You can add more logic to fetch team data by category if needed
+    // const teamDataByCategory = await Promise.all(
+    //   categories.map(async (category) => ({
+    //     category,
+    //     members: await fetchWithErrorHandling(`http://localhost:3000/api/team/category/${category}`)
+    //   }))
+    // );
 
     return (
       <>
         <Message chairman={chairmanData || {}} />
-        <Teams teamDataByCategory={teamDataByCategory} />
+        <Teams teamDataByCategory={categories} />
       </>
     );
   } catch (error) {

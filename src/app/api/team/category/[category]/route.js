@@ -3,7 +3,7 @@ import db from "@/lib/db";
 
 export async function GET(req, { params }) {
   try {
-    const { category } = params;
+    const { category } = await params;
 
     // Fetch teams filtered by category
     const teams = await db.team.findMany({

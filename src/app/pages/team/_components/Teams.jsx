@@ -1,12 +1,50 @@
-import { Mail, Phone } from "lucide-react";
+'use client'
+
+import { useState, useEffect } from 'react'
+import { Mail, Phone } from 'lucide-react'
+
+
 
 export default function Teams({ teamDataByCategory }) {
+  const [teamData, setTeamData] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState(null)
+
+  useEffect(() => {
+    const fetchTeamData = async () => {
+      try {
+        const fetchedData = await Promise.all(
+          teamDataByCategory.map(async (category) => {
+            const response = await fetch(`http://localhost:3000/api/team/category/${category}`)
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`)
+            }
+            const members = await response.json()
+            return { category, members }
+          })
+        )
+        setTeamData(fetchedData)
+        setIsLoading(false)
+      } catch (e) {
+        setError('Failed to fetch team data')
+        setIsLoading(false)
+      }
+    }
+
+    fetchTeamData()
+  }, [teamDataByCategory])
+
+  if (isLoading) {
+    return <div className="text-center py-10">Loading...</div>
+  }
+
+  if (error) {
+    return <div className="text-center py-10 text-red-500">{error}</div>
+  }
+
   return (
-    <div className="px-[5%] mb-[100px] ">
-      {/* <h1 className="text-4xl font-bold text-center pb-10">
-        Our <span className="text-green-600">Teams</span>
-      </h1> */}
-      {teamDataByCategory.map(({ category, members }) => (
+    <div className="px-[5%] mb-[100px]">
+      {teamData.map(({ category, members }) => (
         <div key={category} className="mb-16">
           <h2 className="text-3xl font-semibold text-center mb-12">{category}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 justify-center">
@@ -38,5 +76,6 @@ export default function Teams({ teamDataByCategory }) {
         </div>
       ))}
     </div>
-  );
+  )
 }
+

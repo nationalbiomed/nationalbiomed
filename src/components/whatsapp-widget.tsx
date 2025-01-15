@@ -25,7 +25,7 @@ export default function WhatsAppWidget() {
         {isOpen ? (
           <X className="h-8 w-8 text-white" />
         ) : (
-          <img src='./whatsapp.gif' className='rounded-full'/>
+          <img src='/whatsapp.gif' className='rounded-full'/>
         )}
       </Button>
 
