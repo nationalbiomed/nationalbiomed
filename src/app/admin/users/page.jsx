@@ -12,7 +12,7 @@ export default function User() {
   const [data, setData] = useState([]);
   const getAllBanner = async () => {
     setIsLoading(true);
-    const res = await fetch("http://localhost:3000/api/user");
+    const res = await fetch("https://nationalbiomedical.vercel.app/api/user");
     if (res.ok) {
       const result = await res.json();
       setData(result);

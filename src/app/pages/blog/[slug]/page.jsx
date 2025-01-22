@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import BlogPost from "./_components/BlogPost";
 
 async function getBlogPost(slug) {
-  const res = await fetch(`http://localhost:3000/api/blog/get/${slug}`);
+  const res = await fetch(`https://nationalbiomedical.vercel.app/api/blog/get/${slug}`);
   if (!res.ok) {
     throw new Error("Failed to fetch blog post");
   }
