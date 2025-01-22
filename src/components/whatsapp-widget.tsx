@@ -8,7 +8,7 @@ import Image from 'next/image'
 
 export default function WhatsAppWidget() {
   const [isOpen, setIsOpen] = useState(false)
-  const phoneNumber = '+9779815029324'
+  const phoneNumber = '+9779841242752'
   
   const handleStartChat = () => {
     window.open(`https://wa.me/${phoneNumber}`, '_blank')

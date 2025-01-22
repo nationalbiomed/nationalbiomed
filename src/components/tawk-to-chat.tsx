@@ -20,7 +20,7 @@ export default function TawkToChat() {
     const s0 = document.getElementsByTagName('script')[0]
     
     s1.async = true
-    s1.src = 'https://embed.tawk.to/6783a08f49e2fd8dfe065381/1ihd2mcrh'
+    s1.src = 'https://embed.tawk.to/678cd1bd825083258e0773e8/1ihv16jgv'
     s1.charset = 'UTF-8'
     s1.setAttribute('crossorigin', '*')
     
