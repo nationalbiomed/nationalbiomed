@@ -67,7 +67,7 @@ export default function AddNew({ setIsOpen }) {
         if (urls) {
           values.image = urls?.originalUrl;
           const response = await fetch(
-            `http://nationalbiomed.com.np/api/soledistributor/add`,
+            `http://localhost:3000/api/soledistributor/add`,
             {
               method: "POST",
               headers: {

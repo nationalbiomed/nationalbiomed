@@ -79,7 +79,7 @@ export default function AddNew({ setIsOpen }) {
     setIsLoad(true);
     try {
       const response = await fetch(
-        `http://nationalbiomed.com.np/api/user/register`,
+        `http://localhost:3000/api/user/register`,
         {
           method: "POST",
           headers: {

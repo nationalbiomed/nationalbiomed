@@ -65,7 +65,7 @@ export default function EditForm({ data }) {
   };
 
   const updateData = async (values) => {
-    const response = await fetch(`http://nationalbiomed.com.np/api/brand/edit`, {
+    const response = await fetch(`http://localhost:3000/api/brand/edit`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

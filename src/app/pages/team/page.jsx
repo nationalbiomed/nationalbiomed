@@ -7,7 +7,7 @@ export default async function NewsPage() {
   let teamsData = null;
 
   try {
-    const chairmanRes = await fetch("http://nationalbiomed.com.np/api/team/get/chairman", { cache: "force-cache" });
+    const chairmanRes = await fetch("http://localhost:3000/api/team/get/chairman", { cache: "force-cache" });
     if (chairmanRes.ok) {
       chairman = await chairmanRes.json();
     } else {
@@ -18,7 +18,7 @@ export default async function NewsPage() {
   }
 
   try {
-    const teamRes = await fetch("http://nationalbiomed.com.np/api/team/makecategory", { cache: "force-cache" });
+    const teamRes = await fetch("http://localhost:3000/api/team/makecategory", { cache: "force-cache" });
     if (teamRes.ok) {
       teamsData = await teamRes.json();
     } else {

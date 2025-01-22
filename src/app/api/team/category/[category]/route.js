@@ -5,6 +5,8 @@ export async function GET(req, { params }) {
   try {
     const { category } = await params;
 
+    category = category.charAt(0).toUpperCase() + category.slice(1);
+
     // Fetch teams filtered by category
     const teams = await db.team.findMany({
       where: {

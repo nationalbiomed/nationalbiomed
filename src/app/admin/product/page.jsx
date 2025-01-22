@@ -20,7 +20,7 @@ export default function Banner() {
   const getAllBanner = async (page = 1) => {
     setIsLoading(true);
     const res = await fetch(
-      `http://nationalbiomed.com.np/api/product?page=${page}&limit=${limit}`
+      `http://localhost:3000/api/product?page=${page}&limit=${limit}`
     );
     if (res.ok) {
       const result = await res.json();
@@ -34,7 +34,7 @@ export default function Banner() {
   };
 
   const getAllBrand = async () => {
-    const res = await fetch("http://nationalbiomed.com.np/api/brand");
+    const res = await fetch("http://localhost:3000/api/brand");
     if (res.ok) {
       const result = await res.json();
       setBrand(result);
@@ -44,7 +44,7 @@ export default function Banner() {
   };
 
   const getAllCategory = async () => {
-    const res = await fetch("http://nationalbiomed.com.np/api/category");
+    const res = await fetch("http://localhost:3000/api/category");
     if (res.ok) {
       const result = await res.json();
       setCategory(result);

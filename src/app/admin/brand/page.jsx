@@ -13,7 +13,7 @@ export default function Banner() {
   const [data, setData] = useState([]);
   const getAllBanner = async () => {
     setIsLoading(true);
-    const res = await fetch("http://nationalbiomed.com.np/api/brand");
+    const res = await fetch("http://localhost:3000/api/brand");
     if (res.ok) {
       const result = await res.json();
       setData(result);

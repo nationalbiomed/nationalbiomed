@@ -71,7 +71,7 @@ const AddBlogForm = ({ setIsOpen }) => {
         if (urls) {
           values.image = urls?.originalUrl || urls?.mediumUrl;
 
-          const response = await fetch("http://nationalbiomed.com.np/api/blog/add", {
+          const response = await fetch("http://localhost:3000/api/blog/add", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(values),

@@ -2,7 +2,7 @@ import ProductList from './_components/ProductList'
 
 async function getProducts() {
   // Use absolute URL with process.env.NEXT_PUBLIC_APP_URL or fallback
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://nationalbiomed.com.np'
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'
   const res = await fetch(`${baseUrl}/api/product`, {
     next: { 
       revalidate: 3600 
@@ -17,7 +17,7 @@ async function getProducts() {
 }
 
 async function getBrands() {
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://nationalbiomed.com.np'
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'
   const res = await fetch(`${baseUrl}/api/product/brand`, {
     next: { 
       revalidate: 3600 
@@ -32,7 +32,7 @@ async function getBrands() {
 }
 
 async function getCategories() {
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://nationalbiomed.com.np'
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'
   const res = await fetch(`${baseUrl}/api/product/category`, {
     next: { 
       revalidate: 3600 

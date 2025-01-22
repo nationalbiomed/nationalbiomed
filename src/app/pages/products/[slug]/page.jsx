@@ -1,7 +1,7 @@
 import ProductDetail from "./_components/ProductDetail";
 
 async function getProduct(slug) {
-  const res = await fetch(`http://nationalbiomed.com.np/api/product/get/${slug}`)
+  const res = await fetch(`http://localhost:3000/api/product/get/${slug}`)
   return res.json()
 }
 
