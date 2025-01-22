@@ -3,7 +3,7 @@ import Gallery from "./_components/Gallery";
 import { GalleryFallback } from "./_components/GalleryFallback";
 
 async function getImages(page) {
-  const res = await fetch(`http://localhost:3000//api/images?page=${page}`, {
+  const res = await fetch(`http://nationalbiomed.com.np/api/images?page=${page}`, {
     cache: "no-store",
   });
   if (!res.ok) throw new Error("Failed to fetch images");

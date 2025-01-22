@@ -65,7 +65,7 @@ export default function EditForm({ data }) {
 
   const updateData = async (values) => {
     const response = await fetch(
-      `https://nationalbiomedical.vercel.app/api/soledistributor/edit`,
+      `http://nationalbiomed.com.np/api/soledistributor/edit`,
       {
         method: "PATCH",
         headers: {

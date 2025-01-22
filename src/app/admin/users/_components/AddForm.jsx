@@ -79,7 +79,7 @@ export default function AddNew({ setIsOpen }) {
     setIsLoad(true);
     try {
       const response = await fetch(
-        `https://nationalbiomedical.vercel.app/api/user/register`,
+        `http://nationalbiomed.com.np/api/user/register`,
         {
           method: "POST",
           headers: {

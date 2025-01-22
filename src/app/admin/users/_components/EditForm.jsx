@@ -76,7 +76,7 @@ export default function EditForm({ id }) {
       values.id = id;
 
       const response = await fetch(
-        `https://nationalbiomedical.vercel.app/api/user/reset`,
+        `http://nationalbiomed.com.np/api/user/reset`,
         {
           method: "PATCH",
           headers: {

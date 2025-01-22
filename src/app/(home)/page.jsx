@@ -13,12 +13,12 @@ import SoleDistributors from "./_components/Soledistributors";
 async function getData() {
   const [bannerRes, customerRes, productRes, statRes, soleRes, newsRes] = await Promise.all(
     [
-      fetch("https://nationalbiomedical.vercel.app/api/banner", { cache: "no-store" }),
-      fetch("https://nationalbiomedical.vercel.app/api/customer", { cache: "no-store" }),
-      fetch("https://nationalbiomedical.vercel.app/api/product/front", { cache: "no-store" }),
-      fetch("https://nationalbiomedical.vercel.app/api/stat", { cache: "no-store" }),
-      fetch("https://nationalbiomedical.vercel.app/api/soledistributor", { cache: "no-store" }),
-      fetch("https://nationalbiomedical.vercel.app/api/blog", { cache: "no-store" }),
+      fetch("http://nationalbiomed.com.np/api/banner", { cache: "no-store" }),
+      fetch("http://nationalbiomed.com.np/api/customer", { cache: "no-store" }),
+      fetch("http://nationalbiomed.com.np/api/product/front", { cache: "no-store" }),
+      fetch("http://nationalbiomed.com.np/api/stat", { cache: "no-store" }),
+      fetch("http://nationalbiomed.com.np/api/soledistributor", { cache: "no-store" }),
+      fetch("http://nationalbiomed.com.np/api/blog", { cache: "no-store" }),
     ]
   );
 

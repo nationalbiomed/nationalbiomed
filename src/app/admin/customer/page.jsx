@@ -13,7 +13,7 @@ export default function Banner() {
   const [data, setData] = useState([]);
   const getAllBanner = async () => {
     setIsLoading(true);
-    const res = await fetch("https://nationalbiomedical.vercel.app/api/customer");
+    const res = await fetch("http://nationalbiomed.com.np/api/customer");
     if (res.ok) {
       const result = await res.json();
       setData(result);

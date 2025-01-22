@@ -20,7 +20,7 @@ export default function Blogs() {
     setIsLoading(true);
     try {
       const res = await fetch(
-        `https://nationalbiomedical.vercel.app/api/blog/all?page=${currentPage}&perPage=${perPage}`
+        `http://nationalbiomed.com.np/api/blog/all?page=${currentPage}&perPage=${perPage}`
       );
       if (res.ok) {
         const result = await res.json();

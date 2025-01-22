@@ -88,7 +88,7 @@ export default function EditForm({ data }) {
   };
 
   const updateData = async (values) => {
-    const response = await fetch(`https://nationalbiomedical.vercel.app/api/team/edit`, {
+    const response = await fetch(`http://nationalbiomed.com.np/api/team/edit`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

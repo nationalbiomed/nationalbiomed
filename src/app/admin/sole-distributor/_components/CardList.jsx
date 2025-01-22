@@ -38,7 +38,7 @@ export default function CardList({ data, setData }) {
                     <DeleteForm
                       id={data?.id}
                       title={"Sole Distributor"}
-                      url={"https://nationalbiomedical.vercel.app/api/soledistributor/delete"}
+                      url={"http://nationalbiomed.com.np/api/soledistributor/delete"}
                       onDelete={handleDeleteCallback}
                     />
                   </div>
