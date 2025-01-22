@@ -65,7 +65,7 @@ export default function EditForm({ data }) {
 
   const updateData = async (values) => {
     const response = await fetch(
-      `http://localhost:3000/api/soledistributor/edit`,
+      `https://nationalbiomed.com.np/api/soledistributor/edit`,
       {
         method: "PATCH",
         headers: {

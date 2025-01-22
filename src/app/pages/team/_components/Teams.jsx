@@ -15,7 +15,7 @@ export default function Teams({ teamDataByCategory }) {
       try {
         const fetchedData = await Promise.all(
           teamDataByCategory.map(async (category) => {
-            const response = await fetch(`http://localhost:3000/api/team/category/${category}`)
+            const response = await fetch(`https://nationalbiomed.com.np/api/team/category/${category}`)
             if (!response.ok) {
               throw new Error(`HTTP error! status: ${response.status}`)
             }

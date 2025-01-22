@@ -71,7 +71,7 @@ export default function AddNew({ setIsOpen }) {
         if (urls) {
           values.image = urls?.originalUrl;
           const response = await fetch(
-            `http://localhost:3000/api/customer/add`,
+            `https://nationalbiomed.com.np/api/customer/add`,
             {
               method: "POST",
               headers: {
