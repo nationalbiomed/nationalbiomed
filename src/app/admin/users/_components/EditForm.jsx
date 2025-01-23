@@ -76,7 +76,7 @@ export default function EditForm({ id }) {
       values.id = id;
 
       const response = await fetch(
-        `http://localhost:3000/api/user/reset`,
+        `https://nationalbiomed.com.np/api/user/reset`,
         {
           method: "PATCH",
           headers: {

@@ -51,7 +51,7 @@ export default function CardList({
                     <DeleteForm
                       id={data?.id}
                       title={"Team"}
-                      url={"http://localhost:3000/api/team/delete"}
+                      url={"https://nationalbiomed.com.np/api/team/delete"}
                       onDelete={handleDeleteCallback}
                     />
                   </div>

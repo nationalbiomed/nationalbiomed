@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 
 async function getJob(slug) {
-  const res = await fetch(`http://localhost:3000/api/career/get/${slug}`);
+  const res = await fetch(`https://nationalbiomed.com.np/api/career/get/${slug}`);
   if (!res.ok) {
     throw new Error("Failed to fetch job data");
   }
