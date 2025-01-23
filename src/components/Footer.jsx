@@ -61,7 +61,7 @@ export function Footer1() {
                 />
               </Link>
               <p className="mb-7 text-base text-gray-300 text-justify">
-                National Biomedical Suppliers Pvt. Ltd.
+                National Biomedical Suppliers
               </p>
 
               <h4 className="mb-2 text-lg font-semibold text-white">
@@ -69,7 +69,7 @@ export function Footer1() {
               </h4>
               <div className="mb-2 flex items-center">
                 <SocialLink
-                  href="https://www.facebook.com/profile.php?id=100070231987124"
+                  href="https://www.facebook.com/profile.php?id=100090480293123"
                   icon={<Facebook className="h-4 w-4" />}
                   label="Facebook"
                 />

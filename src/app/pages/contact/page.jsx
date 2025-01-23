@@ -40,21 +40,21 @@ const Contact = () => {
               icon={<Mail className="h-6 w-6 text-green-600" />}
               title="Email Us"
               description="Our team is ready to assist."
-              link="biomedsuppliers2018@gmail.com"
+              link="mailto:biomedsuppliers2018@gmail.com"
               linkText="biomedsuppliers2018@gmail.com"
             />
             <ContactInfo
               icon={<MessagesSquare className="h-6 w-6 text-blue-600" />}
               title="Live Chat Support"
               description="Reach out for quick help."
-              link="#"
+              link="https://wa.me/+9779841242752"
               linkText="Start a new chat"
             />
             <ContactInfo
               icon={<MapPin className="h-6 w-6 text-green-600" />}
               title="Visit Us"
               description="Drop by our office for a chat."
-              link="#"
+              link="https://maps.app.goo.gl/wjY1ytPVP8CxQEWKA"
               linkText="Tripura Marg, Kathmandu, Nepal"
             />
             <ContactInfo
@@ -162,7 +162,7 @@ const Contact = () => {
             style={{ border: 0 }}
             allowFullScreen=""
             loading="lazy"
-             className="rounded-lg shadow-md"
+            className="rounded-lg shadow-md"
           ></iframe>
         </div>
       </div>
@@ -175,7 +175,12 @@ const ContactInfo = ({ icon, title, description, link, linkText }) => (
     {icon}
     <h3 className="mt-4 text-xl font-semibold text-gray-900">{title}</h3>
     <p className="mt-2 text-gray-600">{description}</p>
-    <a href={link} className="mt-2 text-blue-600 hover:underline">
+    <a
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="mt-2 text-blue-600 hover:underline"
+    >
       {linkText}
     </a>
   </div>
