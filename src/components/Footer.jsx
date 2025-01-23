@@ -131,7 +131,8 @@ export function Footer1() {
                   <span className="text-sm">Customer Support:</span>
                 </div>
 
-                <ContactLink href="tel:01-4222353" label="01-4222353" />
+                <ContactLink href="tel:01-5322353" label="01-5322353" />,
+                <ContactLink href="tel:01-4101493" label="01-4101493" />
               </div>
               <EmailList />
             </div>
@@ -147,7 +148,7 @@ function ContactLink({ icon, href, label }) {
   return (
     <a
       href={href}
-      className="flex items-center font-medium text-white hover:text-primary transition-colors duration-200"
+      className="flex items-center font-medium text-white hover:text-white transition-colors duration-200"
     >
       {icon && <span className="mr-3">{icon}</span>}
       <span className="text-sm">{label}</span>

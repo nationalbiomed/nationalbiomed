@@ -60,9 +60,16 @@ const Contact = () => {
             <ContactInfo
               icon={<Phone className="h-6 w-6 text-blue-600" />}
               title="Call Us"
-              description="We're available Mon-Fri, 9am-5pm."
-              link="tel:01-4222353"
-              linkText="01-4222353"
+              description="We're available Sun-Fri, 9am-5pm."
+              link="tel:01-5322353"
+              linkText="01-5322353"
+            />
+            <ContactInfo
+              icon={<Phone className="h-6 w-6 text-blue-600" />}
+              title="Call Us"
+              description="Alternative phone number."
+              link="tel:01-4101493"
+              linkText="01-4101493"
             />
           </div>
           <div className="rounded-lg bg-white p-8 shadow-lg">
